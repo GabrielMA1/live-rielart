@@ -1,33 +1,907 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RielArt Studio | Web Design, Branding & Ads</title>
-    <meta name="description" content="RielArt Studio empowers startups and small businesses with custom Webflow websites, paid ad campaigns that convert, and branding that builds recognition and trust." />
-    <meta name="author" content="RielArt Studio" />
-
+    <meta name="description" content="RielArt Studio empowers startups and small businesses with custom Webflow websites, paid ad campaigns that convert, and branding that builds recognition and trust.">
+    <meta name="keywords" content="Webflow, web design, branding, paid advertising, digital marketing, brand identity">
+    <meta name="author" content="RielArt Studio">
+    
     <!-- Open Graph / Social Media -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://rielart.com/" />
-    <meta property="og:title" content="RielArt Studio | Web Design, Branding & Ads" />
-    <meta property="og:description" content="Helping businesses grow through impactful ads, stunning Webflow websites, and strategic brand identity." />
-    <meta property="og:image" content="https://rielart.com/og-image.jpg" />
-
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rielart.github.io">
+    <meta property="og:title" content="RielArt Studio | Web Design, Branding & Ads">
+    <meta property="og:description" content="Helping businesses grow through impactful ads, stunning Webflow websites, and strategic brand identity.">
+    <meta property="og:image" content="https://rielart.github.io/images/og-image.jpg">
+    
     <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@rielart" />
-    <meta name="twitter:title" content="RielArt Studio | Web Design, Branding & Ads" />
-    <meta name="twitter:description" content="Helping businesses grow through impactful ads, stunning Webflow websites, and strategic brand identity." />
-    <meta name="twitter:image" content="https://rielart.com/og-image.jpg" />
-
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://rielart.github.io">
+    <meta property="twitter:title" content="RielArt Studio | Web Design, Branding & Ads">
+    <meta property="twitter:description" content="Helping businesses grow through impactful ads, stunning Webflow websites, and strategic brand identity.">
+    <meta property="twitter:image" content="https://rielart.github.io/images/og-image.jpg">
+    
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
-    <link rel="canonical" href="https://rielart.com/" />
-  </head>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>R</text></svg>">
+    
+    <!-- Google Fonts - Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        'primary-dark': '#2563EB',
+                        'primary-light': '#60A5FA',
+                        accent: '#06B6D4',
+                        'accent-hover': '#0891B2',
+                        dark: '#0F172A',
+                        'gray-body': '#475569',
+                        'gray-light': '#F8FAFC',
+                        'gray-border': '#E2E8F0'
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+                        display: ['Outfit', 'Plus Jakarta Sans', 'sans-serif']
+                    },
+                    animation: {
+                        'fade-up': 'fadeUp 0.6s ease-out forwards',
+                        'fade-in': 'fadeIn 0.4s ease-out forwards',
+                        'slide-in-right': 'slideInRight 0.4s ease-out forwards',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'float-delayed': 'float 6s ease-in-out 2s infinite',
+                        'counter-pulse': 'counterPulse 2s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideInRight: {
+                            '0%': { opacity: '0', transform: 'translateX(20px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+                            '50%': { transform: 'translateY(-20px) rotate(2deg)' }
+                        },
+                        counterPulse: {
+                            '0%, 100%': { transform: 'scale(1)' },
+                            '50%': { transform: 'scale(1.05)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="font-sans text-dark antialiased overflow-x-hidden">
+    
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="w-full px-4 sm:px-6 lg:px-8 xl:px-12">
+            <div class="flex items-center justify-between h-16 lg:h-20">
+                <!-- Logo -->
+                <a href="#home" class="flex items-center gap-3 group">
+                    <div class="relative w-10 h-10 rounded-xl bg-gradient-to-br from-primary via-primary to-cyan-500 flex items-center justify-center shadow-lg shadow-primary/30 group-hover:shadow-primary/50 transition-all duration-300 group-hover:scale-105">
+                        <span class="text-white font-display font-bold text-xl">R</span>
+                        <div class="absolute -top-1 -right-1 w-3 h-3 bg-cyan-400 rounded-full border-2 border-white"></div>
+                    </div>
+                    <span class="font-display font-bold text-xl tracking-tight text-dark">rielart</span>
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="#home" class="nav-link text-sm font-medium text-dark hover:text-primary transition-colors">HOME</a>
+                    <a href="#services" class="nav-link text-sm font-medium text-dark hover:text-primary transition-colors">SERVICES</a>
+                    <a href="#process" class="nav-link text-sm font-medium text-dark hover:text-primary transition-colors">PROCESS</a>
+                    <a href="#work" class="nav-link text-sm font-medium text-dark hover:text-primary transition-colors">WORK</a>
+                    <a href="#faq" class="nav-link text-sm font-medium text-dark hover:text-primary transition-colors">FAQ</a>
+                    <a href="#contact" class="nav-link text-sm font-medium text-dark hover:text-primary transition-colors">CONTACT</a>
+                </div>
+                
+                <!-- CTA Button -->
+                <div class="hidden lg:block">
+                    <a href="#contact" class="inline-flex items-center px-5 py-2.5 bg-primary text-white text-sm font-semibold rounded-lg hover:bg-primary-dark transition-all duration-300 hover:scale-[1.02] shadow-lg shadow-primary/25">
+                        Book a Call
+                    </a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg text-dark hover:bg-gray-100 transition-colors" aria-label="Toggle menu">
+                    <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                    <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="lg:hidden hidden bg-white/95 backdrop-blur-lg border-t border-gray-border">
+            <div class="px-4 py-4 space-y-3">
+                <a href="#home" class="mobile-nav-link block px-4 py-3 text-base font-medium text-dark hover:text-primary hover:bg-gray-50 rounded-lg transition-colors">HOME</a>
+                <a href="#services" class="mobile-nav-link block px-4 py-3 text-base font-medium text-dark hover:text-primary hover:bg-gray-50 rounded-lg transition-colors">SERVICES</a>
+                <a href="#process" class="mobile-nav-link block px-4 py-3 text-base font-medium text-dark hover:text-primary hover:bg-gray-50 rounded-lg transition-colors">PROCESS</a>
+                <a href="#work" class="mobile-nav-link block px-4 py-3 text-base font-medium text-dark hover:text-primary hover:bg-gray-50 rounded-lg transition-colors">WORK</a>
+                <a href="#faq" class="mobile-nav-link block px-4 py-3 text-base font-medium text-dark hover:text-primary hover:bg-gray-50 rounded-lg transition-colors">FAQ</a>
+                <a href="#contact" class="mobile-nav-link block px-4 py-3 text-base font-medium text-dark hover:text-primary hover:bg-gray-50 rounded-lg transition-colors">CONTACT</a>
+                <a href="#contact" class="block mx-4 mt-4 px-5 py-3 bg-primary text-white text-center font-semibold rounded-lg hover:bg-primary-dark transition-colors">
+                    Book a Call
+                </a>
+            </div>
+        </div>
+    </nav>
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="images/hero-bg.jpg" alt="" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-b from-white/80 via-white/60 to-white/90"></div>
+        </div>
+        
+        <!-- Hero Content - Two Column Layout -->
+        <div class="relative z-10 w-full px-4 sm:px-6 lg:px-8 xl:px-12 pt-24 lg:pt-32 pb-16">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                    
+                    <!-- Left Column - Text Content -->
+                    <div class="text-center lg:text-left">
+                        <!-- Headline -->
+                        <h1 class="hero-headline font-display font-bold text-4xl sm:text-5xl lg:text-6xl text-dark leading-[1.1] mb-6">
+                            Helping businesses grow through <span class="text-primary">impactful ads</span>, <span class="text-primary-light">stunning websites</span>, and <span class="text-cyan-500">strategic branding</span>
+                        </h1>
+                        
+                        <!-- Subheadline -->
+                        <p class="hero-subheadline text-lg sm:text-xl text-gray-body max-w-xl mx-auto lg:mx-0 mb-8">
+                            We empower startups and small businesses with custom Webflow sites, paid campaigns that convert, and branding that builds trust.
+                        </p>
+                        
+                        <!-- CTA Buttons -->
+                        <div class="hero-ctas flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4 mb-10">
+                            <a href="#work" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 border-2 border-primary text-primary font-semibold rounded-xl hover:bg-primary hover:text-white transition-all duration-300 hover:scale-[1.02]">
+                                View Our Work
+                            </a>
+                            <a href="#contact" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-primary text-white font-semibold rounded-xl hover:bg-primary-dark transition-all duration-300 hover:scale-[1.02] shadow-lg shadow-primary/30">
+                                Start Your Project
+                            </a>
+                        </div>
+                        
+                        <!-- Trust Indicators -->
+                        <div class="hero-trust flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6">
+                            <div class="flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full shadow-sm">
+                                <div class="w-8 h-8 rounded-full bg-yellow-100 flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-yellow-600" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                    </svg>
+                                </div>
+                                <span class="text-sm font-semibold text-dark">5-Star Rated</span>
+                            </div>
+                            <div class="flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full shadow-sm">
+                                <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                </div>
+                                <span class="text-sm font-semibold text-dark">50+ Projects</span>
+                            </div>
+                            <div class="flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full shadow-sm">
+                                <div class="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+                                    </svg>
+                                </div>
+                                <span class="text-sm font-semibold text-dark">Webflow Certified</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Column - Browser Mockup -->
+                    <div class="relative hidden lg:flex items-center justify-center">
+                        <!-- Browser Window Image -->
+                        <div class="relative w-full max-w-xl">
+                            <img src="images/hero-browser-final.png" alt="Website dashboard showing conversion rate and uptime metrics" class="w-full drop-shadow-2xl">
+                            
+                            <!-- Floating Widget 1 - Leads -->
+                            <div class="absolute -top-4 -right-4 bg-white rounded-xl p-3 shadow-xl animate-pulse-slow">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-9 h-9 rounded-lg bg-green-100 flex items-center justify-center">
+                                        <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-display font-bold text-dark">+342</p>
+                                        <p class="text-xs text-gray-body">New Leads</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Floating Widget 2 - Page Speed -->
+                            <div class="absolute -bottom-4 -left-4 bg-white rounded-xl p-3 shadow-xl animate-pulse-slow" style="animation-delay: 1s;">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-9 h-9 rounded-lg bg-purple-100 flex items-center justify-center">
+                                        <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-display font-bold text-dark">0.8s</p>
+                                        <p class="text-xs text-gray-body">Load Time</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Floating Widget 3 - Bounce Rate -->
+                            <div class="absolute top-1/2 -right-6 bg-white rounded-xl p-3 shadow-xl animate-pulse-slow" style="animation-delay: 0.5s;">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-9 h-9 rounded-lg bg-amber-100 flex items-center justify-center">
+                                        <svg class="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-display font-bold text-dark">-24%</p>
+                                        <p class="text-xs text-gray-body">Bounce Rate</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 lg:py-28 bg-gray-light">
+        <div class="w-full px-4 sm:px-6 lg:px-8 xl:px-12">
+            <!-- Section Header -->
+            <div class="text-center mb-16 scroll-reveal">
+                <span class="inline-block px-4 py-1.5 bg-primary/10 text-primary text-sm font-semibold rounded-full mb-4">Our Services</span>
+                <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-dark mb-4">What We Do Best</h2>
+                <p class="text-lg text-gray-body max-w-2xl mx-auto">We offer end-to-end digital solutions to help your business stand out and grow.</p>
+            </div>
+            
+            <!-- Services Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                <!-- Brand Identity -->
+                <div class="service-card scroll-reveal bg-white rounded-2xl p-8 shadow-sm border border-gray-border hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-display font-bold text-2xl text-dark mb-3">Brand Identity</h3>
+                    <p class="text-gray-body mb-6">Build a brand that connects, communicates, and converts.</p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-accent mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-sm text-gray-body">Logo and visual identity design</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-accent mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-sm text-gray-body">Brand strategy and positioning</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-accent mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-sm text-gray-body">Typography and color system</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-accent mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-sm text-gray-body">Brand guidelines and asset kit</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-accent mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-sm text-gray-body">Social media and print collateral</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Webflow Development -->
+                <div class="service-card scroll-reveal bg-white rounded-2xl p-8 shadow-sm border border-gray-border hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group" style="animation-delay: 0.1s;">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-display font-bold text-2xl text-dark mb-3">Webflow Development</h3>
+                    <p class="text-gray-body mb-6">We design and develop sleek, responsive websites on Webflow that convert.</p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-accent mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-sm text-gray-body">Custom Webflow design & development</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-accent mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-sm text-gray-body">CMS & e-commerce implementation</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-accent mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-sm text-gray-body">SEO and performance optimization</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-accent mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-sm text-gray-body">Fully responsive across devices</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-accent mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-sm text-gray-body">Ongoing support and updates</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Marketing & Ads Management -->
+                <div class="service-card scroll-reveal bg-white rounded-2xl p-8 shadow-sm border border-gray-border hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group" style="animation-delay: 0.2s;">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent to-red-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-display font-bold text-2xl text-dark mb-3">Marketing & Ads Management</h3>
+                    <p class="text-gray-body mb-6">We help you attract the right customers with targeted digital advertising.</p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-accent mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-sm text-gray-body">Paid ads strategy & campaign planning</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-accent mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-sm text-gray-body">Google, Meta & TikTok ad setup</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-accent mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-sm text-gray-body">Copywriting and creative direction</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-accent mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-sm text-gray-body">Targeting & audience research</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-accent mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-sm text-gray-body">A/B testing and performance optimization</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-accent mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-sm text-gray-body">Monthly ad reports and insights</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="py-20 lg:py-28 bg-white">
+        <div class="w-full px-4 sm:px-6 lg:px-8 xl:px-12">
+            <!-- Section Header -->
+            <div class="text-center mb-16 scroll-reveal">
+                <span class="inline-block px-4 py-1.5 bg-accent/10 text-accent text-sm font-semibold rounded-full mb-4">Our Process</span>
+                <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-dark mb-4 max-w-4xl mx-auto">First impressions matter — so your website should perform and impress</h2>
+                <p class="text-lg text-gray-body max-w-3xl mx-auto">Our simple, strategic 4-step process ensures you get a website that looks great, ranks well, and converts visitors into clients.</p>
+            </div>
+            
+            <!-- Process Steps -->
+            <div class="max-w-6xl mx-auto">
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+                    <!-- Connecting Line (Desktop) -->
+                    <div class="hidden lg:block absolute top-16 left-0 right-0 h-0.5 bg-gradient-to-r from-primary via-accent to-primary"></div>
+                    
+                    <!-- Step 1 -->
+                    <div class="process-step scroll-reveal relative">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="relative z-10 w-16 h-16 rounded-full bg-primary flex items-center justify-center mb-6 shadow-lg shadow-primary/30">
+                                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path>
+                                </svg>
+                            </div>
+                            <div class="bg-gray-light rounded-2xl p-6 w-full">
+                                <span class="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-bold rounded-full mb-3">STEP 1</span>
+                                <h3 class="font-display font-bold text-xl text-dark mb-3">Strategy Session</h3>
+                                <p class="text-sm text-gray-body leading-relaxed">We start with a discovery call to understand your business, goals, audience, and current challenges. This helps us build the right foundation for your digital presence.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 2 -->
+                    <div class="process-step scroll-reveal relative" style="animation-delay: 0.15s;">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="relative z-10 w-16 h-16 rounded-full bg-accent flex items-center justify-center mb-6 shadow-lg shadow-accent/30">
+                                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path>
+                                </svg>
+                            </div>
+                            <div class="bg-gray-light rounded-2xl p-6 w-full">
+                                <span class="inline-block px-3 py-1 bg-accent/10 text-accent text-xs font-bold rounded-full mb-3">STEP 2</span>
+                                <h3 class="font-display font-bold text-xl text-dark mb-3">Wireframes & Design</h3>
+                                <p class="text-sm text-gray-body leading-relaxed">Next, we create wireframes and design mockups that reflect your brand identity and user experience strategy. This phase includes feedback rounds to make sure you love the direction before development begins.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 3 -->
+                    <div class="process-step scroll-reveal relative" style="animation-delay: 0.3s;">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="relative z-10 w-16 h-16 rounded-full bg-primary flex items-center justify-center mb-6 shadow-lg shadow-primary/30">
+                                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                                </svg>
+                            </div>
+                            <div class="bg-gray-light rounded-2xl p-6 w-full">
+                                <span class="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-bold rounded-full mb-3">STEP 3</span>
+                                <h3 class="font-display font-bold text-xl text-dark mb-3">Webflow Development + Campaign Setup</h3>
+                                <p class="text-sm text-gray-body leading-relaxed">Once the design is approved, we bring your site to life in Webflow and set up your ad campaign infrastructure—from pixel installs to landing pages. You walk away with a high-performing website and a ready-to-run funnel.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 4 -->
+                    <div class="process-step scroll-reveal relative" style="animation-delay: 0.45s;">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="relative z-10 w-16 h-16 rounded-full bg-accent flex items-center justify-center mb-6 shadow-lg shadow-accent/30">
+                                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                            </div>
+                            <div class="bg-gray-light rounded-2xl p-6 w-full">
+                                <span class="inline-block px-3 py-1 bg-accent/10 text-accent text-xs font-bold rounded-full mb-3">STEP 4</span>
+                                <h3 class="font-display font-bold text-xl text-dark mb-3">Launch & Growth</h3>
+                                <p class="text-sm text-gray-body leading-relaxed">We launch your site, connect your domain, install tracking, and hand over full control with a training session. Need help beyond launch? We offer SEO growth plans and ongoing support.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work/Portfolio Section -->
+    <section id="work" class="py-20 lg:py-28 bg-gray-light">
+        <div class="w-full px-4 sm:px-6 lg:px-8 xl:px-12">
+            <!-- Section Header -->
+            <div class="text-center mb-16 scroll-reveal">
+                <span class="inline-block px-4 py-1.5 bg-primary/10 text-primary text-sm font-semibold rounded-full mb-4">Our Portfolio</span>
+                <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-dark mb-4">Selected Work</h2>
+                <p class="text-lg text-gray-body max-w-2xl mx-auto">See how we've helped businesses like yours achieve their goals.</p>
+            </div>
+            
+            <!-- Featured Project -->
+            <div class="max-w-5xl mx-auto">
+                <div class="featured-project scroll-reveal relative bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 rounded-3xl overflow-hidden shadow-2xl">
+                    <!-- Project Content -->
+                    <div class="grid lg:grid-cols-2 gap-0">
+                        <!-- Image Side -->
+                        <div class="relative h-64 lg:h-auto">
+                            <img src="images/fitforward-mockup.jpg" alt="FitForward Website" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-purple-900/80 to-transparent lg:bg-gradient-to-r"></div>
+                        </div>
+                        
+                        <!-- Content Side -->
+                        <div class="p-8 lg:p-12 flex flex-col justify-center">
+                            <!-- Tags -->
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-white/10 text-white text-xs font-medium rounded-full backdrop-blur-sm">Brand Identity</span>
+                                <span class="px-3 py-1 bg-white/10 text-white text-xs font-medium rounded-full backdrop-blur-sm">UI&UX</span>
+                                <span class="px-3 py-1 bg-white/10 text-white text-xs font-medium rounded-full backdrop-blur-sm">Graphic Design</span>
+                                <span class="px-3 py-1 bg-white/10 text-white text-xs font-medium rounded-full backdrop-blur-sm">Web Development</span>
+                            </div>
+                            
+                            <h3 class="font-display font-bold text-2xl lg:text-3xl text-white mb-4">Personal Trainer Branding & Web Presence</h3>
+                            <p class="text-white/80 mb-6 leading-relaxed">We crafted a bold, modern website for FitForward to promote their coaching services. With branded visuals, localized SEO, and a mobile-first layout, they saw a <span class="text-cyan-400 font-semibold">2x increase</span> in booking inquiries.</p>
+                            
+                            <!-- Project Stats -->
+                            <div class="flex flex-wrap gap-4">
+                                <div class="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-lg">
+                                    <p class="text-cyan-400 font-display font-bold text-lg">+89%</p>
+                                    <p class="text-white/60 text-xs">Organic Traffic</p>
+                                </div>
+                                <div class="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-lg">
+                                    <p class="text-cyan-400 font-display font-bold text-lg">2x</p>
+                                    <p class="text-white/60 text-xs">Bookings</p>
+                                </div>
+                                <div class="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-lg">
+                                    <p class="text-cyan-400 font-display font-bold text-lg">4.9</p>
+                                    <p class="text-white/60 text-xs">Client Rating</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- More Projects Coming -->
+                <div class="mt-12 text-center scroll-reveal">
+                    <p class="text-gray-body mb-4">More amazing projects coming soon...</p>
+                    <a href="#contact" class="inline-flex items-center gap-2 text-primary font-semibold hover:text-primary-dark transition-colors">
+                        Want to be our next success story?
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 lg:py-28 bg-white">
+        <div class="w-full px-4 sm:px-6 lg:px-8 xl:px-12">
+            <!-- Section Header -->
+            <div class="text-center mb-16 scroll-reveal">
+                <span class="inline-block px-4 py-1.5 bg-primary/10 text-primary text-sm font-semibold rounded-full mb-4">FAQ</span>
+                <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-dark mb-4">Let's answer some common questions</h2>
+                <p class="text-lg text-gray-body max-w-3xl mx-auto">Still unsure about working with us? Here are answers to the most frequent questions clients ask. If you have more, feel free to reach out directly.</p>
+            </div>
+            
+            <!-- FAQ Accordion -->
+            <div class="max-w-3xl mx-auto space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item scroll-reveal bg-gray-light rounded-xl overflow-hidden">
+                    <button class="faq-trigger w-full flex items-center justify-between p-6 text-left hover:bg-gray-100 transition-colors">
+                        <span class="font-display font-semibold text-lg text-dark pr-4">How much does a website cost?</span>
+                        <span class="faq-icon flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center transition-transform duration-300">
+                            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                            </svg>
+                        </span>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6">
+                        <p class="text-gray-body leading-relaxed">It depends on the complexity, scope, and specific features your business needs. We'll provide a custom quote after a free discovery call to understand your goals.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 2 -->
+                <div class="faq-item scroll-reveal bg-gray-light rounded-xl overflow-hidden" style="animation-delay: 0.05s;">
+                    <button class="faq-trigger w-full flex items-center justify-between p-6 text-left hover:bg-gray-100 transition-colors">
+                        <span class="font-display font-semibold text-lg text-dark pr-4">How long will it take to get a new website?</span>
+                        <span class="faq-icon flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center transition-transform duration-300">
+                            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                            </svg>
+                        </span>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6">
+                        <p class="text-gray-body leading-relaxed">Most projects take between 3–6 weeks, depending on how quickly we receive content and feedback. We'll outline timelines during the planning phase.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 3 -->
+                <div class="faq-item scroll-reveal bg-gray-light rounded-xl overflow-hidden" style="animation-delay: 0.1s;">
+                    <button class="faq-trigger w-full flex items-center justify-between p-6 text-left hover:bg-gray-100 transition-colors">
+                        <span class="font-display font-semibold text-lg text-dark pr-4">Will my website be mobile-friendly?</span>
+                        <span class="faq-icon flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center transition-transform duration-300">
+                            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                            </svg>
+                        </span>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6">
+                        <p class="text-gray-body leading-relaxed">Absolutely. All our Webflow websites are fully responsive and tested across devices and screen sizes.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 4 -->
+                <div class="faq-item scroll-reveal bg-gray-light rounded-xl overflow-hidden" style="animation-delay: 0.15s;">
+                    <button class="faq-trigger w-full flex items-center justify-between p-6 text-left hover:bg-gray-100 transition-colors">
+                        <span class="font-display font-semibold text-lg text-dark pr-4">What if I need help on my site down the road?</span>
+                        <span class="faq-icon flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center transition-transform duration-300">
+                            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                            </svg>
+                        </span>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6">
+                        <p class="text-gray-body leading-relaxed">We offer flexible ongoing support plans — from SEO growth to content updates. We're happy to grow with you long after the launch.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 5 -->
+                <div class="faq-item scroll-reveal bg-gray-light rounded-xl overflow-hidden" style="animation-delay: 0.2s;">
+                    <button class="faq-trigger w-full flex items-center justify-between p-6 text-left hover:bg-gray-100 transition-colors">
+                        <span class="font-display font-semibold text-lg text-dark pr-4">Can I access the backend myself?</span>
+                        <span class="faq-icon flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center transition-transform duration-300">
+                            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                            </svg>
+                        </span>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6">
+                        <p class="text-gray-body leading-relaxed">Yes. Webflow's Editor makes it easy to update content yourself. We also provide a short training session or video tutorials for your team.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 6 -->
+                <div class="faq-item scroll-reveal bg-gray-light rounded-xl overflow-hidden" style="animation-delay: 0.25s;">
+                    <button class="faq-trigger w-full flex items-center justify-between p-6 text-left hover:bg-gray-100 transition-colors">
+                        <span class="font-display font-semibold text-lg text-dark pr-4">Do you offer SEO after the site is launched?</span>
+                        <span class="faq-icon flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center transition-transform duration-300">
+                            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                            </svg>
+                        </span>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6">
+                        <p class="text-gray-body leading-relaxed">Definitely. SEO is one of our core services. We can continue optimizing your content, building backlinks, and tracking rankings to help you grow over time.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 7 -->
+                <div class="faq-item scroll-reveal bg-gray-light rounded-xl overflow-hidden" style="animation-delay: 0.3s;">
+                    <button class="faq-trigger w-full flex items-center justify-between p-6 text-left hover:bg-gray-100 transition-colors">
+                        <span class="font-display font-semibold text-lg text-dark pr-4">Do you write the content, or do I need to provide it?</span>
+                        <span class="faq-icon flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center transition-transform duration-300">
+                            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                            </svg>
+                        </span>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6">
+                        <p class="text-gray-body leading-relaxed">We can work either way. If you have content ready, we'll optimize it. If not, we offer content writing as an add-on to make the process easier and more effective.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 8 -->
+                <div class="faq-item scroll-reveal bg-gray-light rounded-xl overflow-hidden" style="animation-delay: 0.35s;">
+                    <button class="faq-trigger w-full flex items-center justify-between p-6 text-left hover:bg-gray-100 transition-colors">
+                        <span class="font-display font-semibold text-lg text-dark pr-4">What platforms do you build on?</span>
+                        <span class="faq-icon flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center transition-transform duration-300">
+                            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                            </svg>
+                        </span>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6">
+                        <p class="text-gray-body leading-relaxed">We specialize in Webflow — it gives you flexibility, speed, and control without the complexity of traditional CMS platforms.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact/CTA Section -->
+    <section id="contact" class="py-20 lg:py-28 bg-gradient-to-br from-primary via-primary-dark to-slate-900">
+        <div class="w-full px-4 sm:px-6 lg:px-8 xl:px-12">
+            <div class="max-w-4xl mx-auto">
+                <!-- Section Header -->
+                <div class="text-center mb-12 scroll-reveal">
+                    <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-white mb-4">Ready to grow your business?</h2>
+                    <p class="text-lg text-white/80">Book a free discovery call and let's discuss your project</p>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="scroll-reveal bg-white rounded-2xl p-8 lg:p-12 shadow-2xl">
+                    <form id="contact-form" class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <!-- Name -->
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-dark mb-2">Name *</label>
+                                <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none" placeholder="Your name">
+                            </div>
+                            
+                            <!-- Email -->
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-dark mb-2">Email *</label>
+                                <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none" placeholder="your@email.com">
+                            </div>
+                        </div>
+                        
+                        <!-- Company -->
+                        <div>
+                            <label for="company" class="block text-sm font-medium text-dark mb-2">Company</label>
+                            <input type="text" id="company" name="company" class="w-full px-4 py-3 border border-gray-border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none" placeholder="Your company name">
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <!-- Service Interest -->
+                            <div>
+                                <label for="service" class="block text-sm font-medium text-dark mb-2">Service Interest *</label>
+                                <select id="service" name="service" required class="w-full px-4 py-3 border border-gray-border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none bg-white">
+                                    <option value="">Select a service</option>
+                                    <option value="web-design">Web Design</option>
+                                    <option value="branding">Branding</option>
+                                    <option value="ads">Ads Management</option>
+                                    <option value="all">All Services</option>
+                                </select>
+                            </div>
+                            
+                            <!-- Budget Range -->
+                            <div>
+                                <label for="budget" class="block text-sm font-medium text-dark mb-2">Budget Range</label>
+                                <select id="budget" name="budget" class="w-full px-4 py-3 border border-gray-border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none bg-white">
+                                    <option value="">Select budget range</option>
+                                    <option value="under-3k">Under $3,000</option>
+                                    <option value="3k-5k">$3,000 - $5,000</option>
+                                    <option value="5k-10k">$5,000 - $10,000</option>
+                                    <option value="10k-plus">$10,000+</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <!-- Message -->
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-dark mb-2">Message *</label>
+                            <textarea id="message" name="message" rows="4" required class="w-full px-4 py-3 border border-gray-border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none resize-none" placeholder="Tell us about your project..."></textarea>
+                        </div>
+                        
+                        <!-- Submit Button -->
+                        <div class="flex justify-center">
+                            <button type="submit" class="w-full sm:w-auto inline-flex items-center justify-center px-10 py-4 bg-primary text-white font-semibold rounded-lg hover:bg-primary-dark transition-all duration-300 hover:scale-[1.02] shadow-lg shadow-primary/30">
+                                Send Message
+                                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <!-- Alternative Contact -->
+                    <div class="mt-8 pt-8 border-t border-gray-border">
+                        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+                            <p class="text-gray-body">Or email us at <a href="mailto:hi@rielart.com" class="text-primary font-semibold hover:text-primary-dark transition-colors">hi@rielart.com</a></p>
+                            <span class="hidden sm:block text-gray-border">|</span>
+                            <a href="https://calendly.com/rielart" target="_blank" class="inline-flex items-center gap-2 text-primary font-semibold hover:text-primary-dark transition-colors">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                </svg>
+                                Book a Call
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 lg:py-16 bg-dark">
+        <div class="w-full px-4 sm:px-6 lg:px-8 xl:px-12">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                    <!-- Logo & Tagline -->
+                    <div class="lg:col-span-2">
+                        <a href="#home" class="inline-flex items-center gap-3 mb-4 group">
+                            <div class="relative w-10 h-10 rounded-xl bg-gradient-to-br from-primary via-primary to-cyan-500 flex items-center justify-center shadow-lg shadow-primary/30 group-hover:shadow-primary/50 transition-all duration-300 group-hover:scale-105">
+                                <span class="text-white font-display font-bold text-xl">R</span>
+                                <div class="absolute -top-1 -right-1 w-3 h-3 bg-cyan-400 rounded-full border-2 border-dark"></div>
+                            </div>
+                            <span class="font-display font-bold text-xl tracking-tight text-white">rielart</span>
+                        </a>
+                        <p class="text-white/60 mb-6 max-w-md">Empowering startups and small businesses with custom Webflow websites, paid ad campaigns that convert, and branding that builds recognition and trust.</p>
+                        <!-- Social Icons -->
+                        <div class="flex items-center gap-4">
+                            <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white/60 hover:bg-primary hover:text-white transition-all duration-300" aria-label="LinkedIn">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path>
+                                </svg>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white/60 hover:bg-primary hover:text-white transition-all duration-300" aria-label="Instagram">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"></path>
+                                </svg>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white/60 hover:bg-primary hover:text-white transition-all duration-300" aria-label="Facebook">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path>
+                                </svg>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white/60 hover:bg-primary hover:text-white transition-all duration-300" aria-label="Dribbble">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 24C5.385 24 0 18.615 0 12S5.385 0 12 0s12 5.385 12 12-5.385 12-12 12zm10.12-10.358c-.35-.11-3.17-.953-6.384-.438 1.34 3.684 1.887 6.684 1.992 7.308 2.3-1.555 3.936-4.02 4.395-6.87zm-6.115 7.808c-.153-.9-.75-4.032-2.19-7.77l-.066.02c-5.79 2.015-7.86 6.025-8.04 6.4 1.73 1.358 3.92 2.166 6.29 2.166 1.42 0 2.77-.29 4-.814zm-11.62-2.58c.232-.4 3.045-5.055 8.332-6.765.135-.045.27-.084.405-.12-.26-.585-.54-1.167-.832-1.74C7.17 11.775 2.206 11.71 1.756 11.7l-.004.312c0 2.633.998 5.037 2.634 6.855zm-2.42-8.955c.46.008 4.683.026 9.477-1.248-1.698-3.018-3.53-5.558-3.8-5.928-2.868 1.35-5.01 3.99-5.676 7.17zM9.6 2.052c.282.38 2.145 2.914 3.822 6 3.645-1.365 5.19-3.44 5.373-3.702-1.81-1.61-4.19-2.586-6.795-2.586-.825 0-1.63.1-2.4.29zm10.335 3.483c-.218.29-1.935 2.493-5.724 4.04.24.49.47.985.68 1.486.08.18.15.36.22.53 3.41-.428 6.8.26 7.14.33-.02-2.42-.88-4.64-2.31-6.38z"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Quick Links -->
+                    <div>
+                        <h4 class="font-display font-semibold text-white mb-4">Quick Links</h4>
+                        <ul class="space-y-3">
+                            <li><a href="#home" class="text-white/60 hover:text-white transition-colors">Home</a></li>
+                            <li><a href="#services" class="text-white/60 hover:text-white transition-colors">Services</a></li>
+                            <li><a href="#process" class="text-white/60 hover:text-white transition-colors">Process</a></li>
+                            <li><a href="#work" class="text-white/60 hover:text-white transition-colors">Work</a></li>
+                            <li><a href="#faq" class="text-white/60 hover:text-white transition-colors">FAQ</a></li>
+                            <li><a href="#contact" class="text-white/60 hover:text-white transition-colors">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Services -->
+                    <div>
+                        <h4 class="font-display font-semibold text-white mb-4">Services</h4>
+                        <ul class="space-y-3">
+                            <li><a href="#services" class="text-white/60 hover:text-white transition-colors">Brand Identity</a></li>
+                            <li><a href="#services" class="text-white/60 hover:text-white transition-colors">Webflow Development</a></li>
+                            <li><a href="#services" class="text-white/60 hover:text-white transition-colors">Marketing & Ads</a></li>
+                            <li><a href="#services" class="text-white/60 hover:text-white transition-colors">SEO Optimization</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Bottom Bar -->
+                <div class="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <p class="text-white/40 text-sm">&copy; 2024 RielArt Studio. All rights reserved.</p>
+                    <p class="text-white/40 text-sm">Made with passion by <span class="text-white/60">Gabriel Macovei</span></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50 backdrop-blur-sm">
+        <div class="bg-white rounded-2xl p-8 max-w-md mx-4 text-center shadow-2xl">
+            <div class="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+            </div>
+            <h3 class="font-display font-bold text-2xl text-dark mb-2">Message Sent!</h3>
+            <p class="text-gray-body mb-6">Thank you for reaching out. We'll get back to you within 24 hours.</p>
+            <button id="close-modal" class="px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary-dark transition-colors">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
 </html>
