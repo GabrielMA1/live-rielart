@@ -4,11 +4,13 @@
 name: Deploy to GitHub Pages
 
 on:
-  # Trigger on push to main branch
+  # Trigger on push to main or master branch
   push:
-    branches: [ main, master ]
-  
-  # Allow manual trigger from Actions tab
+    branches:
+      - main
+      - master
+
+  # Allow manual trigger from the Actions tab
   workflow_dispatch:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
@@ -27,31 +29,33 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout Code
         uses: actions/checkout@v4
         
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-        
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'  # or your version
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build Project
+        run: npm run build
+
       - name: Check file structure
         run: |
           echo "Checking project structure..."
           ls -la
           echo ""
-          echo "Checking CSS folder..."
-          ls -la css/ || echo "CSS folder not found"
-          echo ""
-          echo "Checking JS folder..."
-          ls -la js/ || echo "JS folder not found"
-          echo ""
-          echo "Checking images folder..."
-          ls -la images/ || echo "Images folder not found"
+          echo "Checking dist folder..."
+          ls -la dist/ || echo "dist folder not found"
         
-      - name: Upload artifact
+      - name: Upload artifact (build output)
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
-          
+          path: ./dist  # Make sure this is where your built files are located
+  
   # Deployment job
   deploy:
     environment:
@@ -63,3 +67,6 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          branch: gh-pages  # You can change this if your deploy branch is different (default is `gh-pages`)
+          folder: ./dist     # Ensure you are deploying the contents of the `dist/` folder to GitHub Pages
