@@ -1,29 +1,20 @@
-# GitHub Actions Workflow for GitHub Pages Deployment
-# This workflow automatically deploys the website to GitHub Pages when changes are pushed to the main branch
-
 name: Deploy to GitHub Pages
 
 on:
-  # Trigger on push to main branch
   push:
-    branches: [ main, master ]
-  
-  # Allow manual trigger from Actions tab
+    branches: [main, master]
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
 jobs:
-  # Build job
   build:
     runs-on: ubuntu-latest
     steps:
@@ -33,27 +24,13 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '16'  # Match the node version with the one you're using locally
+          node-version: '16'
 
-      - name: Install dependencies with verbose output
-        run: npm install --verbose
+      - name: Install dependencies
+        run: npm install
 
-      - name: Check file structure (for debugging)
-        run: |
-          echo "Checking project structure..."
-          ls -la
-          echo ""
-          echo "Checking dist folder..."
-          ls -la dist/ || echo "dist folder not found"
-          echo ""
-          echo "Checking CSS folder..."
-          ls -la dist/assets/ || echo "CSS folder not found"
-          echo ""
-          echo "Checking JS folder..."
-          ls -la dist/assets/ || echo "JS folder not found"
-
-      - name: Build Project with verbose output
-        run: npm run build --verbose
+      - name: Build Project
+        run: npm run build
 
       - name: Check for dist directory
         run: |
@@ -61,12 +38,11 @@ jobs:
           echo "dist directory exists"
           ls ./dist
 
-      - name: Upload artifact (build output)
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist  # Ensure this path is correct
+          path: ./dist
 
-  # Deployment job
   deploy:
     environment:
       name: github-pages
