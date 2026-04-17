@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service | RielArt</title>
+    <meta name="description" content="RielArt Terms of Service - Read our terms and conditions for using our services.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@300;400;500;600;700;800,900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-black': '#000000',
+                        'brand-void': '#0A0A0A',
+                        'brand-cyan': '#00D9FF',
+                        'brand-blue': '#0066FF',
+                        'brand-deep': '#0A1628',
+                        'brand-gray': '#B0B0B0',
+                    },
+                    fontFamily: {
+                        'display': ['Outfit', 'sans-serif'],
+                        'body': ['Inter', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'gradient-brand': 'linear-gradient(135deg, #00D9FF 0%, #0066FF 100%)',
+                        'gradient-radial': 'radial-gradient(ellipse at center, #0A1628 0%, #000000 70%)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000;
+            color: #FFFFFF;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Outfit', sans-serif;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #0A0A0A;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #00D9FF, #0066FF);
+            border-radius: 4px;
+        }
+        
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(135deg, #00D9FF 0%, #0066FF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Button Styles */
+        .btn-primary {
+            background: linear-gradient(135deg, #00D9FF 0%, #0066FF 100%);
+            color: #000000;
+            font-weight: 600;
+            padding: 14px 32px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(0, 217, 255, 0.4);
+        }
+        
+        /* Navigation */
+        #navbar {
+            background: transparent;
+        }
+        
+        #navbar.nav-blur {
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        /* Footer Link Hover */
+        .footer-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: linear-gradient(90deg, #00D9FF, #0066FF);
+            transition: width 0.3s ease;
+        }
+        
+        .footer-link:hover {
+            color: #00D9FF;
+        }
+        
+        .footer-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Content styling */
+        .terms-content h2 {
+            color: #00D9FF;
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .terms-content p {
+            color: #B0B0B0;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .terms-content ul {
+            color: #B0B0B0;
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .terms-content li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+        
+        .terms-content a {
+            color: #00D9FF;
+            text-decoration: none;
+        }
+        
+        .terms-content a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body class="bg-brand-black text-white">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 nav-blur">
+        <div class="w-full px-4 sm:px-6 lg:px-12 xl:px-20">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center gap-2">
+                    <span class="font-display font-bold text-2xl tracking-tight">Riel<span class="gradient-text">Art</span></span>
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="index.html#services" class="text-sm text-brand-gray hover:text-white transition-colors">Services</a>
+                    <a href="index.html#work" class="text-sm text-brand-gray hover:text-white transition-colors">Work</a>
+                    <a href="index.html#process" class="text-sm text-brand-gray hover:text-white transition-colors">Process</a>
+                    <a href="index.html#testimonials" class="text-sm text-brand-gray hover:text-white transition-colors">Testimonials</a>
+                    <a href="index.html#contact" class="text-sm text-brand-gray hover:text-white transition-colors">Contact</a>
+                </div>
+                
+                <!-- CTA Button -->
+                <div class="hidden md:block">
+                    <a href="index.html#contact" class="btn-primary text-sm">Start Your Project</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-16 overflow-hidden">
+        <!-- Background Gradient -->
+        <div class="absolute inset-0 bg-gradient-radial opacity-50"></div>
+        
+        <div class="relative z-10 w-full px-4 sm:px-6 lg:px-12 xl:px-20">
+            <div class="max-w-4xl mx-auto text-center">
+                <p class="text-brand-cyan text-sm font-semibold tracking-wider uppercase mb-4">Legal</p>
+                <h1 class="font-display font-bold text-4xl sm:text-5xl lg:text-6xl mb-6">
+                    Terms of <span class="gradient-text">Service</span>
+                </h1>
+                <p class="text-brand-gray text-lg">
+                    Last updated: January 2026
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Content Section -->
+    <section class="relative py-16 overflow-hidden">
+        <div class="w-full px-4 sm:px-6 lg:px-12 xl:px-20">
+            <div class="max-w-4xl mx-auto terms-content">
+                <p>
+                    Please read these Terms of Service carefully before using our website or engaging our services. By accessing or using our services, you agree to be bound by these terms.
+                </p>
+                
+                <h2>1. Services Overview</h2>
+                <p>
+                    RielArt provides digital marketing and web design services, including but not limited to:
+                </p>
+                <ul>
+                    <li>Brand identity design</li>
+                    <li>Website design and development</li>
+                    <li>Paid advertising campaign management</li>
+                    <li>Growth support and optimization</li>
+                    <li>Consulting and strategy services</li>
+                </ul>
+                
+                <h2>2. Project Engagement</h2>
+                <p>
+                    <strong>2.1 Proposals and Quotes:</strong> All project proposals and quotes provided by RielArt are valid for 30 days unless otherwise specified. Acceptance of a proposal constitutes agreement to these terms.
+                </p>
+                <p>
+                    <strong>2.2 Project Timeline:</strong> Project timelines are estimates based on the scope of work discussed. Delays caused by client feedback, content delivery, or scope changes may extend the timeline.
+                </p>
+                <p>
+                    <strong>2.3 Revisions:</strong> Each project includes a specified number of revision rounds. Additional revisions beyond the agreed scope may incur additional fees.
+                </p>
+                
+                <h2>3. Payment Terms</h2>
+                <p>
+                    <strong>3.1 Deposits:</strong> A deposit of 50% of the total project fee is required before work begins, unless otherwise agreed in writing.
+                </p>
+                <p>
+                    <strong>3.2 Final Payment:</strong> The remaining balance is due upon project completion and before final deliverables are released.
+                </p>
+                <p>
+                    <strong>3.3 Late Payments:</strong> Late payments may result in project delays and may be subject to a late fee of 1.5% per month on the outstanding balance.
+                </p>
+                <p>
+                    <strong>3.4 Recurring Services:</strong> For ongoing services (such as monthly ad management), payment is due at the beginning of each service period.
+                </p>
+                
+                <h2>4. Intellectual Property</h2>
+                <p>
+                    <strong>4.1 Client Content:</strong> You retain all rights to any content, materials, or assets you provide to us for use in your project.
+                </p>
+                <p>
+                    <strong>4.2 Work Product:</strong> Upon full payment, you will receive ownership rights to the final deliverables created specifically for your project. This does not include:
+                </p>
+                <ul>
+                    <li>Source files or working files unless explicitly agreed</li>
+                    <li>Stock images or licensed materials (proper licenses will be provided)</li>
+                    <li>Pre-existing templates or frameworks used in development</li>
+                </ul>
+                <p>
+                    <strong>4.3 Portfolio Rights:</strong> RielArt reserves the right to display completed work in our portfolio, website, and marketing materials unless otherwise agreed in writing.
+                </p>
+                
+                <h2>5. Client Responsibilities</h2>
+                <p>
+                    You agree to:
+                </p>
+                <ul>
+                    <li>Provide timely feedback and approvals</li>
+                    <li>Deliver all necessary content, images, and materials as agreed</li>
+                    <li>Respond to requests within 5 business days</li>
+                    <li>Review and test deliverables promptly</li>
+                    <li>Maintain backups of your website and data</li>
+                </ul>
+                
+                <h2>6. Limitations of Liability</h2>
+                <p>
+                    <strong>6.1 No Guarantees:</strong> While we strive for excellence, we cannot guarantee specific results from our services (such as exact conversion rates, traffic increases, or sales figures).
+                </p>
+                <p>
+                    <strong>6.2 Third-Party Services:</strong> We are not responsible for the performance, availability, or policies of third-party services (hosting providers, advertising platforms, etc.).
+                </p>
+                <p>
+                    <strong>6.3 Maximum Liability:</strong> RielArt's total liability shall not exceed the total amount paid by you for the specific services giving rise to the liability.
+                </p>
+                
+                <h2>7. Termination</h2>
+                <p>
+                    <strong>7.1 By Client:</strong> You may terminate the project at any time with written notice. You will be responsible for payment for all work completed up to the termination date.
+                </p>
+                <p>
+                    <strong>7.2 By RielArt:</strong> We reserve the right to terminate services if you fail to meet payment obligations or breach these terms. In such cases, you remain liable for all outstanding fees.
+                </p>
+                
+                <h2>8. Confidentiality</h2>
+                <p>
+                    Both parties agree to keep confidential any proprietary or sensitive information disclosed during the course of the project. This obligation survives termination of services.
+                </p>
+                
+                <h2>9. Dispute Resolution</h2>
+                <p>
+                    Any disputes arising from these terms shall first be attempted to be resolved through good-faith negotiation. If unresolved, disputes shall be subject to the exclusive jurisdiction of the courts of Ontario, Canada.
+                </p>
+                
+                <h2>10. Changes to Terms</h2>
+                <p>
+                    We may update these Terms of Service from time to time. The updated terms will be posted on this page with the "Last updated" date. Continued use of our services after changes constitutes acceptance of the new terms.
+                </p>
+                
+                <h2>11. Contact Information</h2>
+                <p>
+                    If you have any questions about these Terms of Service, please contact us:
+                </p>
+                <ul>
+                    <li>Email: <a href="mailto:hello@rielart.com">hello@rielart.com</a></li>
+                    <li>Phone: 647-906-3547</li>
+                    <li>Location: Ontario, Canada</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="relative py-16 border-t border-white/5">
+        <div class="w-full px-4 sm:px-6 lg:px-12 xl:px-20">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- Brand -->
+                <div class="lg:col-span-2">
+                    <a href="index.html" class="inline-block mb-4">
+                        <span class="font-display font-bold text-3xl tracking-tight">Riel<span class="gradient-text">Art</span></span>
+                    </a>
+                    <p class="text-brand-gray max-w-md mb-6">
+                        Custom websites, branding, and paid ad campaigns for startups and small businesses ready to grow.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="https://linkedin.com" target="_blank" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-gradient-brand hover:text-black transition-all">
+                            <i data-lucide="linkedin" class="w-5 h-5"></i>
+                        </a>
+                        <a href="https://instagram.com" target="_blank" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-gradient-brand hover:text-black transition-all">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </a>
+                        <a href="mailto:hello@rielart.com" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-gradient-brand hover:text-black transition-all">
+                            <i data-lucide="mail" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Services -->
+                <div>
+                    <h4 class="font-display font-semibold mb-4">Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html#services" class="footer-link text-brand-gray text-sm">Brand Identity</a></li>
+                        <li><a href="index.html#services" class="footer-link text-brand-gray text-sm">Web Design</a></li>
+                        <li><a href="index.html#services" class="footer-link text-brand-gray text-sm">Paid Ads</a></li>
+                        <li><a href="index.html#services" class="footer-link text-brand-gray text-sm">Growth Support</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Company -->
+                <div>
+                    <h4 class="font-display font-semibold mb-4">Company</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html#work" class="footer-link text-brand-gray text-sm">Our Work</a></li>
+                        <li><a href="index.html#process" class="footer-link text-brand-gray text-sm">Process</a></li>
+                        <li><a href="index.html#contact" class="footer-link text-brand-gray text-sm">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Bottom -->
+            <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-brand-gray text-sm">
+                    © 2026 RielArt. All rights reserved.
+                </p>
+                <div class="flex gap-6">
+                    <a href="privacy.html" class="footer-link text-brand-gray text-sm">Privacy Policy</a>
+                    <a href="terms.html" class="footer-link text-brand-gray text-sm">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>
