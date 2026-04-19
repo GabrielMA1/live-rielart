@@ -1,0 +1,550 @@
+/* ============================================ */
+/* RIELART - MAIN STYLESHEET                    */
+/* ============================================ */
+/* EDIT: This file contains all styling. Feel   */
+/* free to modify colors, fonts, and spacing.   */
+/* ============================================ */
+
+/* ---- Reset & Base ---- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #000000;
+    color: #FFFFFF;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+}
+
+/* ---- Custom Scrollbar ---- */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0A0A0A;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #00D9FF, #0066FF);
+    border-radius: 4px;
+}
+
+/* ---- Glassmorphism Card ---- */
+.glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+}
+
+.glass-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(0, 217, 255, 0.3);
+    box-shadow: 0 0 40px rgba(0, 217, 255, 0.15);
+}
+
+/* ---- Gradient Text ---- */
+.gradient-text {
+    background: linear-gradient(135deg, #00D9FF 0%, #0066FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ---- Glow Effects ---- */
+.glow-cyan {
+    box-shadow: 0 0 30px rgba(0, 217, 255, 0.4);
+}
+
+.glow-text {
+    text-shadow: 0 0 40px rgba(0, 217, 255, 0.5);
+}
+
+/* Prevent hyphenation in hero headline */
+.hero-headline {
+    -webkit-hyphens: none;
+    hyphens: none;
+}
+
+/* ---- Button Styles ---- */
+.btn-primary {
+    background: linear-gradient(135deg, #00D9FF 0%, #0066FF 100%);
+    color: #000000;
+    font-weight: 600;
+    padding: 14px 32px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 40px rgba(0, 217, 255, 0.4);
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-primary:hover::before {
+    left: 100%;
+}
+
+.btn-secondary {
+    background: transparent;
+    color: #FFFFFF;
+    font-weight: 500;
+    padding: 14px 32px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.btn-secondary:hover {
+    border-color: #00D9FF;
+    background: rgba(0, 217, 255, 0.1);
+}
+
+/* ---- Navigation ---- */
+#navbar {
+    background: transparent;
+}
+
+#navbar.nav-blur {
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ---- Hero Animations ---- */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+.hero-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+/* ---- Particle Background ---- */
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: rgba(0, 217, 255, 0.5);
+    border-radius: 50%;
+    animation: particle-float 15s infinite;
+}
+
+@keyframes particle-float {
+    0%, 100% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% {
+        transform: translateY(-100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* ---- Service Cards ---- */
+.service-card {
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-style: preserve-3d;
+}
+
+.service-card:hover {
+    transform: translateY(-10px) translateZ(30px);
+}
+
+.service-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    transition: left 0.6s ease;
+    pointer-events: none;
+    border-radius: 20px;
+}
+
+.service-card:hover::after {
+    left: 100%;
+}
+
+/* ---- Service Group Cards (New 2-Card Layout) ---- */
+.service-group-card {
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-style: preserve-3d;
+}
+
+.service-group-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 60px rgba(0, 217, 255, 0.1);
+}
+
+/* Digital Presence card - slightly more prominent (entry point) */
+#digital-presence-card {
+    border: 1px solid rgba(0, 217, 255, 0.15);
+    box-shadow: 0 4px 30px rgba(0, 217, 255, 0.06);
+}
+
+#digital-presence-card:hover {
+    border-color: rgba(0, 217, 255, 0.4);
+    box-shadow: 0 20px 70px rgba(0, 217, 255, 0.15);
+}
+
+/* AI Integration card - standard styling */
+#ai-integration-card {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+#ai-integration-card:hover {
+    border-color: rgba(0, 217, 255, 0.35);
+    box-shadow: 0 20px 60px rgba(0, 217, 255, 0.12);
+}
+
+.service-group-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+    transition: left 0.6s ease;
+    pointer-events: none;
+    border-radius: 20px;
+}
+
+.service-group-card:hover::after {
+    left: 100%;
+}
+
+/* Sub-service items */
+.sub-service {
+    transition: all 0.3s ease;
+}
+
+/* ---- Service Choice Cards (Hero) ---- */
+.service-choice-card {
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    text-decoration: none;
+    color: inherit;
+}
+
+.service-choice-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(0, 217, 255, 0.4);
+    box-shadow: 0 20px 50px rgba(0, 217, 255, 0.12);
+}
+
+/* ---- Badges ---- */
+.new-badge {
+    background: linear-gradient(135deg, #00D9FF, #0066FF);
+    color: #000;
+    font-size: 0.6rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.new-badge-lg {
+    background: linear-gradient(135deg, #00D9FF, #0066FF);
+    color: #000;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.popular-badge {
+    background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+    color: #000;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* ---- Testimonial Card ---- */
+.testimonial-card {
+    animation: testimonial-drift 8s ease-in-out infinite;
+}
+
+@keyframes testimonial-drift {
+    0%, 100% { transform: translateY(0) rotate(-1deg); }
+    50% { transform: translateY(-10px) rotate(1deg); }
+}
+
+/* ---- Input Focus ---- */
+.input-glow:focus {
+    border-color: #00D9FF;
+    box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
+    outline: none;
+}
+
+/* ---- Project Card ---- */
+.project-card {
+    overflow: hidden;
+    position: relative;
+}
+
+.project-card img {
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-card:hover img {
+    transform: scale(1.05);
+}
+
+.project-overlay {
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%);
+}
+
+/* ---- Reveal Animation Classes ---- */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+/* ---- Mobile Menu ---- */
+.mobile-menu {
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+}
+
+.mobile-menu.open {
+    transform: translateX(0);
+}
+
+/* ---- Tag/Pill ---- */
+.tag {
+    background: rgba(0, 217, 255, 0.1);
+    border: 1px solid rgba(0, 217, 255, 0.3);
+    color: #00D9FF;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+/* ---- Process Node ---- */
+.process-node {
+    transition: all 0.4s ease;
+}
+
+.process-node.active {
+    box-shadow: 0 0 30px rgba(0, 217, 255, 0.6);
+    transform: scale(1.1);
+}
+
+/* ---- Footer Link Hover ---- */
+.footer-link {
+    position: relative;
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
+
+.footer-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: linear-gradient(90deg, #00D9FF, #0066FF);
+    transition: width 0.3s ease;
+}
+
+.footer-link:hover {
+    color: #00D9FF;
+}
+
+.footer-link:hover::after {
+    width: 100%;
+}
+
+/* ---- Section Label ---- */
+.section-label {
+    color: #00D9FF;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+/* ---- Navigation Link with Badge ---- */
+.nav-services {
+    position: relative;
+}
+
+/* ---- Scroll Indicator Animation ---- */
+@keyframes scroll-pulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+/* ============================================ */
+/* FOOTER WATERMARK & SOCIAL ICONS              */
+/* ============================================ */
+
+.footer-watermark {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Giant background text - RIELART */
+.footer-bg-text {
+    z-index: 0;
+}
+
+.footer-bg-text span {
+    font-size: clamp(6rem, 18vw, 20rem);
+    line-height: 0.85;
+    color: rgba(255, 255, 255, 0.03);
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+/* Glassmorphism social icons */
+.social-icon-glass {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #B0B0B0;
+}
+
+.social-icon-glass:hover {
+    background: rgba(0, 217, 255, 0.1);
+    border-color: rgba(0, 217, 255, 0.4);
+    color: #00D9FF;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 217, 255, 0.15);
+}
+
+/* ---- Reduced Motion ---- */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .hero-float {
+        animation: none;
+    }
+
+    .particle {
+        animation: none;
+    }
+
+    .testimonial-card {
+        animation: none;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* ---- Responsive Adjustments ---- */
+@media (max-width: 768px) {
+    .hero-headline {
+        font-size: 2.25rem !important;
+        word-break: normal;
+        overflow-wrap: break-word;
+    }
+
+    .service-group-card {
+        padding: 1.5rem !important;
+    }
+
+    .new-badge-lg,
+    .popular-badge {
+        font-size: 0.6rem;
+        padding: 2px 8px;
+    }
+
+    /* Hero service choice cards stack */
+    .hero-service-choices .grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Footer watermark smaller */
+    .footer-bg-text span {
+        font-size: 4rem;
+    }
+
+    /* Stats wrap better */
+    .hero-stats {
+        gap: 1rem !important;
+    }
+
+    /* CTA buttons stack */
+    .hero-ctas {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-ctas a {
+        justify-content: center;
+    }
+}
+
+/* ---- Focus States for Accessibility ---- */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid #00D9FF;
+    outline-offset: 2px;
+}
+
+/* ---- Selection Color ---- */
+::selection {
+    background: rgba(0, 217, 255, 0.3);
+    color: #FFFFFF;
+}
