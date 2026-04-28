@@ -471,67 +471,78 @@ select:focus-visible {
     color: #FFFFFF;
 }
 
-/* Blog Section on Homepage */
+/* ============================================ */
+/* BLOG SECTION                                 */
+/* ============================================ */
+
 .blog-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 24px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
 }
 
 @media (min-width: 768px) {
-  .blog-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+    .blog-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (min-width: 1024px) {
-  .blog-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
+    .blog-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 .blog-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(59, 130, 246, 0.08);
-  border-radius: 16px;
-  padding: 32px;
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 32px;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
 }
 
 .blog-card:hover {
-  border-color: rgba(59, 130, 246, 0.2);
-  box-shadow: 0 8px 40px rgba(37, 99, 235, 0.1);
-  transform: translateY(-4px);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(0, 217, 255, 0.3);
+    box-shadow: 0 0 40px rgba(0, 217, 255, 0.15);
+    transform: translateY(-4px);
 }
 
 .blog-tag {
-  font-weight: 500;
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #3b82f6;
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #00D9FF;
+    margin-bottom: 12px;
 }
 
 .blog-card h3 {
-  font-weight: 600;
-  font-size: 20px;
-  color: #e2e8f0;
-  line-height: 1.3;
+    font-weight: 600;
+    font-size: 20px;
+    color: #FFFFFF;
+    line-height: 1.3;
 }
 
 .blog-card p {
-  color: #94a3b8;
-  font-size: 15px;
-  line-height: 1.6;
-  flex-grow: 1;
+    color: #B0B0B0;
+    font-size: 14px;
+    line-height: 1.6;
+    flex-grow: 1;
 }
 
 .blog-cta {
-  font-weight: 600;
-  font-size: 14px;
-  color: #3b82f6;
-  margin-top: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #00D9FF;
+    margin-top: 8px;
+    transition: all 0.3s ease;
+}
+
+.blog-card:hover .blog-cta {
+    color: #0066FF;
 }
