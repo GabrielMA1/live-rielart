@@ -1,8 +1,5 @@
 /* ============================================ */
-/* RIELART - MAIN STYLESHEET                    */
-/* ============================================ */
-/* EDIT: This file contains all styling. Feel   */
-/* free to modify colors, fonts, and spacing.   */
+/* RIELART - MAIN STYLESHEET (REBUILT)          */
 /* ============================================ */
 
 /* ---- Reset & Base ---- */
@@ -43,6 +40,7 @@ h1, h2, h3, h4, h5, h6 {
     backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 20px;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glass-card:hover {
@@ -75,6 +73,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ---- Button Styles ---- */
+/* Primary: solid blue gradient */
 .btn-primary {
     background: linear-gradient(135deg, #00D9FF 0%, #0066FF 100%);
     color: #000000;
@@ -108,6 +107,7 @@ h1, h2, h3, h4, h5, h6 {
     left: 100%;
 }
 
+/* Secondary: ghost/outline */
 .btn-secondary {
     background: transparent;
     color: #FFFFFF;
@@ -123,6 +123,7 @@ h1, h2, h3, h4, h5, h6 {
 .btn-secondary:hover {
     border-color: #00D9FF;
     background: rgba(0, 217, 255, 0.1);
+    transform: translateY(-2px);
 }
 
 /* ---- Navigation ---- */
@@ -179,61 +180,37 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
-/* ---- Service Cards ---- */
-.service-card {
+/* ---- Hover Lift Effect ---- */
+.hover-lift {
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    transform-style: preserve-3d;
 }
 
-.service-card:hover {
-    transform: translateY(-10px) translateZ(30px);
+.hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 50px rgba(0, 217, 255, 0.12);
+    border-color: rgba(0, 217, 255, 0.3);
 }
 
-.service-card::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-    transition: left 0.6s ease;
-    pointer-events: none;
-    border-radius: 20px;
-}
-
-.service-card:hover::after {
-    left: 100%;
-}
-
-/* ---- Service Group Cards (New 2-Card Layout) ---- */
+/* ---- Service Group Cards ---- */
 .service-group-card {
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     transform-style: preserve-3d;
 }
 
-.service-group-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 60px rgba(0, 217, 255, 0.1);
-}
-
-/* Digital Presence card - slightly more prominent (entry point) */
-#digital-presence-card {
+#brand-web-card {
     border: 1px solid rgba(0, 217, 255, 0.15);
     box-shadow: 0 4px 30px rgba(0, 217, 255, 0.06);
 }
 
-#digital-presence-card:hover {
+#brand-web-card:hover {
     border-color: rgba(0, 217, 255, 0.4);
     box-shadow: 0 20px 70px rgba(0, 217, 255, 0.15);
 }
 
-/* AI Integration card - standard styling */
-#ai-integration-card {
+#ai-setup-card {
     border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-#ai-integration-card:hover {
+#ai-setup-card:hover {
     border-color: rgba(0, 217, 255, 0.35);
     box-shadow: 0 20px 60px rgba(0, 217, 255, 0.12);
 }
@@ -260,68 +237,20 @@ h1, h2, h3, h4, h5, h6 {
     transition: all 0.3s ease;
 }
 
-/* ---- Service Choice Cards (Hero) ---- */
-.service-choice-card {
+/* ---- Chooser Cards ---- */
+.chooser-card {
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    text-decoration: none;
-    color: inherit;
 }
 
-.service-choice-card:hover {
-    transform: translateY(-8px);
+.chooser-card:hover {
+    transform: translateY(-4px);
     border-color: rgba(0, 217, 255, 0.4);
     box-shadow: 0 20px 50px rgba(0, 217, 255, 0.12);
 }
 
-/* ---- Badges ---- */
-.new-badge {
-    background: linear-gradient(135deg, #00D9FF, #0066FF);
-    color: #000;
-    font-size: 0.6rem;
-    font-weight: 700;
-    padding: 2px 8px;
-    border-radius: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-.new-badge-lg {
-    background: linear-gradient(135deg, #00D9FF, #0066FF);
-    color: #000;
-    font-size: 0.7rem;
-    font-weight: 700;
-    padding: 4px 12px;
-    border-radius: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-.popular-badge {
-    background: linear-gradient(135deg, #FF6B6B, #FF8E53);
-    color: #000;
-    font-size: 0.7rem;
-    font-weight: 700;
-    padding: 4px 12px;
-    border-radius: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-/* ---- Testimonial Card ---- */
-.testimonial-card {
-    animation: testimonial-drift 8s ease-in-out infinite;
-}
-
-@keyframes testimonial-drift {
-    0%, 100% { transform: translateY(0) rotate(-1deg); }
-    50% { transform: translateY(-10px) rotate(1deg); }
-}
-
-/* ---- Input Focus ---- */
-.input-glow:focus {
-    border-color: #00D9FF;
-    box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
-    outline: none;
+/* ---- Result Cards ---- */
+.result-card {
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* ---- Project Card ---- */
@@ -340,6 +269,50 @@ h1, h2, h3, h4, h5, h6 {
 
 .project-overlay {
     background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%);
+}
+
+/* ---- FAQ Accordion ---- */
+.faq-item {
+    transition: all 0.3s ease;
+}
+
+.faq-trigger {
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: inherit;
+    padding: 0;
+}
+
+.faq-content {
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.faq-content:not(.hidden) {
+    animation: faq-slide-down 0.3s ease;
+}
+
+@keyframes faq-slide-down {
+    from {
+        opacity: 0;
+        max-height: 0;
+    }
+    to {
+        opacity: 1;
+        max-height: 500px;
+    }
+}
+
+.faq-icon.rotate-45 {
+    transform: rotate(45deg);
+}
+
+/* ---- Input Focus ---- */
+.input-glow:focus {
+    border-color: #00D9FF;
+    box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
+    outline: none;
 }
 
 /* ---- Reveal Animation Classes ---- */
@@ -414,52 +387,20 @@ h1, h2, h3, h4, h5, h6 {
     text-transform: uppercase;
 }
 
-/* ---- Navigation Link with Badge ---- */
-.nav-services {
-    position: relative;
+/* ---- Footer Main ---- */
+.footer-main {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* ---- Founder Strip ---- */
+#founder {
+    background: rgba(10, 22, 40, 0.3);
 }
 
 /* ---- Scroll Indicator Animation ---- */
 @keyframes scroll-pulse {
     0%, 100% { opacity: 0.5; }
     50% { opacity: 1; }
-}
-
-/* ============================================ */
-/* FOOTER WATERMARK & SOCIAL ICONS              */
-/* ============================================ */
-
-.footer-watermark {
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-/* Giant background text - RIELART */
-.footer-bg-text {
-    z-index: 0;
-}
-
-.footer-bg-text span {
-    font-size: clamp(6rem, 18vw, 20rem);
-    line-height: 0.85;
-    color: rgba(255, 255, 255, 0.03);
-    text-transform: uppercase;
-    white-space: nowrap;
-}
-
-/* Glassmorphism social icons */
-.social-icon-glass {
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    color: #B0B0B0;
-}
-
-.social-icon-glass:hover {
-    background: rgba(0, 217, 255, 0.1);
-    border-color: rgba(0, 217, 255, 0.4);
-    color: #00D9FF;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(0, 217, 255, 0.15);
 }
 
 /* ---- Reduced Motion ---- */
@@ -477,10 +418,6 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     .particle {
-        animation: none;
-    }
-
-    .testimonial-card {
         animation: none;
     }
 
@@ -502,27 +439,6 @@ h1, h2, h3, h4, h5, h6 {
         padding: 1.5rem !important;
     }
 
-    .new-badge-lg,
-    .popular-badge {
-        font-size: 0.6rem;
-        padding: 2px 8px;
-    }
-
-    /* Hero service choice cards stack */
-    .hero-service-choices .grid {
-        grid-template-columns: 1fr !important;
-    }
-
-    /* Footer watermark smaller */
-    .footer-bg-text span {
-        font-size: 4rem;
-    }
-
-    /* Stats wrap better */
-    .hero-stats {
-        gap: 1rem !important;
-    }
-
     /* CTA buttons stack */
     .hero-ctas {
         flex-direction: column;
@@ -532,13 +448,19 @@ h1, h2, h3, h4, h5, h6 {
     .hero-ctas a {
         justify-content: center;
     }
+
+    /* Stats wrap better */
+    .hero-stats {
+        gap: 1rem !important;
+    }
 }
 
 /* ---- Focus States for Accessibility ---- */
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
-textarea:focus-visible {
+textarea:focus-visible,
+select:focus-visible {
     outline: 2px solid #00D9FF;
     outline-offset: 2px;
 }

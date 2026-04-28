@@ -196,17 +196,41 @@
     <!-- ============================================ -->
     <!-- FOOTER                                       -->
     <!-- ============================================ -->
-    <footer class="relative py-12 border-t border-white/5">
+    <footer class="footer-main relative py-16 overflow-hidden border-t border-white/5">
         <div class="w-full px-4 sm:px-6 lg:px-12 xl:px-20">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-                <a href="index.html" class="font-display font-bold text-xl tracking-tight">
-                    Riel<span class="gradient-text">Art</span>
+            <div class="flex flex-col items-center text-center">
+                <!-- Logo -->
+                <a href="index.html" class="mb-8">
+                    <span class="font-display font-bold text-2xl tracking-tight">Riel<span class="gradient-text">Art</span></span>
                 </a>
-                <div class="flex gap-6">
-                    <a href="privacy-policy.html" class="footer-link text-brand-gray text-sm">Privacy Policy</a>
-                    <a href="terms.html" class="footer-link text-brand-gray text-sm">Terms of Service</a>
+
+                <!-- Navigation Links -->
+                <div class="flex flex-wrap items-center justify-center gap-6 mb-8 text-sm">
+                    <a href="index.html#services" class="footer-link text-brand-gray">Packages</a>
+                    <a href="index.html#process" class="footer-link text-brand-gray">Process</a>
+                    <a href="index.html#faq" class="footer-link text-brand-gray">FAQ</a>
+                    <a href="index.html#contact" class="footer-link text-brand-gray">Contact</a>
                 </div>
-                <p class="text-brand-gray text-sm">&copy; 2026 RielArt. All rights reserved.</p>
+
+                <!-- Email -->
+                <a href="mailto:hello@rielart.com" class="text-brand-gray text-sm mb-6 hover:text-brand-cyan transition-colors">hello@rielart.com</a>
+
+                <!-- Legal Links -->
+                <div class="flex items-center gap-4 mb-6 text-sm text-brand-gray">
+                    <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
+                    <span class="text-white/20">|</span>
+                    <a href="terms.html" class="footer-link">Terms & Conditions</a>
+                </div>
+
+                <!-- Gabriel Macovei Company -->
+                <p class="text-brand-gray text-sm mb-6">
+                    A <a href="https://gmacovei.com" target="_blank" rel="noopener noreferrer" class="footer-link">Gabriel Macovei</a> company
+                </p>
+
+                <!-- Copyright -->
+                <p class="text-brand-gray text-sm">
+                    &copy; 2026 RielArt. All rights reserved.
+                </p>
             </div>
         </div>
     </footer>

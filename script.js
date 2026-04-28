@@ -1,8 +1,5 @@
 /* ============================================ */
-/* RIELART - MAIN JAVASCRIPT                    */
-/* ============================================ */
-/* EDIT: This file handles all animations and   */
-/* interactions. Modify with care.              */
+/* RIELART - MAIN JAVASCRIPT (REBUILT)          */
 /* ============================================ */
 
 // Initialize everything when DOM is ready
@@ -23,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initMobileMenu();
     initFormHandling();
     initServiceFocus();
+    initFaqAccordion();
 });
 
 /* ============================================ */
@@ -59,8 +57,7 @@ function initHeroAnimations() {
     tl.to('.hero-headline', { opacity: 1, y: 0, duration: 1, delay: 0.3 })
       .to('.hero-desc', { opacity: 1, y: 0, duration: 0.8 }, '-=0.6')
       .to('.hero-ctas', { opacity: 1, y: 0, duration: 0.8 }, '-=0.5')
-      .to('.hero-stats', { opacity: 1, y: 0, duration: 0.8 }, '-=0.5')
-      .to('.hero-service-choices', { opacity: 1, y: 0, duration: 0.8 }, '-=0.4');
+      .to('.hero-stats', { opacity: 1, y: 0, duration: 0.8 }, '-=0.5');
 }
 
 /* ============================================ */
@@ -104,8 +101,8 @@ function initScrollAnimations() {
         }
     );
 
-    // Service choice cards in hero
-    gsap.fromTo('.service-choice-card',
+    // Chooser cards
+    gsap.fromTo('.chooser-card',
         { opacity: 0, y: 30 },
         {
             opacity: 1,
@@ -114,8 +111,8 @@ function initScrollAnimations() {
             stagger: 0.15,
             ease: 'power3.out',
             scrollTrigger: {
-                trigger: '.hero-service-choices',
-                start: 'top 90%'
+                trigger: '#chooser',
+                start: 'top 85%'
             }
         }
     );
@@ -152,8 +149,8 @@ function initScrollAnimations() {
         }
     );
 
-    // Testimonial cards
-    gsap.fromTo('.testimonial-card',
+    // Result cards
+    gsap.fromTo('.result-card',
         { opacity: 0, y: 40, scale: 0.95 },
         {
             opacity: 1,
@@ -163,7 +160,7 @@ function initScrollAnimations() {
             stagger: 0.15,
             ease: 'power3.out',
             scrollTrigger: {
-                trigger: '#testimonials',
+                trigger: '#results',
                 start: 'top 70%'
             }
         }
@@ -180,6 +177,22 @@ function initScrollAnimations() {
             ease: 'power3.out',
             scrollTrigger: {
                 trigger: '#process',
+                start: 'top 70%'
+            }
+        }
+    );
+
+    // FAQ items
+    gsap.fromTo('.faq-item',
+        { opacity: 0, y: 20 },
+        {
+            opacity: 1,
+            y: 0,
+            duration: 0.5,
+            stagger: 0.1,
+            ease: 'power3.out',
+            scrollTrigger: {
+                trigger: '#faq',
                 start: 'top 70%'
             }
         }
@@ -292,7 +305,7 @@ function handleFormSubmit(event) {
                         </svg>
                     </div>
                     <h3 class="font-display font-bold text-2xl mb-3">Thank You!</h3>
-                    <p class="text-brand-gray">Your message has been submitted. We'll get back to you as soon as possible.</p>
+                    <p class="text-brand-gray">Your message has been submitted. We'll get back to you within 1 business day.</p>
                 </div>
             `;
         } else {
@@ -314,17 +327,21 @@ function handleFormSubmit(event) {
 
 // Global function to focus on a specific service group
 function focusService(type) {
-    // Set the form subject based on which service was clicked
+    // Set the form subject and package select based on which service was clicked
     const subjectField = document.getElementById('form-subject');
-    if (subjectField) {
-        subjectField.value = type === 'digital'
-            ? 'Digital Presence Inquiry'
-            : 'AI Integration Inquiry';
+    const packageSelect = document.getElementById('form-package');
+
+    if (type === 'brand') {
+        if (subjectField) subjectField.value = 'Brand & Web Package';
+        if (packageSelect) packageSelect.value = 'Brand & Web Package';
+    } else if (type === 'ai') {
+        if (subjectField) subjectField.value = 'AI Automation Setup';
+        if (packageSelect) packageSelect.value = 'AI Automation Setup';
     }
 
     // Add a highlight effect to the targeted card
     setTimeout(() => {
-        const cardId = type === 'digital' ? 'digital-presence-card' : 'ai-integration-card';
+        const cardId = type === 'brand' ? 'brand-web-card' : 'ai-setup-card';
         const card = document.getElementById(cardId);
         if (card) {
             card.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -344,19 +361,66 @@ function focusService(type) {
 // Global function to set form subject
 function setSubject(subject) {
     const subjectField = document.getElementById('form-subject');
+    const packageSelect = document.getElementById('form-package');
     if (subjectField) {
         subjectField.value = subject;
+    }
+    if (packageSelect) {
+        // Try to match the select option
+        const options = Array.from(packageSelect.options);
+        const match = options.find(opt => opt.value === subject);
+        if (match) {
+            packageSelect.value = subject;
+        }
     }
 }
 
 // Check URL hash on load for service focus
 function initServiceFocus() {
     const hash = window.location.hash;
-    if (hash === '#digital-presence') {
-        focusService('digital');
-    } else if (hash === '#ai-integration') {
+    if (hash === '#brand-web') {
+        focusService('brand');
+    } else if (hash === '#ai-setup') {
         focusService('ai');
     }
+}
+
+/* ============================================ */
+/* FAQ ACCORDION                                */
+/* ============================================ */
+function initFaqAccordion() {
+    const faqTriggers = document.querySelectorAll('.faq-trigger');
+
+    faqTriggers.forEach(trigger => {
+        trigger.addEventListener('click', () => {
+            const faqItem = trigger.closest('.faq-item');
+            const content = faqItem.querySelector('.faq-content');
+            const icon = trigger.querySelector('.faq-icon');
+            const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+
+            // Close all other FAQ items
+            faqTriggers.forEach(otherTrigger => {
+                if (otherTrigger !== trigger) {
+                    const otherItem = otherTrigger.closest('.faq-item');
+                    const otherContent = otherItem.querySelector('.faq-content');
+                    const otherIcon = otherTrigger.querySelector('.faq-icon');
+                    otherTrigger.setAttribute('aria-expanded', 'false');
+                    otherContent.classList.add('hidden');
+                    otherIcon.classList.remove('rotate-45');
+                }
+            });
+
+            // Toggle current item
+            trigger.setAttribute('aria-expanded', !isExpanded);
+            if (isExpanded) {
+                content.classList.add('hidden');
+                icon.classList.remove('rotate-45');
+            } else {
+                content.classList.remove('hidden');
+                icon.classList.add('rotate-45');
+            }
+        });
+    });
 }
 
 /* ============================================ */
