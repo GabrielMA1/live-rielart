@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog — RielArt</title>
+    <meta name="description" content="Articles on web design, AI automation, and brand strategy for Toronto startups.">
+    <meta name="keywords" content="web design, AI automation, brand strategy, startup, Toronto">
+    <meta name="author" content="RielArt">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://rielart.com/blog/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Blog — RielArt">
+    <meta property="og:description" content="Articles on web design, AI automation, and brand strategy for Toronto startups.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rielart.com/blog/">
+    <meta property="og:image" content="https://rielart.com/images/og-blog.jpg">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Blog — RielArt">
+    <meta name="twitter:description" content="Articles on web design, AI automation, and brand strategy for Toronto startups.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-black': '#000000',
+                        'brand-void': '#0A0A0A',
+                        'brand-cyan': '#00D9FF',
+                        'brand-blue': '#0066FF',
+                        'brand-deep': '#0A1628',
+                        'brand-gray': '#B0B0B0',
+                    },
+                    fontFamily: {
+                        'display': ['Outfit', 'sans-serif'],
+                        'body': ['Inter', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'gradient-brand': 'linear-gradient(135deg, #00D9FF 0%, #0066FF 100%)',
+                        'gradient-radial': 'radial-gradient(ellipse at center, #0A1628 0%, #000000 70%)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        /* Blog-specific styles */
+        .blog-card {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+        .blog-card:active {
+            transform: scale(0.98);
+        }
+        .filter-btn {
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: transparent;
+            color: #B0B0B0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .filter-btn:hover {
+            border-color: rgba(0, 217, 255, 0.4);
+            color: #FFFFFF;
+        }
+        .filter-btn.active {
+            background: linear-gradient(135deg, #00D9FF 0%, #0066FF 100%);
+            border-color: transparent;
+            color: #000000;
+            font-weight: 600;
+        }
+        .search-input {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            padding: 12px 20px 12px 48px;
+            color: #FFFFFF;
+            width: 100%;
+            max-width: 400px;
+            transition: all 0.3s ease;
+        }
+        .search-input:focus {
+            outline: none;
+            border-color: #00D9FF;
+            box-shadow: 0 0 20px rgba(0, 217, 255, 0.2);
+        }
+        .search-input::placeholder {
+            color: #B0B0B0;
+        }
+        .category-tag {
+            display: inline-block;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        .tag-web {
+            background: rgba(0, 217, 255, 0.1);
+            border: 1px solid rgba(0, 217, 255, 0.3);
+            color: #00D9FF;
+        }
+        .tag-ai {
+            background: rgba(0, 102, 255, 0.1);
+            border: 1px solid rgba(0, 102, 255, 0.3);
+            color: #0066FF;
+        }
+        .tag-brand {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #B0B0B0;
+        }
+        .empty-state {
+            display: none;
+            text-align: center;
+            padding: 60px 20px;
+        }
+        .empty-state.visible {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-brand-black text-white">
+    <!-- Particle Background -->
+    <div class="particles" id="particles"></div>
+
+    <!-- ============================================ -->
+    <!-- NAVIGATION                                   -->
+    <!-- ============================================ -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 nav-blur">
+        <div class="w-full px-4 sm:px-6 lg:px-12 xl:px-20">
+            <div class="flex items-center justify-between h-20">
+                <a href="../index.html" class="flex items-center gap-2">
+                    <span class="font-display font-bold text-2xl tracking-tight">Riel<span class="gradient-text">Art</span></span>
+                </a>
+
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="../index.html#services" class="text-sm text-brand-gray hover:text-white transition-colors">Packages</a>
+                    <a href="../index.html#process" class="text-sm text-brand-gray hover:text-white transition-colors">Process</a>
+                    <a href="../index.html#work" class="text-sm text-brand-gray hover:text-white transition-colors">Work</a>
+                    <a href="../index.html#faq" class="text-sm text-brand-gray hover:text-white transition-colors">FAQ</a>
+                    <a href="./" class="text-sm text-brand-cyan font-medium">Blog</a>
+                    <a href="../index.html#contact" class="text-sm text-brand-gray hover:text-white transition-colors">Contact</a>
+                </div>
+
+                <div class="hidden md:block">
+                    <a href="../index.html#contact" class="btn-primary text-sm">Book Free Audit</a>
+                </div>
+
+                <button id="mobile-menu-btn" class="md:hidden p-2" aria-label="Open menu">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 w-80 h-full bg-brand-void z-50 p-8">
+        <button id="close-menu-btn" class="absolute top-6 right-6" aria-label="Close menu">
+            <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+        <div class="flex flex-col gap-6 mt-16">
+            <a href="../index.html#services" class="text-lg text-brand-gray hover:text-white transition-colors">Packages</a>
+            <a href="../index.html#process" class="text-lg text-brand-gray hover:text-white transition-colors">Process</a>
+            <a href="../index.html#work" class="text-lg text-brand-gray hover:text-white transition-colors">Work</a>
+            <a href="../index.html#faq" class="text-lg text-brand-gray hover:text-white transition-colors">FAQ</a>
+            <a href="./" class="text-lg text-brand-cyan font-medium">Blog</a>
+            <a href="../index.html#contact" class="text-lg text-brand-gray hover:text-white transition-colors">Contact</a>
+            <a href="../index.html#contact" class="btn-primary text-center mt-4">Book Free Audit</a>
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- HERO SECTION                                 -->
+    <!-- ============================================ -->
+    <section class="relative pt-32 pb-16 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-radial opacity-40"></div>
+
+        <div class="relative z-10 w-full px-4 sm:px-6 lg:px-12 xl:px-20">
+            <div class="text-center max-w-3xl mx-auto">
+                <p class="section-label mb-4">Blog</p>
+                <h1 class="font-display font-bold text-4xl sm:text-5xl lg:text-6xl mb-6">
+                    Latest <span class="gradient-text">Thinking</span>
+                </h1>
+                <p class="text-brand-gray text-lg">
+                    Practical Blog on building brands, websites, and AI systems that actually work.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- FILTER & SEARCH                              -->
+    <!-- ============================================ -->
+    <section class="relative pb-12">
+        <div class="w-full px-4 sm:px-6 lg:px-12 xl:px-20">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-6 max-w-6xl mx-auto">
+                <!-- Filter Buttons -->
+                <div class="flex flex-wrap items-center gap-3 justify-center">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="web-design">Web Design</button>
+                    <button class="filter-btn" data-filter="ai-automation">AI Automation</button>
+                    <button class="filter-btn" data-filter="brand-strategy">Brand Strategy</button>
+                </div>
+
+                <!-- Search -->
+                <div class="relative w-full sm:w-auto">
+                    <i data-lucide="search" class="w-5 h-5 text-brand-gray absolute left-4 top-1/2 -translate-y-1/2"></i>
+                    <input type="text" id="blog-search" class="search-input" placeholder="Search articles...">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- BLOG CARDS GRID                              -->
+    <!-- ============================================ -->
+    <section class="relative pb-32">
+        <div class="w-full px-4 sm:px-6 lg:px-12 xl:px-20">
+            <div id="blog-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+
+                <!-- Card 1: Webflow vs WordPress -->
+                <a href="webflow-vs-wordpress-startups/" class="blog-card glass-card p-6 lg:p-8 hover-lift" data-category="web-design" data-title="Webflow vs WordPress: Which One Should Toronto Startups Choose?">
+                    <div class="category-tag tag-web mb-4">Web Design</div>
+                    <h2 class="font-display font-bold text-xl lg:text-2xl mb-3 leading-tight">Webflow vs WordPress: Which One Should Toronto Startups Choose?</h2>
+                    <p class="text-brand-gray text-sm mb-6 leading-relaxed">Speed, flexibility, and long-term maintenance — here's how to pick the right platform for your stage.</p>
+                    <div class="flex items-center gap-2 text-brand-cyan text-sm font-medium mt-auto">
+                        <span>Read More</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </div>
+                </a>
+
+                <!-- Card 2: AI Chatbot -->
+                <a href="ai-chatbot-small-business/" class="blog-card glass-card p-6 lg:p-8 hover-lift" data-category="ai-automation" data-title="How Small Businesses Can Implement AI Chatbots Without Code">
+                    <div class="category-tag tag-ai mb-4">AI Automation</div>
+                    <h2 class="font-display font-bold text-xl lg:text-2xl mb-3 leading-tight">How Small Businesses Can Implement AI Chatbots Without Code</h2>
+                    <p class="text-brand-gray text-sm mb-6 leading-relaxed">No-code tools and simple workflows that let you automate customer support in under a week.</p>
+                    <div class="flex items-center gap-2 text-brand-cyan text-sm font-medium mt-auto">
+                        <span>Read More</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </div>
+                </a>
+
+                <!-- Card 3: Brand Identity Mistakes -->
+                <a href="brand-identity-mistakes/" class="blog-card glass-card p-6 lg:p-8 hover-lift" data-category="brand-strategy" data-title="3 Brand Identity Mistakes That Kill Credibility">
+                    <div class="category-tag tag-brand mb-4">Brand Strategy</div>
+                    <h2 class="font-display font-bold text-xl lg:text-2xl mb-3 leading-tight">3 Brand Identity Mistakes That Kill Credibility</h2>
+                    <p class="text-brand-gray text-sm mb-6 leading-relaxed">Inconsistent visuals, vague messaging, and copying competitors — here's how to avoid them.</p>
+                    <div class="flex items-center gap-2 text-brand-cyan text-sm font-medium mt-auto">
+                        <span>Read More</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </div>
+                </a>
+
+            </div>
+
+            <!-- Empty State -->
+            <div id="empty-state" class="empty-state">
+                <div class="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center mx-auto mb-4">
+                    <i data-lucide="search-x" class="w-8 h-8 text-brand-gray"></i>
+                </div>
+                <p class="text-brand-gray text-lg mb-2">No articles match your search.</p>
+                <p class="text-brand-gray text-sm">Browse all posts below.</p>
+                <button onclick="resetFilters()" class="filter-btn active mt-6">View All Posts</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- FOOTER                                       -->
+    <!-- ============================================ -->
+    <footer class="footer-main relative py-16 overflow-hidden border-t border-white/5">
+        <div class="w-full px-4 sm:px-6 lg:px-12 xl:px-20">
+            <div class="flex flex-col items-center text-center">
+                <a href="../index.html" class="mb-8">
+                    <span class="font-display font-bold text-2xl tracking-tight">Riel<span class="gradient-text">Art</span></span>
+                </a>
+
+                <div class="flex flex-wrap items-center justify-center gap-6 mb-8 text-sm">
+                    <a href="../index.html#services" class="footer-link text-brand-gray">Packages</a>
+                    <a href="../index.html#process" class="footer-link text-brand-gray">Process</a>
+                    <a href="../index.html#work" class="footer-link text-brand-gray">Work</a>
+                    <a href="../index.html#faq" class="footer-link text-brand-gray">FAQ</a>
+                    <a href="./" class="footer-link text-brand-cyan">Blog</a>
+                    <a href="../index.html#contact" class="footer-link text-brand-gray">Contact</a>
+                </div>
+
+                <a href="mailto:hello@rielart.com" class="text-brand-gray text-sm mb-6 hover:text-brand-cyan transition-colors">hello@rielart.com</a>
+
+                <div class="flex items-center gap-4 mb-6 text-sm text-brand-gray">
+                    <a href="../privacy-policy.html" class="footer-link">Privacy Policy</a>
+                    <span class="text-white/20">|</span>
+                    <a href="../terms.html" class="footer-link">Terms & Conditions</a>
+                </div>
+
+                <p class="text-brand-gray text-sm mb-6">
+                    A <a href="https://gmacovei.com" target="_blank" rel="noopener noreferrer" class="footer-link">Gabriel Macovei</a> company
+                </p>
+
+                <p class="text-brand-gray text-sm">
+                    &copy; 2026 RielArt. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        document.addEventListener('DOMContentLoaded', function() {
+            lucide.createIcons();
+            createParticles();
+            initBlogFilters();
+            initMobileMenu();
+        });
+
+        // Create floating particles
+        function createParticles() {
+            const container = document.getElementById('particles');
+            if (!container) return;
+            const particleCount = 25;
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = (10 + Math.random() * 10) + 's';
+                const size = 1 + Math.random() * 2;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                container.appendChild(particle);
+            }
+        }
+
+        // Blog Filter & Search
+        function initBlogFilters() {
+            const filterBtns = document.querySelectorAll('.filter-btn[data-filter]');
+            const searchInput = document.getElementById('blog-search');
+            const cards = document.querySelectorAll('.blog-card');
+            const emptyState = document.getElementById('empty-state');
+            let currentFilter = 'all';
+
+            // Filter buttons
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentFilter = btn.dataset.filter;
+                    filterCards();
+                });
+            });
+
+            // Search input
+            searchInput.addEventListener('input', (e) => {
+                filterCards(e.target.value.trim().toLowerCase());
+            });
+
+            function filterCards(searchTerm = '') {
+                let visibleCount = 0;
+
+                cards.forEach(card => {
+                    const category = card.dataset.category;
+                    const title = card.dataset.title.toLowerCase();
+                    const matchesFilter = currentFilter === 'all' || category === currentFilter;
+                    const matchesSearch = !searchTerm || title.includes(searchTerm);
+
+                    if (matchesFilter && matchesSearch) {
+                        card.style.display = 'block';
+                        visibleCount++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                if (visibleCount === 0) {
+                    emptyState.classList.add('visible');
+                } else {
+                    emptyState.classList.remove('visible');
+                }
+            }
+        }
+
+        function resetFilters() {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            document.querySelector('.filter-btn[data-filter="all"]').classList.add('active');
+            document.getElementById('blog-search').value = '';
+            document.querySelectorAll('.blog-card').forEach(card => card.style.display = 'block');
+            document.getElementById('empty-state').classList.remove('visible');
+        }
+
+        // Mobile Menu
+        function initMobileMenu() {
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const closeBtn = document.getElementById('close-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (!menuBtn || !closeBtn || !mobileMenu) return;
+
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            });
+            closeBtn.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+                document.body.style.overflow = '';
+            });
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('open');
+                    document.body.style.overflow = '';
+                });
+            });
+            mobileMenu.addEventListener('click', (e) => {
+                if (e.target === mobileMenu) {
+                    mobileMenu.classList.remove('open');
+                    document.body.style.overflow = '';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
