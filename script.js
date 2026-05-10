@@ -246,11 +246,13 @@ function initMobileMenu() {
     menuBtn.addEventListener('click', () => {
         mobileMenu.classList.add('open');
         document.body.style.overflow = 'hidden';
+        closeBtn.focus();
     });
 
     closeBtn.addEventListener('click', () => {
         mobileMenu.classList.remove('open');
         document.body.style.overflow = '';
+        menuBtn.focus();
     });
 
     // Close menu when clicking a link
@@ -268,6 +270,27 @@ function initMobileMenu() {
             document.body.style.overflow = '';
         }
     });
+
+    // Trap focus inside mobile menu
+    mobileMenu.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            mobileMenu.classList.remove('open');
+            document.body.style.overflow = '';
+            menuBtn.focus();
+        }
+        if (e.key === 'Tab') {
+            const focusable = mobileMenu.querySelectorAll('a, button');
+            const first = focusable[0];
+            const last = focusable[focusable.length - 1];
+            if (e.shiftKey && document.activeElement === first) {
+                e.preventDefault();
+                last.focus();
+            } else if (!e.shiftKey && document.activeElement === last) {
+                e.preventDefault();
+                first.focus();
+            }
+        }
+    });
 }
 
 /* ============================================ */
@@ -282,11 +305,15 @@ function handleFormSubmit(event) {
     event.preventDefault();
     const form = event.target;
     const submitBtn = form.querySelector('button[type="submit"]');
-    const originalText = submitBtn.innerHTML;
 
     // Show loading state
-    submitBtn.innerHTML = '<span class="flex items-center justify-center gap-2">Sending... <svg class="animate-spin w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg></span>';
+    const btnText = submitBtn.querySelector('#btn-text');
+    const btnIcon = submitBtn.querySelector('#btn-icon');
+    if (btnText) btnText.textContent = 'Sending...';
+    if (btnIcon) btnIcon.style.display = 'none';
     submitBtn.disabled = true;
+    submitBtn.style.opacity = '0.7';
+    submitBtn.style.cursor = 'wait';
 
     // Submit via AJAX
     fetch(form.action, {
@@ -313,8 +340,11 @@ function handleFormSubmit(event) {
         }
     })
     .catch(error => {
-        submitBtn.innerHTML = originalText;
+        if (btnText) btnText.textContent = 'Send Message';
+        if (btnIcon) btnIcon.style.display = 'block';
         submitBtn.disabled = false;
+        submitBtn.style.opacity = '1';
+        submitBtn.style.cursor = 'pointer';
         showToast('Something went wrong. Please try again.');
     });
 
@@ -478,3 +508,19 @@ const revealObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('.reveal').forEach(el => {
     revealObserver.observe(el);
 });
+
+/* ============================================ */
+/* ERROR HANDLING                               */
+/* ============================================ */
+window.addEventListener('error', (e) => {
+    console.warn('RielArt site error:', e.message);
+});
+
+// Report if GSAP fails to load
+if (typeof gsap === 'undefined') {
+    console.warn('GSAP not loaded — animations disabled');
+    document.querySelectorAll('.reveal').forEach(el => {
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+    });
+}

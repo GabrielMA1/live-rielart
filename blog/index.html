@@ -9,6 +9,9 @@
     <meta name="author" content="RielArt">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://rielart.com/blog/">
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico">
+    <link rel="alternate" type="application/rss+xml" title="RielArt Blog" href="https://rielart.com/blog/rss.xml">
 
     <!-- Open Graph -->
     <meta property="og:title" content="Blog — RielArt">
@@ -25,6 +28,11 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Preconnect to critical third parties -->
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://unpkg.com">
+    <link rel="dns-prefetch" href="https://formspree.io">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <!-- Tailwind CSS -->
@@ -283,8 +291,8 @@
                     <i data-lucide="search-x" class="w-8 h-8 text-brand-gray"></i>
                 </div>
                 <p class="text-brand-gray text-lg mb-2">No articles match your search.</p>
-                <p class="text-brand-gray text-sm">Browse all posts below.</p>
-                <button onclick="resetFilters()" class="filter-btn active mt-6">View All Posts</button>
+                <p class="text-brand-gray text-sm mb-6">Try different keywords or browse all categories.</p>
+                <button onclick="resetFilters()" class="btn-primary text-sm">View All Posts</button>
             </div>
         </div>
     </section>
