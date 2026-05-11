@@ -947,13 +947,8 @@ section {
     font-weight: 800;
     font-size: clamp(40px, 8vw, 90px);
     letter-spacing: -0.03em;
-    line-height: 1.15;
+    line-height: 1.05;
     margin-bottom: 24px;
-}
-
-.hero-headline span {
-    display: block;
-    margin-bottom: 2px;
 }
 
 .hero-headline-white {
