@@ -35,6 +35,18 @@
   document.querySelectorAll('[data-open-call]').forEach(a=>a.addEventListener('click',e=>{const tab=document.querySelector('[data-contact-tab="call"]');if(tab){e.preventDefault();activateTab(tab);document.querySelector('#contact')?.scrollIntoView({behavior:'smooth'});}}));
   try { if (location.hash === '#schedule' || new URLSearchParams(location.search).get('mode') === 'call') { const callTab=document.querySelector('[data-contact-tab="call"]'); if(callTab){ activateTab(callTab); setTimeout(()=>document.querySelector('#contact')?.scrollIntoView({behavior:'smooth'}),80); } } } catch(e) {}
 
+
+
+  const stripeDialog=document.querySelector('#stripe-order-dialog');
+  document.querySelectorAll('[data-stripe-modal]').forEach(button=>button.addEventListener('click',()=>{
+    if(!stripeDialog)return;
+    const key=button.dataset.stripeModal;
+    stripeDialog.querySelectorAll('[data-stripe-panel]').forEach(panel=>panel.classList.toggle('active',panel.dataset.stripePanel===key));
+    if(typeof stripeDialog.showModal==='function')stripeDialog.showModal();else stripeDialog.setAttribute('open','');
+  }));
+  stripeDialog?.querySelector('[data-stripe-close]')?.addEventListener('click',()=>stripeDialog.close());
+  stripeDialog?.addEventListener('click',event=>{if(event.target===stripeDialog)stripeDialog.close()});
+
   const observer='IntersectionObserver' in window?new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.12}):null;
   document.querySelectorAll('.reveal').forEach(el=>observer?observer.observe(el):el.classList.add('visible'));
   document.querySelectorAll('[data-year]').forEach(el=>el.textContent=new Date().getFullYear());
