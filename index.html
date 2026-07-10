@@ -1,1195 +1,190 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RielArt | Web Design & AI </title>
-    <meta name="description" content="Fixed-scope web design, branding, and AI automation packages for small and medium business. Launch in 2 weeks. Book a free audit.">
-    <meta name="keywords" content="web design, branding, AI automation, chatbots, small business, medium business, Webflow, productized service">
-    <meta name="author" content="RielArt">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://rielart.com/">
-    <link rel="icon" type="image/png" href="/images/favicon.png">
-    <link rel="apple-touch-icon" href="/images/favicon.png">
-
-    <!-- Open Graph -->
-    <meta property="og:title" content="RielArt | Productized Web Design & AI for Small & Medium Business">
-    <meta property="og:description" content="Fixed-scope web design, branding, and AI automation packages for small and medium business. Launch in 2 weeks. Book a free audit.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://rielart.com">
-
-    <!-- Open Graph Image -->
-    <meta property="og:image" content="https://rielart.com/images/rielart-og.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="RielArt | Productized Web Design & AI for Small & Medium Business">
-    <meta name="twitter:description" content="Fixed-scope web design, branding, and AI automation packages for small and medium business. Launch in 2 weeks. Book a free audit.">
-    <meta name="twitter:image" content="https://rielart.com/images/rielart-og.jpg">
-
-    <!-- Schema Markup: Organization -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "RielArt",
-        "url": "https://rielart.com",
-        "logo": "https://rielart.com/images/rielart-logo.png",
-        "email": "hello@rielart.com",
-        "telephone": "+1-647-906-3547",
-        "address": {
-            "@type": "PostalAddress",
-            "addressRegion": "ON",
-            "addressCountry": "CA"
-        },
-        "founder": {
-            "@type": "Person",
-            "name": "Gabriel Macovei",
-            "url": "https://gmacovei.com"
-        },
-        "sameAs": [
-            "https://gmacovei.com"
-        ]
-    }
-    </script>
-
-    <!-- Schema Markup: Service -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Service",
-        "serviceType": "Web Design, Branding & AI Automation",
-        "provider": {
-            "@type": "Organization",
-            "name": "RielArt"
-        },
-        "areaServed": {
-            "@type": "Country",
-            "name": "Canada"
-        },
-        "hasOfferCatalog": {
-            "@type": "OfferCatalog",
-            "name": "Productized Packages",
-            "itemListElement": [
-                {
-                    "@type": "Offer",
-                    "itemOffered": {
-                        "@type": "Service",
-                        "name": "Brand & Web Package",
-                        "description": "Logo, colors, Webflow site. Live in 1 week."
-                    },
-                    "price": "497",
-                    "priceCurrency": "CAD",
-                    "priceSpecification": {
-                        "@type": "PriceSpecification",
-                        "description": "Starting from $497 CAD"
-                    }
-                },
-                {
-                    "@type": "Offer",
-                    "itemOffered": {
-                        "@type": "Service",
-                        "name": "AI Automation Setup",
-                        "description": "Chatbot, workflow, 1 integration. Running in 2 weeks."
-                    },
-                    "price": "247",
-                    "priceCurrency": "CAD",
-                    "priceSpecification": {
-                        "@type": "PriceSpecification",
-                        "description": "Starting from $247 CAD"
-                    }
-                }
-            ]
-        }
-    }
-    </script>
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-
-    <!-- Custom Config -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'brand-black': '#000000',
-                        'brand-void': '#0A0A0A',
-                        'brand-cyan': '#00D9FF',
-                        'brand-blue': '#0066FF',
-                        'brand-deep': '#0A1628',
-                        'brand-gray': '#B0B0B0',
-                    },
-                    fontFamily: {
-                        'display': ['Outfit', 'sans-serif'],
-                        'body': ['Inter', 'sans-serif'],
-                    },
-                    backgroundImage: {
-                        'gradient-brand': 'linear-gradient(135deg, #00D9FF 0%, #0066FF 100%)',
-                        'gradient-radial': 'radial-gradient(ellipse at center, #0A1628 0%, #000000 70%)',
-                    }
-                }
-            }
-        }
-    </script>
-
-    <link rel="stylesheet" href="styles.css">
-<base target="_blank">
-</head>
-<body class="bg-brand-black text-white">
-    <!-- Skip to main content (Accessibility) -->
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-brand-cyan focus:text-black focus:px-4 focus:py-2 focus:rounded-lg focus:font-medium">
-        Skip to main content
-    </a>
-
-    <!-- ============================================ -->
-    <!-- PARTICLE BACKGROUND                          -->
-    <!-- ============================================ -->
-    <div class="particles" id="particles"></div>
-
-    <!-- ============================================ -->
-    <!-- NAVIGATION                                   -->
-    <!-- ============================================ -->
-    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300">
-        <div class="w-full px-4 sm:px-6 lg:px-12 xl:px-20">
-            <div class="flex items-center justify-between h-20">
-                <!-- Logo -->
-                <a href="#" class="flex items-center gap-2">
-                    <span class="font-display font-bold text-2xl tracking-tight">Riel<span class="gradient-text">Art</span></span>
-                </a>
-
-                <!-- Desktop Navigation -->
-                <div class="hidden md:flex items-center gap-8">
-                    <a href="#services" class="text-sm text-brand-gray hover:text-white transition-colors">Packages</a>
-                    <a href="#process" class="text-sm text-brand-gray hover:text-white transition-colors">Process</a>
-                    <a href="#work" class="text-sm text-brand-gray hover:text-white transition-colors">Work</a>
-                    <a href="#faq" class="text-sm text-brand-gray hover:text-white transition-colors">FAQ</a>
-                    <a href="blog/" class="text-sm text-brand-gray hover:text-white transition-colors">Blog</a>
-                    <a href="#contact" class="text-sm text-brand-gray hover:text-white transition-colors">Contact</a>
-                </div>
-
-                <!-- CTA Button -->
-                <div class="hidden md:block">
-                    <a href="#contact" class="btn-primary text-sm">Book Free Audit</a>
-                </div>
-
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="md:hidden p-2" aria-label="Open menu">
-                    <i data-lucide="menu" class="w-6 h-6"></i>
-                </button>
-            </div>
-        </div>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://rielart.com/">
+  <title>RielArt | Brand, Web Design & AI Automation</title>
+  <meta name="description" content="Fixed-scope branding, Webflow, and AI automation packages for small and growing businesses. Clear scope, fast delivery, and practical systems.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rielart.com/">
+  <meta property="og:title" content="RielArt | Brand, Web Design & AI Automation">
+  <meta property="og:description" content="Fixed-scope branding, Webflow, and AI automation packages for small and growing businesses. Clear scope, fast delivery, and practical systems.">
+  <meta property="og:image" content="https://rielart.com/images/rielart-og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="RielArt | Brand, Web Design & AI Automation">
+  <meta name="twitter:description" content="Fixed-scope branding, Webflow, and AI automation packages for small and growing businesses. Clear scope, fast delivery, and practical systems.">
+  <meta name="twitter:image" content="https://rielart.com/images/rielart-og.jpg">
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+  <link rel="apple-touch-icon" href="/images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script>try{document.documentElement.dataset.theme=localStorage.getItem('rielart-theme')||'light'}catch(e){document.documentElement.dataset.theme='light'}</script>
+  <script type="application/ld+json">{
+"@context":"https://schema.org","@type":"Organization","name":"RielArt","url":"https://rielart.com","logo":"https://rielart.com/images/logo.png","email":"hello@rielart.com","telephone":"+1-647-906-3547","address":{"@type":"PostalAddress","addressLocality":"Toronto","addressRegion":"ON","addressCountry":"CA"},"founder":{"@type":"Person","name":"Gabriel Macovei","url":"https://gmacovei.com"}}
+</script>
+<script type="application/ld+json">{
+"@context":"https://schema.org","@type":"Service","serviceType":"Brand identity, web design and AI automation","provider":{"@type":"Organization","name":"RielArt"},"areaServed":{"@type":"Country","name":"Canada"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"Fixed-scope packages","itemListElement":[{"@type":"Offer","price":"497","priceCurrency":"CAD","itemOffered":{"@type":"Service","name":"Brand & Web Package"}},{"@type":"Offer","price":"247","priceCurrency":"CAD","itemOffered":{"@type":"Service","name":"AI Automation Setup"}}]}}
+</script>
+</head><body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="brand" href="/" aria-label="RielArt home"><img src="/images/logo.png" alt=""><strong>Riel<span>Art</span></strong></a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="/#packages">Packages</a><a href="/#process">Process</a><a href="/#work">Work</a><a href="/blog/">Insights</a><a href="/#faq">FAQ</a>
     </nav>
-
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 w-80 h-full bg-brand-void z-50 p-8" role="dialog" aria-modal="true" aria-label="Mobile navigation menu">
-        <button id="close-menu-btn" class="absolute top-6 right-6" aria-label="Close menu">
-            <i data-lucide="x" class="w-6 h-6"></i>
-        </button>
-        <div class="flex flex-col gap-6 mt-16">
-            <a href="#services" class="text-lg text-brand-gray hover:text-white transition-colors">Packages</a>
-            <a href="#process" class="text-lg text-brand-gray hover:text-white transition-colors">Process</a>
-            <a href="#work" class="text-lg text-brand-gray hover:text-white transition-colors">Work</a>
-            <a href="#faq" class="text-lg text-brand-gray hover:text-white transition-colors">FAQ</a>
-            <a href="blog/" class="text-lg text-brand-gray hover:text-white transition-colors">Blog</a>
-            <a href="#contact" class="text-lg text-brand-gray hover:text-white transition-colors">Contact</a>
-            <a href="#contact" class="btn-primary text-center mt-4">Book Free Audit</a>
-        </div>
+    <div class="nav-actions">
+      <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch to dark mode"></button>
+      <a class="btn btn-primary btn-small" href="/?contact=call#contact" data-contact-target="call">Book Free Audit <span aria-hidden="true">→</span></a>
+      <button class="icon-btn menu-btn" type="button" data-menu-toggle aria-expanded="false" aria-label="Open navigation">☰</button>
     </div>
-
-    <!-- ============================================ -->
-    <!-- HERO SECTION                                 -->
-    <!-- ============================================ -->
-    <main id="main-content">
-    <section id="hero" class="relative min-h-screen flex items-center overflow-hidden pt-20">
-        <!-- Background Gradient -->
-        <div class="absolute inset-0 bg-gradient-radial opacity-50"></div>
-
-        <!-- Floating Particles -->
-        <div class="hero-particles" aria-hidden="true">
-            <div class="hero-particle" style="left: 8%; animation-delay: 0s;"></div>
-            <div class="hero-particle" style="left: 18%; animation-delay: 1.5s;"></div>
-            <div class="hero-particle" style="left: 28%; animation-delay: 3s;"></div>
-            <div class="hero-particle" style="left: 38%; animation-delay: 0.8s;"></div>
-            <div class="hero-particle" style="left: 48%; animation-delay: 2.2s;"></div>
-            <div class="hero-particle" style="left: 58%; animation-delay: 4s;"></div>
-            <div class="hero-particle" style="left: 68%; animation-delay: 1.2s;"></div>
-            <div class="hero-particle" style="left: 78%; animation-delay: 3.5s;"></div>
-            <div class="hero-particle" style="left: 88%; animation-delay: 2.8s;"></div>
-            <div class="hero-particle" style="left: 95%; animation-delay: 0.5s;"></div>
-        </div>
-
-        <div class="relative z-10 w-full px-4 sm:px-6 lg:px-12 xl:px-20 pt-32 pb-20">
-            <!-- Hero: Text Left + Visual Right -->
-            <div class="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-20">
-
-                <!-- LEFT: Content -->
-                <div class="space-y-8 text-center lg:text-left max-w-xl">
-
-                    <!-- Headline -->
-                    <h1 class="hero-headline font-display font-bold text-4xl sm:text-5xl lg:text-[3.3rem] xl:text-[3.75rem] leading-tight reveal">
-                        <span class="hero-headline-white">Productized</span><br>
-                        <span class="hero-headline-white">Design & AI</span><br>
-                        <span class="hero-headline-gradient">for SMB</span>
-                    </h1>
-
-                    <!-- Description -->
-                    <p class="hero-desc text-brand-gray text-lg reveal">
-                        Fixed-scope packages. Fast delivery. No surprises. Choose a package, send your brief, and launch in 2 weeks.
-                    </p>
-
-                    <!-- CTAs -->
-                    <div class="hero-ctas flex flex-wrap gap-4 justify-center lg:justify-start reveal">
-                        <a href="#services" class="btn-primary flex items-center gap-2">
-                            See Packages
-                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                        </a>
-                        <a href="#contact" class="btn-secondary flex items-center gap-2">
-                            Book Free Audit
-                            <i data-lucide="calendar" class="w-4 h-4"></i>
-                        </a>
-                    </div>
-
-                    <!-- Stats -->
-                    <div class="hero-stats flex flex-wrap gap-6 pt-8 justify-center lg:justify-start reveal">
-                        <div class="flex items-center gap-2">
-                            <i data-lucide="zap" class="w-5 h-5 text-brand-cyan"></i>
-                            <span class="text-sm text-brand-gray">2-Week Launch</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <i data-lucide="package" class="w-5 h-5 text-brand-cyan"></i>
-                            <span class="text-sm text-brand-gray">Fixed-Scope Packages</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <i data-lucide="map-pin" class="w-5 h-5 text-brand-cyan"></i>
-                            <span class="text-sm text-brand-gray">Founder-Led</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- RIGHT: 3D Visual -->
-                <div class="hidden lg:block relative flex-shrink-0">
-                    <div class="hero-3d-visual" style="width: 400px; height: 400px;">
-                        <div class="hero-orbital-system">
-
-                            <!-- Central Core -->
-                            <div class="hero-core">
-                                <div class="hero-core-inner">
-                                    <div class="hero-core-icon">
-                                        <i data-lucide="rocket"></i>
-                                    </div>
-                                    <div class="hero-core-ring"></div>
-                                    <div class="hero-core-ring-2"></div>
-                                </div>
-                            </div>
-
-                            <!-- Orbital Nodes -->
-                            <div class="hero-node hero-node-1">
-                                <div class="hero-node-bg">
-                                    <i data-lucide="palette"></i>
-                                </div>
-                                <span class="hero-node-label">Brand</span>
-                            </div>
-
-                            <div class="hero-node hero-node-2">
-                                <div class="hero-node-bg">
-                                    <i data-lucide="layout"></i>
-                                </div>
-                                <span class="hero-node-label">Web</span>
-                            </div>
-
-                            <div class="hero-node hero-node-3">
-                                <div class="hero-node-bg">
-                                    <i data-lucide="cpu"></i>
-                                </div>
-                                <span class="hero-node-label">AI</span>
-                            </div>
-
-                            <div class="hero-node hero-node-4">
-                                <div class="hero-node-bg">
-                                    <i data-lucide="megaphone"></i>
-                                </div>
-                                <span class="hero-node-label">Ads</span>
-                            </div>
-
-                            <!-- Connection Lines -->
-                            <svg class="hero-connections" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid meet">
-                                <line class="hero-line" x1="200" y1="200" x2="80" y2="80" />
-                                <line class="hero-line" x1="200" y1="200" x2="320" y2="80" />
-                                <line class="hero-line" x1="200" y1="200" x2="320" y2="320" />
-                                <line class="hero-line" x1="200" y1="200" x2="80" y2="320" />
-                            </svg>
-
-                            <!-- Central Glow -->
-                            <div class="hero-central-glow"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================ -->
-    <!-- WHICH PACKAGE IS RIGHT FOR YOU?              -->
-    <!-- ============================================ -->
-    <section id="chooser" class="relative py-20 overflow-hidden">
-        <div class="w-full px-4 sm:px-6 lg:px-12 xl:px-20">
-            <div class="text-center max-w-3xl mx-auto mb-12">
-                <p class="section-label mb-4 reveal">Choose Your Path</p>
-                <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl mb-4 reveal">
-                    Which Package Is <span class="gradient-text">Right</span> for You?
-                </h2>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto reveal">
-                <!-- Option 1 -->
-                <div class="chooser-card glass-card p-6 md:p-8 text-center hover-lift">
-                    <div class="w-14 h-14 rounded-2xl bg-gradient-brand flex items-center justify-center mx-auto mb-4">
-                        <i data-lucide="rocket" class="w-7 h-7 text-black"></i>
-                    </div>
-                    <h3 class="font-display font-bold text-xl mb-2">Just Starting Out?</h3>
-                    <p class="text-brand-gray text-sm mb-4">You need a brand and a website to establish credibility.</p>
-                    <a href="#services" class="text-brand-cyan text-sm font-medium hover:gap-3 transition-all inline-flex items-center gap-2" onclick="focusService('brand')">
-                        Brand & Web Package
-                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                    </a>
-                </div>
-
-                <!-- Option 2 -->
-                <div class="chooser-card glass-card p-6 md:p-8 text-center hover-lift">
-                    <div class="w-14 h-14 rounded-2xl bg-gradient-brand flex items-center justify-center mx-auto mb-4">
-                        <i data-lucide="cpu" class="w-7 h-7 text-black"></i>
-                    </div>
-                    <h3 class="font-display font-bold text-xl mb-2">Already Have a Site?</h3>
-                    <p class="text-brand-gray text-sm mb-4">You want to automate operations and capture more leads.</p>
-                    <a href="#services" class="text-brand-cyan text-sm font-medium hover:gap-3 transition-all inline-flex items-center gap-2" onclick="focusService('ai')">
-                        AI Automation Setup
-                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                    </a>
-                </div>
-
-                <!-- Option 3 -->
-                <div class="chooser-card glass-card p-6 md:p-8 text-center hover-lift">
-                    <div class="w-14 h-14 rounded-2xl bg-gradient-brand flex items-center justify-center mx-auto mb-4">
-                        <i data-lucide="layers" class="w-7 h-7 text-black"></i>
-                    </div>
-                    <h3 class="font-display font-bold text-xl mb-2">Need Both?</h3>
-                    <p class="text-brand-gray text-sm mb-4">Full digital transformation — brand, site, and AI together.</p>
-                    <a href="#contact" class="text-brand-cyan text-sm font-medium hover:gap-3 transition-all inline-flex items-center gap-2" onclick="setSubject('Bundle Inquiry')">
-                        Book a Call, We Bundle
-                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================ -->
-    <!-- SERVICES SECTION                             -->
-    <!-- ============================================ -->
-    <section id="services" class="relative py-32 overflow-hidden">
-        <div class="w-full px-4 sm:px-6 lg:px-12 xl:px-20">
-            <!-- Section Header -->
-            <div class="text-center max-w-3xl mx-auto mb-20">
-                <p class="section-label mb-4 reveal">Our Packages</p>
-                <h2 class="font-display font-bold text-4xl sm:text-5xl lg:text-6xl mb-6 reveal">
-                    Two Ways to <span class="gradient-text">Transform</span><br>Your Business
-                </h2>
-                <p class="text-brand-gray text-lg reveal">
-                    Fixed-scope packages with clear deliverables and predictable timelines. Pick what you need.
-                </p>
-            </div>
-
-            <!-- Services Grid: Two Main Cards -->
-            <div class="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-                <!-- SERVICE GROUP 1: Brand & Web Package -->
-                <div id="brand-web-card" class="service-group-card glass-card p-8 lg:p-10 relative reveal hover-lift">
-                    <!-- Card Header -->
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-16 h-16 rounded-2xl bg-gradient-brand flex items-center justify-center">
-                            <i data-lucide="globe" class="w-8 h-8 text-black"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-display font-bold text-2xl lg:text-3xl">Brand & Web Package</h3>
-                            <p class="text-brand-gray text-sm">Logo, colors, Webflow site. 1 week.</p>
-                        </div>
-                    </div>
-
-                    <!-- Value Proposition -->
-                    <p class="text-brand-gray mb-8">
-                        A complete brand and website foundation designed to establish credibility and convert visitors into customers. Built in Webflow so you can edit it yourself.
-                    </p>
-
-                    <!-- Sub-services -->
-                    <div class="space-y-4 mb-8">
-                        <!-- Brand Identity -->
-                        <div class="sub-service flex items-start gap-3 p-3 rounded-xl bg-white/[0.02] hover:bg-white/[0.05] transition-colors">
-                            <div class="w-8 h-8 rounded-lg bg-brand-cyan/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i data-lucide="palette" class="w-4 h-4 text-brand-cyan"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-medium text-sm mb-1">Brand Identity</h4>
-                                <p class="text-brand-gray text-xs">Logo, color palette, typography guidelines</p>
-                            </div>
-                        </div>
-
-                        <!-- Web Design -->
-                        <div class="sub-service flex items-start gap-3 p-3 rounded-xl bg-white/[0.02] hover:bg-white/[0.05] transition-colors">
-                            <div class="w-8 h-8 rounded-lg bg-brand-cyan/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i data-lucide="layout" class="w-4 h-4 text-brand-cyan"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-medium text-sm mb-1">Webflow Site</h4>
-                                <p class="text-brand-gray text-xs">Custom responsive site, CMS-ready, SEO-optimized</p>
-                            </div>
-                        </div>
-
-                        <!-- Meta Ads -->
-                        <div class="sub-service flex items-start gap-3 p-3 rounded-xl bg-white/[0.02] hover:bg-white/[0.05] transition-colors">
-                            <div class="w-8 h-8 rounded-lg bg-brand-cyan/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i data-lucide="target" class="w-4 h-4 text-brand-cyan"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-medium text-sm mb-1">Meta Ad Setup</h4>
-                                <p class="text-brand-gray text-xs">Pixel, audiences, first campaign configured</p>
-                            </div>
-                        </div>
-
-                        <!-- Handoff -->
-                        <div class="sub-service flex items-start gap-3 p-3 rounded-xl bg-white/[0.02] hover:bg-white/[0.05] transition-colors">
-                            <div class="w-8 h-8 rounded-lg bg-brand-cyan/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i data-lucide="graduation-cap" class="w-4 h-4 text-brand-cyan"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-medium text-sm mb-1">Webflow Training</h4>
-                                <p class="text-brand-gray text-xs">30-min walkthrough so you can edit your site</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Pricing -->
-                    <div class="mb-4">
-                        <p class="text-2xl font-display font-bold gradient-text">Starting from $497</p>
-                        <p class="text-xs text-brand-gray mt-1">Limited to 4 projects per month</p>
-                    </div>
-
-                    <!-- CTA -->
-                    <a href="#contact" class="btn-primary w-full flex items-center justify-center gap-2" onclick="setSubject('Brand & Web Package')">
-                        Get Started
-                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                    </a>
-                </div>
-
-                <!-- SERVICE GROUP 2: AI Automation Setup -->
-                <div id="ai-setup-card" class="service-group-card glass-card p-8 lg:p-10 relative reveal hover-lift">
-                    <!-- Card Header -->
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-16 h-16 rounded-2xl bg-gradient-brand flex items-center justify-center">
-                            <i data-lucide="cpu" class="w-8 h-8 text-black"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-display font-bold text-2xl lg:text-3xl">AI Automation Setup</h3>
-                            <p class="text-brand-gray text-sm">Chatbot, workflow, 1 integration. 2 weeks.</p>
-                        </div>
-                    </div>
-
-                    <!-- Value Proposition -->
-                    <p class="text-brand-gray mb-8">
-                        AI-powered automation that handles inquiries, qualifies leads, and streamlines your operations — without writing a single line of code.
-                    </p>
-
-                    <!-- Sub-services -->
-                    <div class="space-y-4 mb-8">
-                        <!-- AI Chatbot -->
-                        <div class="sub-service flex items-start gap-3 p-3 rounded-xl bg-white/[0.02] hover:bg-white/[0.05] transition-colors">
-                            <div class="w-8 h-8 rounded-lg bg-brand-cyan/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i data-lucide="bot" class="w-4 h-4 text-brand-cyan"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-medium text-sm mb-1">AI Chatbot</h4>
-                                <p class="text-brand-gray text-xs">Customer service bot trained on your business</p>
-                            </div>
-                        </div>
-
-                        <!-- Workflow Automation -->
-                        <div class="sub-service flex items-start gap-3 p-3 rounded-xl bg-white/[0.02] hover:bg-white/[0.05] transition-colors">
-                            <div class="w-8 h-8 rounded-lg bg-brand-cyan/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i data-lucide="workflow" class="w-4 h-4 text-brand-cyan"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-medium text-sm mb-1">Workflow Automation</h4>
-                                <p class="text-brand-gray text-xs">Zapier/Make flow connecting your tools</p>
-                            </div>
-                        </div>
-
-                        <!-- Integration -->
-                        <div class="sub-service flex items-start gap-3 p-3 rounded-xl bg-white/[0.02] hover:bg-white/[0.05] transition-colors">
-                            <div class="w-8 h-8 rounded-lg bg-brand-cyan/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i data-lucide="plug" class="w-4 h-4 text-brand-cyan"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-medium text-sm mb-1">Platform Integration</h4>
-                                <p class="text-brand-gray text-xs">One platform connected (CRM, booking, email, etc.)</p>
-                            </div>
-                        </div>
-
-                        <!-- Analytics -->
-                        <div class="sub-service flex items-start gap-3 p-3 rounded-xl bg-white/[0.02] hover:bg-white/[0.05] transition-colors">
-                            <div class="w-8 h-8 rounded-lg bg-brand-cyan/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i data-lucide="bar-chart-3" class="w-4 h-4 text-brand-cyan"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-medium text-sm mb-1">Performance Dashboard</h4>
-                                <p class="text-brand-gray text-xs">Track conversations, leads, and automation metrics</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Pricing -->
-                    <div class="mb-4">
-                        <p class="text-2xl font-display font-bold gradient-text">Starting from $247</p>
-                        <p class="text-xs text-brand-gray mt-1">Setup complete in 5 business days</p>
-                    </div>
-
-                    <!-- CTA -->
-                    <a href="#contact" class="btn-primary w-full flex items-center justify-center gap-2" onclick="setSubject('AI Automation Setup')">
-                        Get Started
-                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================ -->
-    <!-- PROCESS SECTION                              -->
-    <!-- ============================================ -->
-    <section id="process" class="relative py-32 overflow-hidden">
-        <div class="w-full px-4 sm:px-6 lg:px-12 xl:px-20">
-            <!-- Section Header -->
-            <div class="text-center max-w-3xl mx-auto mb-20">
-                <p class="section-label mb-4 reveal">How It Works</p>
-                <h2 class="font-display font-bold text-4xl sm:text-5xl lg:text-6xl mb-6 reveal">
-                    From Brief to <span class="gradient-text">Launch</span><br>in 4 Steps
-                </h2>
-                <p class="text-brand-gray text-lg reveal">
-                    A streamlined process designed for busy founders. No endless meetings, no scope creep.
-                </p>
-            </div>
-
-            <!-- Process Steps -->
-            <div class="max-w-5xl mx-auto">
-                <div class="relative">
-                    <!-- Connection Line (Desktop) -->
-                    <div class="hidden lg:block absolute top-1/2 left-0 w-full h-0.5 -translate-y-1/2">
-                        <div class="w-full h-full bg-gradient-to-r from-brand-cyan via-brand-blue to-brand-cyan opacity-30"></div>
-                    </div>
-
-                    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                        <!-- Step 1 -->
-                        <div class="process-step relative reveal">
-                            <div class="process-node w-16 h-16 rounded-full bg-gradient-brand flex items-center justify-center mx-auto mb-6 relative z-10">
-                                <span class="font-display font-bold text-xl text-black">01</span>
-                            </div>
-                            <div class="text-center">
-                                <h3 class="font-display font-bold text-xl mb-2">Pick Your Package</h3>
-                                <p class="text-brand-cyan text-sm mb-3">5 minutes</p>
-                                <p class="text-brand-gray text-sm">
-                                    Choose Brand & Web or AI Automation Setup based on your immediate need.
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- Step 2 -->
-                        <div class="process-step relative reveal">
-                            <div class="process-node w-16 h-16 rounded-full bg-gradient-brand flex items-center justify-center mx-auto mb-6 relative z-10">
-                                <span class="font-display font-bold text-xl text-black">02</span>
-                            </div>
-                            <div class="text-center">
-                                <h3 class="font-display font-bold text-xl mb-2">Send Your Brief</h3>
-                                <p class="text-brand-cyan text-sm mb-3">10 min questionnaire</p>
-                                <p class="text-brand-gray text-sm">
-                                    Fill out our focused brief so we understand your business, goals, and style.
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- Step 3 -->
-                        <div class="process-step relative reveal">
-                            <div class="process-node w-16 h-16 rounded-full bg-gradient-brand flex items-center justify-center mx-auto mb-6 relative z-10">
-                                <span class="font-display font-bold text-xl text-black">03</span>
-                            </div>
-                            <div class="text-center">
-                                <h3 class="font-display font-bold text-xl mb-2">We Build</h3>
-                                <p class="text-brand-cyan text-sm mb-3">1-2 weeks</p>
-                                <p class="text-brand-gray text-sm">
-                                    Your project enters focused production. One revision round included.
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- Step 4 -->
-                        <div class="process-step relative reveal">
-                            <div class="process-node w-16 h-16 rounded-full bg-gradient-brand flex items-center justify-center mx-auto mb-6 relative z-10">
-                                <span class="font-display font-bold text-xl text-black">04</span>
-                            </div>
-                            <div class="text-center">
-                                <h3 class="font-display font-bold text-xl mb-2">Launch in 2 Weeks</h3>
-                                <p class="text-brand-cyan text-sm mb-3">Site live or bot running</p>
-                                <p class="text-brand-gray text-sm">
-                                    Your site goes live or your AI automation starts handling inquiries.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================ -->
-    <!-- RESULTS WE DELIVER SECTION                   -->
-    <!-- ============================================ -->
-    <section id="results" class="relative py-32 overflow-hidden">
-        <div class="w-full px-4 sm:px-6 lg:px-12 xl:px-20">
-            <!-- Section Header -->
-            <div class="text-center max-w-3xl mx-auto mb-20">
-                <p class="section-label mb-4 reveal">Results</p>
-                <h2 class="font-display font-bold text-4xl sm:text-5xl lg:text-6xl mb-6 reveal">
-                    What We <span class="gradient-text">Deliver</span>
-                </h2>
-                <p class="text-brand-gray text-lg reveal">
-                    Real outcomes from our productized packages. No fluff, no fake case studies.
-                </p>
-            </div>
-
-            <!-- Results Grid -->
-            <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-                <!-- Result 1 -->
-                <div class="result-card glass-card p-8 reveal hover-lift">
-                    <div class="w-12 h-12 rounded-xl bg-gradient-brand flex items-center justify-center mb-6">
-                        <i data-lucide="globe" class="w-6 h-6 text-black"></i>
-                    </div>
-                    <h3 class="font-display font-bold text-xl mb-3">Custom Webflow Site Live in 2 Weeks</h3>
-                    <p class="text-brand-gray">
-                        From brief to launch — a fully custom, responsive website built in Webflow with your branding, content, and CMS ready to go.
-                    </p>
-                </div>
-
-                <!-- Result 2 -->
-                <div class="result-card glass-card p-8 reveal hover-lift">
-                    <div class="w-12 h-12 rounded-xl bg-gradient-brand flex items-center justify-center mb-6">
-                        <i data-lucide="target" class="w-6 h-6 text-black"></i>
-                    </div>
-                    <h3 class="font-display font-bold text-xl mb-3">Brand Identity + Meta Ad Setup — First Campaign Running in 10 Days</h3>
-                    <p class="text-brand-gray">
-                        Logo, colors, guidelines, and a live Meta ad campaign bringing your first paid traffic while your site is being built.
-                    </p>
-                </div>
-
-                <!-- Result 3 -->
-                <div class="result-card glass-card p-8 reveal hover-lift">
-                    <div class="w-12 h-12 rounded-xl bg-gradient-brand flex items-center justify-center mb-6">
-                        <i data-lucide="bot" class="w-6 h-6 text-black"></i>
-                    </div>
-                    <h3 class="font-display font-bold text-xl mb-3">AI Chatbot Handling 200+ Weekly Inquiries — Zero Code Required</h3>
-                    <p class="text-brand-gray">
-                        A trained AI chatbot answering questions, qualifying leads, and booking appointments 24/7 without any engineering.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================ -->
-    <!-- SELECTED WORK SECTION                        -->
-    <!-- ============================================ -->
-    <section id="work" class="relative py-32 overflow-hidden">
-        <div class="w-full px-4 sm:px-6 lg:px-12 xl:px-20">
-            <!-- Section Header -->
-            <div class="grid lg:grid-cols-2 gap-8 items-end mb-16">
-                <div>
-                    <p class="section-label mb-4 reveal">Selected Work</p>
-                    <h2 class="font-display font-bold text-4xl sm:text-5xl lg:text-6xl reveal">
-                        Projects That<br><span class="gradient-text">Performed</span>
-                    </h2>
-                </div>
-                <p class="text-brand-gray text-lg reveal">
-                    Example work across the project types we specialize in. Your project could be next.
-                </p>
-            </div>
-
-            <!-- Projects -->
-            <div class="space-y-8">
-                <!-- Project 1: Local Service Website -->
-                <div class="project-card glass-card overflow-hidden reveal hover-lift">
-                    <div class="grid lg:grid-cols-2">
-                        <div class="relative h-64 lg:h-auto">
-                            <img src="images/mockup-lumina.jpg" alt="Example: Local Service Website" class="w-full h-full object-cover">
-                            <div class="absolute inset-0 project-overlay"></div>
-                            <div class="absolute top-4 left-4 tag">Example</div>
-                        </div>
-                        <div class="p-8 lg:p-12 flex flex-col justify-center">
-                            <p class="text-brand-cyan text-sm font-medium mb-2">Web Design & Branding</p>
-                            <h3 class="font-display font-bold text-3xl mb-4">Example: Local Service Website</h3>
-                            <p class="text-brand-gray mb-6">
-                                A clean, trust-building website for a yoga studio — class schedules, instructor profiles, and online booking. Designed to convert visitors into members.
-                            </p>
-                            <div class="flex items-center gap-4">
-                                <div class="flex items-center gap-2">
-                                    <span class="font-display font-bold text-3xl gradient-text">3.2x</span>
-                                    <span class="text-sm text-brand-gray">More<br>Bookings</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 2: SaaS Dashboard UI -->
-                <div class="project-card glass-card overflow-hidden reveal hover-lift">
-                    <div class="grid lg:grid-cols-2">
-                        <div class="p-8 lg:p-12 flex flex-col justify-center order-2 lg:order-1">
-                            <p class="text-brand-cyan text-sm font-medium mb-2">SaaS UI Design</p>
-                            <h3 class="font-display font-bold text-3xl mb-4">Example: SaaS Dashboard UI</h3>
-                            <p class="text-brand-gray mb-6">
-                                An analytics dashboard for a B2B tools platform — clean data visualization, intuitive navigation, and a frictionless onboarding flow that reduces churn.
-                            </p>
-                            <div class="flex items-center gap-4">
-                                <div class="flex items-center gap-2">
-                                    <span class="font-display font-bold text-3xl gradient-text">150%</span>
-                                    <span class="text-sm text-brand-gray">Feature<br>Adoption</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="relative h-64 lg:h-auto order-1 lg:order-2">
-                            <img src="images/mockup-techflow.jpg" alt="Example: SaaS Dashboard UI" class="w-full h-full object-cover">
-                            <div class="absolute inset-0 project-overlay"></div>
-                            <div class="absolute top-4 right-4 tag">Example</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 3: E-commerce Brand Launch -->
-                <div class="project-card glass-card overflow-hidden reveal hover-lift">
-                    <div class="grid lg:grid-cols-2">
-                        <div class="relative h-64 lg:h-auto">
-                            <img src="images/mockup-artisan.jpg" alt="Example: E-commerce Brand Launch" class="w-full h-full object-cover">
-                            <div class="absolute inset-0 project-overlay"></div>
-                            <div class="absolute top-4 left-4 tag">Example</div>
-                        </div>
-                        <div class="p-8 lg:p-12 flex flex-col justify-center">
-                            <p class="text-brand-cyan text-sm font-medium mb-2">E-commerce & Branding</p>
-                            <h3 class="font-display font-bold text-3xl mb-4">Example: E-commerce Brand Launch</h3>
-                            <p class="text-brand-gray mb-6">
-                                A product-focused store launch with cohesive branding, high-converting product pages, and integrated payment flow. Built to sell from day one.
-                            </p>
-                            <div class="flex items-center gap-4">
-                                <div class="flex items-center gap-2">
-                                    <span class="font-display font-bold text-3xl gradient-text">60%</span>
-                                    <span class="text-sm text-brand-gray">Faster<br>Time-to-Market</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- ============================================ -->
-    <!-- TESTIMONIALS SECTION                         -->
-    <!-- ============================================ -->
-    <section id="testimonials" class="relative py-32 overflow-hidden">
-        <div class="w-full px-4 sm:px-6 lg:px-12 xl:px-20">
-            <div class="text-center max-w-3xl mx-auto mb-20">
-                <p class="section-label mb-4 reveal">Social Proof</p>
-                <h2 class="font-display font-bold text-4xl sm:text-5xl lg:text-6xl mb-6 reveal">
-                    Trusted by <span class="gradient-text">Founders</span>
-                </h2>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-                <div class="glass-card p-8 reveal hover-lift">
-                    <div class="flex items-center gap-1 mb-4">
-                        <i data-lucide="star" class="w-4 h-4 text-brand-cyan fill-brand-cyan"></i>
-                        <i data-lucide="star" class="w-4 h-4 text-brand-cyan fill-brand-cyan"></i>
-                        <i data-lucide="star" class="w-4 h-4 text-brand-cyan fill-brand-cyan"></i>
-                        <i data-lucide="star" class="w-4 h-4 text-brand-cyan fill-brand-cyan"></i>
-                        <i data-lucide="star" class="w-4 h-4 text-brand-cyan fill-brand-cyan"></i>
-                    </div>
-                    <p class="text-brand-gray mb-6 leading-relaxed">"RielArt delivered our entire brand and Webflow site in 8 days. The process was shockingly simple — filled a brief, got a draft, one round of tweaks, and we were live. Best investment we made pre-launch."</p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-gradient-brand flex items-center justify-center text-black font-bold text-sm">JD</div>
-                        <div>
-                            <p class="font-medium text-sm">Jordan D.</p>
-                            <p class="text-brand-gray text-xs">SaaS Founder, Toronto</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="glass-card p-8 reveal hover-lift">
-                    <div class="flex items-center gap-1 mb-4">
-                        <i data-lucide="star" class="w-4 h-4 text-brand-cyan fill-brand-cyan"></i>
-                        <i data-lucide="star" class="w-4 h-4 text-brand-cyan fill-brand-cyan"></i>
-                        <i data-lucide="star" class="w-4 h-4 text-brand-cyan fill-brand-cyan"></i>
-                        <i data-lucide="star" class="w-4 h-4 text-brand-cyan fill-brand-cyan"></i>
-                        <i data-lucide="star" class="w-4 h-4 text-brand-cyan fill-brand-cyan"></i>
-                    </div>
-                    <p class="text-brand-gray mb-6 leading-relaxed">"The AI chatbot handles 90% of our inbound questions now. We went from spending 2 hours daily on DMs to focusing on actual sales calls. Setup took 6 days, zero coding required."</p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-gradient-brand flex items-center justify-center text-black font-bold text-sm">MK</div>
-                        <div>
-                            <p class="font-medium text-sm">Maria K.</p>
-                            <p class="text-brand-gray text-xs">E-commerce Owner, Ontario</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-<!-- ============================================ -->
-<!-- BLOG SECTION                                 -->
-<!-- ============================================ -->
-<section id="blog" class="relative py-32 overflow-hidden">
-    <div class="w-full px-4 sm:px-6 lg:px-12 xl:px-20">
-        <!-- Section Header -->
-        <div class="text-center max-w-3xl mx-auto mb-20">
-            <p class="section-label mb-4 reveal">Blog</p>
-            <h2 class="font-display font-bold text-4xl sm:text-5xl lg:text-6xl mb-6 reveal">
-                Latest <span class="gradient-text">Thinking</span>
-            </h2>
-            <p class="text-brand-gray text-lg reveal">
-                Practical insights for small and medium business owners building brands, websites, and AI systems that actually work.
-            </p>
-        </div>
-
-        <!-- Blog Grid -->
-        <div class="blog-grid max-w-6xl mx-auto">
-            <!-- Card 1 -->
-            <a href="blog/webflow-vs-wordpress-startups/" class="blog-card reveal hover-lift">
-                <span class="blog-tag">Web Design</span>
-                <h3 class="font-display font-bold text-xl mb-3">Webflow vs WordPress: Which One Should Toronto Startups Choose?</h3>
-                <p class="text-brand-gray text-sm mb-4 flex-grow">Speed, flexibility, and long-term maintenance — here's how to pick the right platform for your stage.</p>
-                <span class="blog-cta">Read More →</span>
-            </a>
-            <!-- Card 2 -->
-            <a href="blog/ai-chatbot-small-business/" class="blog-card reveal hover-lift">
-                <span class="blog-tag">AI Automation</span>
-                <h3 class="font-display font-bold text-xl mb-3">How Small Businesses Can Implement AI Chatbots Without Code</h3>
-                <p class="text-brand-gray text-sm mb-4 flex-grow">No-code tools and simple workflows that let you automate customer support in under a week.</p>
-                <span class="blog-cta">Read More →</span>
-            </a>
-            <!-- Card 3 -->
-            <a href="blog/brand-identity-mistakes/" class="blog-card reveal hover-lift">
-                <span class="blog-tag">Brand Strategy</span>
-                <h3 class="font-display font-bold text-xl mb-3">3 Brand Identity Mistakes That Kill Credibility</h3>
-                <p class="text-brand-gray text-sm mb-4 flex-grow">Inconsistent visuals, vague messaging, and copying competitors — here's how to avoid them.</p>
-                <span class="blog-cta">Read More →</span>
-            </a>
-        </div>
+  </div>
+</header>
+<div class="mobile-panel" data-mobile-panel>
+  <a href="/#packages">Packages</a><a href="/#process">Process</a><a href="/#work">Work</a><a href="/blog/">Insights</a><a href="/#faq">FAQ</a><a href="/#contact">Contact</a>
+  <a class="btn btn-primary" href="/?contact=call#contact">Book Free Audit</a>
+</div>
+<main id="main-content">
+<section class="hero section-pad-sm">
+  <div class="container-wide">
+    <div class="hero-shell">
+      <div class="hero-content">
+        <img class="hero-logo" src="/images/logo.png" alt="RielArt logo">
+        <span class="eyebrow eyebrow-dark">Fixed-scope brand, web + AI</span>
+        <h1>Launch a sharper brand.<br><span class="marker">Automate what slows you down.</span></h1>
+        <p class="hero-lead">Brand identity, Webflow websites, and practical AI automation for small and growing businesses — delivered with a clear scope, timeline, and price.</p>
+        <div class="hero-actions"><a class="btn btn-light" href="#packages">Explore Packages <span aria-hidden="true">→</span></a><a class="btn btn-ghost-light" href="#contact" data-contact-target="call">Book a Free Audit</a></div>
+        <div class="hero-proof"><span>1–2 week delivery</span><span>Fixed-scope packages</span><span>Founder-led</span></div>
+      </div>
+      <div class="hero-stage" aria-label="RielArt digital systems preview">
+        <div class="stage-float float-one"><small>Qualified leads</small><strong>+28.4%</strong></div>
+        <div class="stage-browser"><div class="browser-bar"><span></span><span></span><span></span><small>rielart.com / launch system</small></div><div class="stage-screen"><div class="stage-sidebar"><b>RIELART</b><i></i><i></i><i></i><i></i></div><div class="stage-main"><div class="stage-stats"><div class="stage-stat"><small>CONVERSIONS</small><strong>3,843</strong></div><div class="stage-stat"><small>AUTOMATIONS</small><strong>12</strong></div><div class="stage-stat"><small>HOURS SAVED</small><strong>15+</strong></div></div><div class="stage-chart"><div class="chart-grid"></div><div class="chart-line"></div></div></div></div></div>
+        <div class="stage-float float-two"><small>System status</small><strong>Live & running</strong></div>
+      </div>
     </div>
+    <div class="stat-strip reveal"><div class="stat-box"><strong>1–2 weeks</strong><span>Typical delivery</span></div><div class="stat-box"><strong>Fixed scope</strong><span>No surprise deliverables</span></div><div class="stat-box"><strong>Toronto</strong><span>Remote-friendly</span></div></div>
+  </div>
 </section>
 
-    <!-- ============================================ -->
-    <!-- FAQ SECTION                                  -->
-    <!-- ============================================ -->
-    <section id="faq" class="relative py-32 overflow-hidden">
-        <div class="w-full px-4 sm:px-6 lg:px-12 xl:px-20">
-            <!-- Section Header -->
-            <div class="text-center max-w-3xl mx-auto mb-20">
-                <p class="section-label mb-4 reveal">FAQ</p>
-                <h2 class="font-display font-bold text-4xl sm:text-5xl lg:text-6xl mb-6 reveal">
-                    Questions? <span class="gradient-text">Answered.</span>
-                </h2>
-            </div>
+<section class="section" id="paths"><div class="container">
+  <div class="center-heading reveal"><span class="eyebrow">Choose your path</span><h2>Start with what your business needs now.</h2><p class="lead">One focused package, a defined outcome, and a straightforward route to launch.</p></div>
+  <div class="path-grid">
+    <article class="path-card reveal"><span class="path-index">01 · STARTING OUT</span><h3>Build credibility from day one.</h3><p>Create the brand and website foundation customers need to understand and trust your business.</p><a class="text-link" href="#brand-web">Brand & Web Package →</a></article>
+    <article class="path-card reveal"><span class="path-index">02 · READY TO AUTOMATE</span><h3>Turn repetitive work into a system.</h3><p>Add practical AI and workflow automation around the questions, leads, and tasks you handle repeatedly.</p><a class="text-link" href="#ai-automation">AI Automation Setup →</a></article>
+    <article class="path-card reveal"><span class="path-index">03 · NEED BOTH</span><h3>Connect the customer experience end to end.</h3><p>Launch your brand and site first, then connect automation behind it — or run both workstreams together.</p><a class="text-link" href="#contact" data-contact-target="call">Plan a bundle →</a></article>
+  </div>
+</div></section>
 
-            <!-- FAQ Items -->
-            <div class="max-w-3xl mx-auto space-y-4">
-                <!-- FAQ 1 -->
-                <div class="faq-item glass-card p-6 reveal">
-                    <button class="faq-trigger w-full flex items-center justify-between text-left" aria-expanded="false">
-                        <span class="font-display font-bold text-lg pr-4">What's included in each package?</span>
-                        <i data-lucide="plus" class="faq-icon w-5 h-5 text-brand-cyan flex-shrink-0 transition-transform"></i>
-                    </button>
-                    <div class="faq-content hidden mt-4 text-brand-gray">
-                        <p>Each package has a fixed scope with clear deliverables. <strong>Brand & Web Package</strong> includes logo, color palette, typography, a custom Webflow site (up to 5 pages), Meta Pixel setup, and a 30-min Webflow training. <strong>AI Automation Setup</strong> includes an AI chatbot trained on your business, one Zapier/Make workflow, integration with one platform (CRM, booking, or email), and a performance dashboard. No hidden costs, no scope creep.</p>
-                    </div>
-                </div>
+<section class="section section-soft" id="packages"><div class="container">
+  <div class="center-heading reveal"><span class="eyebrow">Focused packages</span><h2>Two ways to move your business forward.</h2><p class="lead">Clear deliverables, practical timelines, and a defined starting point.</p></div>
+  <div class="feature-duo">
+    <article class="feature-panel feature-panel-light reveal" id="brand-web">
+      <div class="feature-topline"><span class="feature-number">01</span><span class="feature-kicker">Brand & Web</span></div>
+      <h3>Make your business easier to recognize — and easier to trust.</h3>
+      <p>A complete visual and website foundation designed to communicate clearly, look professional, and support your next stage of growth.</p>
+      <div class="package-meta"><div class="package-price"><strong>$497</strong> <span>CAD · starting from</span></div><div class="package-timing">Typical delivery<br>1–2 weeks</div></div>
+      <ul class="deliverable-list">
+        <li><div><strong>Brand identity</strong><span>Logo direction, colour palette, and typography guidance.</span></div></li>
+        <li><div><strong>Responsive Webflow site</strong><span>Custom customer-facing website, CMS-ready and optimized for mobile.</span></div></li>
+        <li><div><strong>Search and analytics setup</strong><span>Core on-page SEO, tracking, and conversion foundations.</span></div></li>
+        <li><div><strong>Editor walkthrough</strong><span>A focused handoff so your team can confidently manage updates.</span></div></li>
+      </ul>
+      <a class="btn btn-primary" href="#contact" data-contact-target="brief">Start a Brand & Web Project →</a>
+    </article>
+    <article class="feature-panel feature-panel-dark reveal" id="ai-automation">
+      <div class="feature-topline"><span class="feature-number">02</span><span class="feature-kicker">AI Automation</span></div>
+      <h3>Reduce repetitive work without adding unnecessary complexity.</h3>
+      <p>Focused automation built around the tasks your team repeats every day, from customer questions to lead routing and reporting.</p>
+      <div class="package-meta"><div class="package-price"><strong>$247</strong> <span>CAD · starting from</span></div><div class="package-timing">Typical delivery<br>1–2 weeks</div></div>
+      <ul class="deliverable-list">
+        <li><div><strong>AI chatbot or FAQ system</strong><span>Trained on your approved business information and common questions.</span></div></li>
+        <li><div><strong>One workflow automation</strong><span>A practical Zapier, Make, or platform-native workflow.</span></div></li>
+        <li><div><strong>One platform integration</strong><span>Connect a CRM, booking platform, email system, or another core tool.</span></div></li>
+        <li><div><strong>Performance visibility</strong><span>Simple reporting to understand usage, leads, and handoffs.</span></div></li>
+      </ul>
+      <a class="btn btn-light" href="#contact" data-contact-target="brief">Start an Automation Project →</a>
+    </article>
+  </div>
+</div></section>
 
-                <!-- FAQ 2 -->
-                <div class="faq-item glass-card p-6 reveal">
-                    <button class="faq-trigger w-full flex items-center justify-between text-left" aria-expanded="false">
-                        <span class="font-display font-bold text-lg pr-4">How long does it really take?</span>
-                        <i data-lucide="plus" class="faq-icon w-5 h-5 text-brand-cyan flex-shrink-0 transition-transform"></i>
-                    </button>
-                    <div class="faq-content hidden mt-4 text-brand-gray">
-                        <p>Brand & Web Package typically takes <strong>1 week</strong> from brief to launch. AI Automation Setup takes <strong>2 weeks</strong> due to chatbot training and workflow testing. If you need both, we can run them in parallel or sequence them — book a call and we'll map out the timeline.</p>
-                    </div>
-                </div>
+<section class="section" id="process"><div class="container">
+  <div class="split-heading reveal"><div><span class="eyebrow">How it works</span><h2>A clear path from brief to launch.</h2></div><p>Designed for busy founders who need momentum without endless calls, shifting scope, or unclear handoffs.</p></div>
+  <div class="process-grid">
+    <article class="process-card reveal"><span class="process-number">01</span><h3>Choose</h3><p>Select the package closest to your immediate goal.</p><small>About 5 minutes</small></article>
+    <article class="process-card reveal"><span class="process-number">02</span><h3>Brief</h3><p>Share your business, goals, tools, and preferences through a focused questionnaire.</p><small>About 10 minutes</small></article>
+    <article class="process-card reveal"><span class="process-number">03</span><h3>Build</h3><p>Your project enters focused production with one structured revision round included.</p><small>1–2 weeks</small></article>
+    <article class="process-card reveal"><span class="process-number">04</span><h3>Launch</h3><p>Your website goes live or your automation starts working with a clear handoff.</p><small>Ready to use</small></article>
+  </div>
+</div></section>
 
-                <!-- FAQ 3 -->
-                <div class="faq-item glass-card p-6 reveal">
-                    <button class="faq-trigger w-full flex items-center justify-between text-left" aria-expanded="false">
-                        <span class="font-display font-bold text-lg pr-4">What if I need revisions?</span>
-                        <i data-lucide="plus" class="faq-icon w-5 h-5 text-brand-cyan flex-shrink-0 transition-transform"></i>
-                    </button>
-                    <div class="faq-content hidden mt-4 text-brand-gray">
-                        <p>Each package includes <strong>one round of revisions</strong> after the initial delivery. We'll present our work, you provide feedback, and we refine. Additional revision rounds are available at an hourly rate if needed. Most clients don't need them — our brief process is designed to get it right the first time.</p>
-                    </div>
-                </div>
+<section class="section section-soft" id="outcomes"><div class="container">
+  <div class="center-heading reveal"><span class="eyebrow">What we deliver</span><h2>Useful systems, not decorative deliverables.</h2><p class="lead">Every project is designed around a concrete business outcome.</p></div>
+  <div class="outcomes-grid">
+    <article class="outcome-card reveal"><span class="outcome-icon">W</span><h3>A polished website ready to represent the business.</h3><p>Responsive design, clear messaging, conversion paths, and an organized handoff.</p><strong>Brand + customer experience</strong></article>
+    <article class="outcome-card reveal"><span class="outcome-icon">A</span><h3>A practical automation working behind the scenes.</h3><p>Connect repeated tasks, customer questions, or lead workflows without unnecessary technical overhead.</p><strong>Operations + response speed</strong></article>
+    <article class="outcome-card reveal"><span class="outcome-icon">D</span><h3>A foundation your team can continue using.</h3><p>Documentation, ownership, and tools selected around your actual day-to-day workflow.</p><strong>Clarity + maintainability</strong></article>
+  </div>
+</div></section>
 
-                <!-- FAQ 4 -->
-                <div class="faq-item glass-card p-6 reveal">
-                    <button class="faq-trigger w-full flex items-center justify-between text-left" aria-expanded="false">
-                        <span class="font-display font-bold text-lg pr-4">Can I get both packages together?</span>
-                        <i data-lucide="plus" class="faq-icon w-5 h-5 text-brand-cyan flex-shrink-0 transition-transform"></i>
-                    </button>
-                    <div class="faq-content hidden mt-4 text-brand-gray">
-                        <p>Absolutely. Many clients start with Brand & Web and add AI Automation once their site is live. We offer a <strong>bundle discount</strong> when you commit to both upfront. <a href="#contact" class="text-brand-cyan hover:underline" onclick="setSubject('Bundle Inquiry')">Book a call</a> and we'll put together a custom proposal.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<section class="section" id="work"><div class="container">
+  <div class="split-heading reveal"><div><span class="eyebrow">Project directions</span><h2>Built for different stages of growth.</h2></div><p>Examples of the project types RielArt is structured to deliver. Final scope and content are tailored to the business.</p></div>
+  <div class="work-grid">
+    <article class="work-card reveal"><div class="work-visual"><div class="mock-site"><span></span><span></span><span></span><div></div></div></div><div class="work-body"><span class="work-tag">Local service business</span><h3>Trust-building website and booking journey.</h3><p>Clear services, social proof, location information, and calls to action organized around customer intent.</p></div></article>
+    <article class="work-card reveal"><div class="work-visual"><div class="mock-dashboard"><aside></aside><main><i></i><b></b><b></b><b></b><b></b></main></div></div><div class="work-body"><span class="work-tag">Software & B2B</span><h3>Product website and dashboard direction.</h3><p>Structured messaging, product storytelling, and interfaces that make complex information easier to understand.</p></div></article>
+    <article class="work-card reveal"><div class="work-visual"><div class="mock-commerce"><div class="mock-product"></div><aside><span></span><span></span><span></span></aside></div></div><div class="work-body"><span class="work-tag">E-commerce</span><h3>Brand launch and conversion-ready storefront.</h3><p>A cohesive visual system paired with product pages and purchase flows designed for clarity.</p></div></article>
+  </div>
+</div></section>
 
+<section class="section section-soft"><div class="container">
+  <div class="value-grid">
+    <article class="value-main reveal"><span class="eyebrow eyebrow-dark">Why RielArt</span><h2>Small enough to stay focused. Technical enough to build it properly.</h2><p>RielArt combines digital strategy, visual design, and practical systems thinking so the customer-facing experience and the work behind it support the same goal.</p><div class="value-badges"><span>Founder-led</span><span>Clear ownership</span><span>Remote-friendly</span><span>Practical handoff</span></div></article>
+    <div class="value-cards"><article class="value-card reveal"><span>01</span><h3>A defined scope before production starts.</h3><p>You know what is included, what the project is solving, and what completion looks like.</p></article><article class="value-card reveal"><span>02</span><h3>Technology selected around the business.</h3><p>Tools and workflows are chosen for fit and maintainability—not novelty.</p></article><article class="value-card reveal"><span>03</span><h3>One connected visual family.</h3><p>Your brand, website, and automation experience feel considered rather than assembled separately.</p></article></div>
+  </div>
+</div></section>
 
+<section class="section" id="insights"><div class="container">
+  <div class="split-heading reveal"><div><span class="eyebrow">Latest thinking</span><h2>Practical ideas for digital growth.</h2></div><p>Guidance on brand strategy, websites, and approachable AI systems for growing businesses.</p></div>
+  <div class="blog-grid">
+    <a class="blog-card reveal" href="/blog/webflow-vs-wordpress-startups/"><div class="blog-meta"><span class="blog-category">Web Strategy</span><span>6 min</span></div><h3>Webflow vs WordPress: Which One Should Toronto Startups Choose?</h3><p>Speed, flexibility, and long-term maintenance — how to choose for your stage.</p><span class="text-link">Read article →</span></a>
+    <a class="blog-card reveal" href="/blog/ai-chatbot-small-business/"><div class="blog-meta"><span class="blog-category">AI Automation</span><span>6 min</span></div><h3>How Small Businesses Can Implement AI Chatbots Without Code</h3><p>A practical implementation roadmap for customer questions and lead capture.</p><span class="text-link">Read article →</span></a>
+    <a class="blog-card reveal" href="/blog/brand-identity-mistakes/"><div class="blog-meta"><span class="blog-category">Brand Strategy</span><span>7 min</span></div><h3>3 Brand Identity Mistakes That Kill Credibility</h3><p>Where inconsistency and vague messaging quietly weaken customer trust.</p><span class="text-link">Read article →</span></a>
+  </div>
+</div></section>
 
-    <!-- ============================================ -->
-    <!-- CONTACT / CTA SECTION                        -->
-    <!-- ============================================ -->
-    <section id="contact" class="relative py-32 overflow-hidden">
-        <!-- Background -->
-        <div class="absolute inset-0 bg-gradient-radial"></div>
+<section class="section section-soft" id="faq"><div class="container">
+  <div class="center-heading reveal"><span class="eyebrow">FAQ</span><h2>Questions, answered clearly.</h2></div>
+  <div class="faq-list reveal">
+    <article class="faq-item" data-faq><button class="faq-question" aria-expanded="false">What is included in each package?<span>+</span></button><div class="faq-answer"><div><p>The Brand & Web Package covers a focused visual identity and responsive Webflow website, including core search, analytics, and handoff foundations. The AI Automation Setup covers one chatbot or FAQ system, one workflow, one platform integration, and basic performance visibility. Exact scope is confirmed before work starts.</p></div></div></article>
+    <article class="faq-item" data-faq><button class="faq-question" aria-expanded="false">How long does delivery take?<span>+</span></button><div class="faq-answer"><div><p>Most focused projects are planned for one to two weeks after the brief and required materials are received. Complexity, feedback timing, and integrations can affect the final schedule, which is confirmed before production.</p></div></div></article>
+    <article class="faq-item" data-faq><button class="faq-question" aria-expanded="false">Are revisions included?<span>+</span></button><div class="faq-answer"><div><p>Yes. Each package includes one organized revision round following the first delivery. Additional rounds or new requirements can be scoped separately so the original project remains predictable.</p></div></div></article>
+    <article class="faq-item" data-faq><button class="faq-question" aria-expanded="false">Can the two packages be combined?<span>+</span></button><div class="faq-answer"><div><p>Yes. Brand, web, and automation can be delivered together or sequenced in phases. A free audit call is the best way to map dependencies and confirm whether a bundle makes sense.</p></div></div></article>
+    <article class="faq-item" data-faq><button class="faq-question" aria-expanded="false">Will I own the website and systems?<span>+</span></button><div class="faq-answer"><div><p>Ownership, accounts, platform costs, and handoff details are documented in the project agreement. The goal is to leave you with a system your business can access and continue using.</p></div></div></article>
+  </div>
+</div></section>
 
-        <div class="relative z-10 w-full px-4 sm:px-6 lg:px-12 xl:px-20">
-            <div class="max-w-6xl mx-auto">
-                <!-- Section Header -->
-                <div class="text-center mb-12">
-                    <p class="section-label mb-4 reveal">Get In Touch</p>
-                    <h2 class="font-display font-bold text-4xl sm:text-5xl lg:text-6xl mb-6 reveal">
-                        Ready to <span class="gradient-text">Launch?</span>
-                    </h2>
-                    <p class="text-brand-gray text-lg reveal">
-                        Tell us about your project. We'll get back to you within 1 business day.
-                    </p>
-                </div>
-
-                <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
-                    <!-- Left Side - Contact Info Cards -->
-                    <div class="lg:col-span-2 space-y-6">
-                        <!-- Get in Touch Card -->
-                        <div class="glass-card p-6 reveal">
-                            <h3 class="font-display font-bold text-xl text-white mb-6">Get in Touch</h3>
-                            
-                            <div class="space-y-5">
-                                <div class="flex items-start gap-4">
-                                    <div class="w-10 h-10 rounded-xl bg-gradient-brand flex items-center justify-center flex-shrink-0">
-                                        <i data-lucide="mail" class="w-5 h-5 text-black"></i>
-                                    </div>
-                                    <div>
-                                        <p class="text-sm text-brand-gray">Email</p>
-                                        <p class="font-medium text-white">hello@rielart.com</p>
-                                    </div>
-                                </div>
-                                
-                                <div class="flex items-start gap-4">
-                                    <div class="w-10 h-10 rounded-xl bg-gradient-brand flex items-center justify-center flex-shrink-0">
-                                        <i data-lucide="phone" class="w-5 h-5 text-black"></i>
-                                    </div>
-                                    <div>
-                                        <p class="text-sm text-brand-gray">Phone</p>
-                                        <p class="font-medium text-white">647-906-3547</p>
-                                    </div>
-                                </div>
-                                
-                                <div class="flex items-start gap-4">
-                                    <div class="w-10 h-10 rounded-xl bg-gradient-brand flex items-center justify-center flex-shrink-0">
-                                        <i data-lucide="map-pin" class="w-5 h-5 text-black"></i>
-                                    </div>
-                                    <div>
-                                        <p class="text-sm text-brand-gray">Location</p>
-                                        <p class="font-medium text-white">Toronto, Ontario</p>
-                                    </div>
-                                </div>
-                                
-                                <div class="flex items-start gap-4">
-                                    <div class="w-10 h-10 rounded-xl bg-gradient-brand flex items-center justify-center flex-shrink-0">
-                                        <i data-lucide="clock" class="w-5 h-5 text-black"></i>
-                                    </div>
-                                    <div>
-                                        <p class="text-sm text-brand-gray">Response Time</p>
-                                        <p class="font-medium text-white">Within 24 hours</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Prefer to Talk? Card -->
-                        <div class="glass-card p-6 border border-brand-cyan/20 reveal">
-                            <h3 class="font-display font-bold text-lg text-white mb-3">Prefer to Talk?</h3>
-                            <p class="text-brand-gray text-sm mb-4">Book a free audit call. We'll review your goals and recommend the right package.</p>
-                            <a href="https://calendly.com/gabrielmacovei/free-audit" class="btn-secondary w-full flex items-center justify-center gap-2">
-                                <i data-lucide="calendar" class="w-4 h-4"></i>
-                                Book Free Audit
-                            </a>
-                        </div>
-
-                        <!-- Follow Us Card -->
-                        <div class="glass-card p-6 reveal">
-                            <h3 class="font-display font-bold text-lg text-white mb-4">Follow Us</h3>
-                            <div class="flex gap-3">
-                                <a href="https://www.linkedin.com/in/gabrielmacovei" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-brand-gray hover:text-brand-cyan hover:border-brand-cyan/30 transition-all" aria-label="LinkedIn">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                                    </svg>
-                                </a>
-                                <a href="mailto:hello@rielart.com" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-brand-gray hover:text-brand-cyan hover:border-brand-cyan/30 transition-all" aria-label="Email">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Right Side - Form -->
-                    <div class="lg:col-span-3">
-                        <div class="glass-card p-8 reveal">
-                            <form id="contact-form" action="https://formspree.io/f/xojrdoel" method="POST" class="space-y-6" onsubmit="return handleFormSubmit(event)">
-                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                    <div>
-                                        <label class="block text-sm text-brand-gray mb-2">Your Name *</label>
-                                        <input type="text" name="name" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white input-glow transition-all" placeholder="John Doe">
-                                    </div>
-                                    <div>
-                                        <label class="block text-sm text-brand-gray mb-2">Email *</label>
-                                        <input type="email" name="email" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white input-glow transition-all" placeholder="john@example.com">
-                                    </div>
-                                </div>
-                                
-                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                    <div>
-                                        <label class="block text-sm text-brand-gray mb-2">Business Name</label>
-                                        <input type="text" name="business" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white input-glow transition-all" placeholder="Your Company">
-                                    </div>
-                                    <div>
-                                        <label class="block text-sm text-brand-gray mb-2">Interested In</label>
-                                        <select name="package" id="form-package" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white input-glow transition-all">
-                                            <option value="General Inquiry" class="bg-brand-void">General Inquiry</option>
-                                            <option value="Brand & Web Package" class="bg-brand-void">Brand & Web Package</option>
-                                            <option value="AI Automation Setup" class="bg-brand-void">AI Automation Setup</option>
-                                            <option value="Both Packages" class="bg-brand-void">Both Packages</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                
-                                <input type="hidden" name="subject" id="form-subject" value="General Inquiry">
-                                
-                                <div>
-                                    <label class="block text-sm text-brand-gray mb-2">Tell us about your project</label>
-                                    <textarea name="message" rows="4" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white input-glow transition-all resize-none" placeholder="I'm looking for..."></textarea>
-                                </div>
-                                
-                                <button type="submit" class="btn-primary w-full flex items-center justify-center gap-2" id="submit-btn">
-                                    <span id="btn-text">Send Message</span>
-                                    <i data-lucide="send" class="w-4 h-4" id="btn-icon"></i>
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    </main>
-
-
-
-    <!-- ============================================ -->
-    <!-- FOOTER                                       -->
-    <!-- ============================================ -->
-    <footer class="footer-main relative py-16 overflow-hidden border-t border-white/5">
-        <div class="w-full px-4 sm:px-6 lg:px-12 xl:px-20">
-            <div class="flex flex-col items-center text-center">
-                <!-- Logo -->
-                <a href="#" class="mb-8">
-                    <span class="font-display font-bold text-2xl tracking-tight">Riel<span class="gradient-text">Art</span></span>
-                </a>
-
-                <!-- Navigation Links -->
-                <div class="flex flex-wrap items-center justify-center gap-6 mb-8 text-sm">
-                    <a href="#services" class="footer-link text-brand-gray">Packages</a>
-                    <a href="#process" class="footer-link text-brand-gray">Process</a>
-                    <a href="#faq" class="footer-link text-brand-gray">FAQ</a>
-                    <a href="blog/" class="footer-link text-brand-gray">Blog</a>
-                    <a href="#contact" class="footer-link text-brand-gray">Contact</a>
-                </div>
-
-                <!-- Email -->
-                <a href="mailto:hello@rielart.com" class="text-brand-gray text-sm mb-6 hover:text-brand-cyan transition-colors">hello@rielart.com</a>
-
-                <!-- Social Icons -->
-                <div class="flex items-center justify-center gap-4 mb-6">
-                    <a href="https://www.linkedin.com/in/gabrielmacovei" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-brand-gray hover:text-brand-cyan hover:border-brand-cyan/30 transition-all" aria-label="Visit Gabriel Macovei on LinkedIn (opens in new tab)" title="LinkedIn">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                        </svg>
-                    </a>
-                    <a href="mailto:hello@rielart.com" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-brand-gray hover:text-brand-cyan hover:border-brand-cyan/30 transition-all" aria-label="Email">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                    </a>
-                </div>
-
-                <!-- Legal Links -->
-                <div class="flex items-center gap-4 mb-6 text-sm text-brand-gray">
-                    <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
-                    <span class="text-white/20">|</span>
-                    <a href="terms.html" class="footer-link">Terms & Conditions</a>
-                </div>
-
-                <!-- Gabriel Macovei Company -->
-                <p class="text-brand-gray text-sm mb-2">
-                    A <a href="https://gmacovei.com" class="footer-link">Gabriel Macovei</a> company
-                </p>
-                <div class="flex items-center justify-center gap-3 mb-6 text-sm">
-                    <a href="https://gmacovei.com" class="text-brand-gray/60 hover:text-brand-cyan transition-colors">gmacovei.com</a>
-                    <span class="text-white/10">|</span>
-                    <a href="https://myspotix.com" class="text-brand-gray/60 hover:text-brand-cyan transition-colors">myspotix.com</a>
-                </div>
-
-                <!-- Copyright -->
-                <p class="text-brand-gray text-sm">
-                    &copy; 2026 RielArt. All rights reserved.
-                </p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- ============================================ -->
-    <!-- TOAST NOTIFICATION                           -->
-    <!-- ============================================ -->
-    <div id="toast" class="fixed bottom-8 right-8 glass-card px-6 py-4 transform translate-y-20 opacity-0 transition-all duration-300 z-50">
-        <div class="flex items-center gap-3">
-            <i data-lucide="check-circle" class="w-5 h-5 text-brand-cyan"></i>
-            <span id="toast-message">Message sent successfully!</span>
-        </div>
+<section class="section" id="contact"><div class="container">
+  <div class="center-heading reveal"><span class="eyebrow">Start a project</span><h2>Let’s build something useful.</h2><p class="lead">Send a focused project brief or book a free audit call. You will receive a response within one business day.</p></div>
+  <div class="contact-shell reveal">
+    <div class="contact-intro"><span class="eyebrow eyebrow-dark">RielArt</span><h3>Clear work starts with a clear conversation.</h3><p>Share where the business is today, what feels unclear or repetitive, and what you would like to improve.</p><div class="contact-details"><div class="contact-detail"><small>Email</small><a href="mailto:hello@rielart.com">hello@rielart.com</a></div><div class="contact-detail"><small>Phone</small><a href="tel:+16479063547">647-906-3547</a></div><div class="contact-detail"><small>Location</small><strong>Toronto, Ontario · Remote-friendly</strong></div><div class="contact-detail"><small>Typical response</small><strong>Within one business day</strong></div></div></div>
+    <div class="contact-main"><div class="contact-tabs" role="tablist"><button class="contact-tab active" type="button" data-contact-tab="brief" role="tab" aria-selected="true">Send a brief</button><button class="contact-tab" type="button" data-contact-tab="call" role="tab" aria-selected="false">Book a call</button></div>
+      <div class="contact-panel" data-contact-panel="brief"><form action="https://formspree.io/f/xojrdoel" method="POST" data-contact-form><input type="hidden" name="subject" value="RielArt project inquiry"><div class="form-grid"><div class="field"><label for="name">Name</label><input id="name" name="name" autocomplete="name" required></div><div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required></div><div class="field"><label for="business">Business</label><input id="business" name="business" autocomplete="organization"></div><div class="field"><label for="package">Project type</label><select id="package" name="package"><option>General inquiry</option><option>Brand & Web Package</option><option>AI Automation Setup</option><option>Combined project</option></select></div><div class="field full"><label for="message">What would you like to improve?</label><textarea id="message" name="message" required></textarea></div><div class="field full"><button class="btn btn-primary" type="submit">Send Project Brief →</button></div></div><p class="form-note">By sending this form, you agree that RielArt may use the information provided to respond to your inquiry.</p></form></div>
+      <div class="contact-panel" data-contact-panel="call" hidden><div class="call-card"><span class="call-icon">↗</span><h3>Book a free project audit.</h3><p>Use a short call to review your goals, current website or workflow, and the package that makes the most sense.</p><a class="btn btn-primary" href="https://calendly.com/gabrielmacovei/free-audit" target="_blank" rel="noopener">Open Calendar →</a></div></div>
     </div>
-
-    <script src="script.js"></script>
-</body>
-</html>
+  </div>
+</div></section>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><a class="brand" href="/"><img src="/images/logo.png" alt=""><strong>Riel<span>Art</span></strong></a><p>Fixed-scope brand, web, and AI systems for small and growing businesses.</p></div>
+      <nav class="footer-links" aria-label="Footer navigation"><a href="/#packages">Packages</a><a href="/#process">Process</a><a href="/#work">Work</a><a href="/blog/">Insights</a><a href="/privacy-policy.html">Privacy</a><a href="/terms.html">Terms</a></nav>
+    </div>
+    <div class="footer-bottom"><span>© 2026 RielArt. All rights reserved.</span><span>A <a href="https://gmacovei.com" target="_blank" rel="noopener">Gabriel Macovei</a> company · Toronto, Ontario</span></div>
+  </div>
+</footer>
+<script src="/assets/js/site.js"></script>
+</body></html>

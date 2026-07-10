@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://rielart.com/sitemap.xml
