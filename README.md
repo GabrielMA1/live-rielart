@@ -5,7 +5,7 @@ Static production-ready website files. Deploy the contents of this folder at the
 ## Structure
 - `index.html` — complete business homepage
 - `services/` — service overview
-- `pricing/` — US-dollar pricing, fixed-scope ordering, comparison, and scope notes
+- `pricing/` — US-dollar fixed-scope projects, monthly subscriptions, Stripe placeholders, comparison, and scope notes
 - `portfolio/` — representative project directions
 - `process/` — detailed delivery process
 - `about/` — company and team
@@ -21,7 +21,8 @@ Static production-ready website files. Deploy the contents of this folder at the
 - Responsive layouts and reduced-motion support
 
 ## Important checks before publishing
-- Confirm USD $497 and USD $247 starting prices remain current.
+- Confirm one-time prices (USD $497 and USD $247) and monthly subscription prices (USD $149, $249, $399, and $699) remain current.
+- Confirm the subscription scope, billing terms, cancellation terms, and the note that advertising spend is separate.
 - Confirm the Calendly URL and Formspree endpoint.
 - Replace representative project directions with approved case studies as they become available.
 
@@ -31,10 +32,14 @@ The `_redirects` file covers older legal `.html` paths on compatible hosts. Stat
 
 ## Stripe placeholders
 
-The Pricing page includes an embedded Stripe Payment Links buy-button placeholder for the two fixed-scope services. Replace the following values in `pricing/index.html`:
+The Pricing page includes embedded Stripe Payment Links buy-button placeholders for two fixed-scope services and four recurring monthly subscriptions. Replace the following values in `pricing/index.html`:
 
 - `buy_btn_REPLACE_DIGITAL_FOUNDATION`
 - `buy_btn_REPLACE_AUTOMATION_SETUP`
+- `buy_btn_REPLACE_DIGITAL_PRESENCE_CARE`
+- `buy_btn_REPLACE_AI_AUTOMATION_CARE`
+- `buy_btn_REPLACE_ONLINE_ADS_MANAGEMENT`
+- `buy_btn_REPLACE_GROWTH_SYSTEMS_PARTNER`
 - `pk_test_REPLACE_WITH_YOUR_PUBLISHABLE_KEY`
 
-The custom Connected System intentionally has no direct-order button. Keep `/packages/` as the included redirect to `/pricing/`.
+Use recurring Stripe Payment Links for the four subscription placeholders. The custom Connected System intentionally has no direct-order button. Keep `/packages/` as the included redirect to `/pricing/`.

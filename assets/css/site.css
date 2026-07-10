@@ -45,3 +45,17 @@
 .ra-contact-links{grid-template-columns:1fr!important}
 .ra-contact-links .contact-method span{display:grid;gap:2px}
 .ra-contact-links .contact-method small{color:#b9c8da;font-weight:600}
+
+
+/* 2026 subscription pricing additions */
+.subscription-section{border-block:1px solid var(--line)}
+.subscription-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.subscription-card{position:relative;display:flex;flex-direction:column;min-height:560px;padding:34px}
+.subscription-card h3{font-size:clamp(1.65rem,2.8vw,2.35rem);line-height:1.05;letter-spacing:-.035em;margin:18px 0 0}
+.subscription-price{font-size:2.8rem;line-height:1;font-weight:900;letter-spacing:-.055em;color:var(--text);margin:24px 0 16px}
+.subscription-price span{font-size:1rem;letter-spacing:0;color:var(--muted);margin-left:6px}
+.subscription-card>.muted{color:var(--text-soft);margin:0}
+.subscription-card .pricing-actions{margin-top:auto}
+.subscription-featured{border:2px solid var(--accent);box-shadow:0 22px 65px rgba(37,99,235,.14)}
+.subscription-featured .pricing-badge{top:22px;right:22px}
+@media(max-width:860px){.subscription-grid{grid-template-columns:1fr}.subscription-card{min-height:auto}}
