@@ -1,13 +1,23 @@
-# RielArt redesign
+# rielart.com — business website
 
-Static redesign of rielart.com using the same visual family as gmacovei.com.
+Static website files. Deploy the contents of this folder at the domain root.
 
 ## Structure
-- `index.html` — homepage
-- `assets/css/site.css` — shared light/dark design system
-- `assets/js/site.js` — theme, navigation, FAQ, contact tabs, article filters, and reveal effects
-- `blog/` — insights index and three article pages
-- `privacy-policy.html` and `terms.html` — legal pages
-- `images/` — logo, favicon, and social preview image
+- `index.html` — business homepage
+- `services/` — service overview
+- `packages/` — packages, starting prices, and comparison
+- `portfolio/` — representative project directions
+- `process/` — detailed delivery process
+- `about/` — company and team
+- `contact/` — Formspree inquiry form and lazy Calendly embed
+- `blog/` — insights index and four articles
+- `privacy-policy/`, `terms/` — legal pages
 
-Light mode is the default. The visitor's theme choice is stored locally. No build process is required; upload the directory contents to the web root.
+## Important content checks before publishing
+- Confirm Daniel Patel's role and obtain an approved photo/profile before adding social links.
+- Confirm that CAD $497 and CAD $247 starting prices remain current.
+- Confirm the public phone number and Formspree form endpoint.
+- Replace representative project directions with approved case studies as they become available.
+
+## Redirects
+The `_redirects` file covers the old legal `.html` paths on compatible hosts. Static redirect pages are also included for GitHub Pages compatibility.
