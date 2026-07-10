@@ -43,3 +43,14 @@ The Pricing page includes embedded Stripe Payment Links buy-button placeholders 
 - `pk_test_REPLACE_WITH_YOUR_PUBLISHABLE_KEY`
 
 Use recurring Stripe Payment Links for the four subscription placeholders. The custom Connected System intentionally has no direct-order button. Keep `/packages/` as the included redirect to `/pricing/`.
+
+
+## July 2026 content and UX update
+
+- The homepage hero uses a non-overlapping responsive grid.
+- Homepage pricing cards intentionally omit prices and link to `/pricing/`.
+- The Pricing page includes project and monthly-subscription comparison tables.
+- The Services page includes an Ongoing Management section linked to monthly plans.
+- Contact panels show email and LinkedIn; scheduling remains available in the embedded Book a Call tab.
+- Five original, people-first insight articles were added with Article structured data, canonical URLs, bylines, internal links, and primary-source references.
+- Stripe product IDs and the publishable key remain placeholders in `pricing/index.html`.

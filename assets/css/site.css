@@ -59,3 +59,31 @@
 .subscription-featured{border:2px solid var(--accent);box-shadow:0 22px 65px rgba(37,99,235,.14)}
 .subscription-featured .pricing-badge{top:22px;right:22px}
 @media(max-width:860px){.subscription-grid{grid-template-columns:1fr}.subscription-card{min-height:auto}}
+
+
+/* 2026 v5 UX, subscriptions, services, and content refinements */
+.ra-hero-grid{grid-template-columns:minmax(0,1.12fr) minmax(380px,.88fr);gap:clamp(40px,5vw,76px);align-items:center}
+.ra-hero-copy{min-width:0;max-width:780px}
+.ra-display{font-size:clamp(3.15rem,4.65vw,5.25rem);line-height:.95;max-width:780px}
+.ra-display .hero-line{display:block;white-space:normal}
+.ra-dashboard{width:min(100%,520px);justify-self:end;min-width:0}
+.ra-browser{min-height:410px}
+.ra-home #pricing .pricing-card{min-height:405px;padding:28px}
+.ra-home #pricing .pricing-card .check-list{margin-top:20px}
+.ra-home #pricing .pricing-card .btn{margin-top:auto}
+.ra-contact-links{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:14px}
+.ra-contact-links .contact-method{min-width:0;display:flex;align-items:center;gap:14px}
+.ra-contact-links .contact-method span{min-width:0}.ra-contact-links .contact-method small{overflow-wrap:anywhere}
+.management-service-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.management-service-card{display:flex;flex-direction:column;min-height:420px}
+.management-service-card h3{font-size:clamp(1.55rem,2.4vw,2.15rem);line-height:1.08;letter-spacing:-.035em;margin:18px 0 12px}
+.management-service-card>p{color:var(--text-soft)}
+.management-service-card .check-list{margin-top:auto;padding-top:20px}
+.comparison-subhead{margin:62px 0 26px;max-width:760px}
+.comparison-subhead h3{font-size:clamp(2rem,3.5vw,3.3rem);line-height:1;letter-spacing:-.045em;margin:14px 0 18px}
+.subscription-compare-table th,.subscription-compare-table td{min-width:205px}
+.article-card{height:100%}.blog-grid{align-items:stretch}
+.prose a{font-weight:750;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:1100px){.ra-hero-grid{grid-template-columns:1fr}.ra-dashboard{justify-self:stretch;width:min(100%,720px)}.ra-display{max-width:900px}.ra-home #pricing .pricing-card{min-height:auto}}
+@media(max-width:860px){.management-service-grid{grid-template-columns:1fr}.management-service-card{min-height:auto}.ra-contact-links{grid-template-columns:1fr!important}}
+@media(max-width:720px){.ra-display{font-size:clamp(2.85rem,12vw,4rem)}.ra-browser{min-height:350px}.ra-home #pricing .pricing-card{padding:24px}}
