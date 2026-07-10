@@ -61,3 +61,10 @@ Use recurring Stripe Payment Links for the four subscription placeholders. The c
 - Homepage pricing cards include a consistent gap before the CTA.
 - Homepage and Contact page now use the same contact section and light/dark theme styling.
 - Contact shortcuts are limited to `Email hello@rielart.com` and `Connect on LinkedIn`.
+
+
+## v7 interface refinements
+- Header CTA uses **Reach Out** and opens the message section.
+- Homepage hero uses **View Pricing** and a connected Brand/Web/AI visual.
+- Contact shortcuts are stacked vertically for better readability.
+- Theme icon alignment was normalized across browsers.
