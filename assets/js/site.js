@@ -54,13 +54,18 @@
     });
     panels.forEach(panel => {
       const active = panel.dataset.contactPanel === mode;
+      panel.classList.toggle('active', active);
       panel.hidden = !active;
+      if (active && mode === 'call') {
+        const frame = panel.querySelector('iframe[data-src]');
+        if (frame && !frame.getAttribute('src')) frame.setAttribute('src', frame.dataset.src);
+      }
     });
   };
   tabs.forEach(tab => tab.addEventListener('click', () => activatePanel(tab.dataset.contactTab)));
-  document.querySelectorAll('[data-contact-target]').forEach(link => link.addEventListener('click', () => activatePanel(link.dataset.contactTarget || 'brief')));
+  document.querySelectorAll('[data-contact-target]').forEach(link => link.addEventListener('click', () => activatePanel(link.dataset.contactTarget || 'text')));
   const requested = new URLSearchParams(location.search).get('contact');
-  if (requested === 'brief' || requested === 'call') activatePanel(requested);
+  if (requested === 'text' || requested === 'call') activatePanel(requested);
 
   const observer = 'IntersectionObserver' in window ? new IntersectionObserver(entries => {
     entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
@@ -85,6 +90,8 @@
     updatePosts();
   }));
   search?.addEventListener('input', updatePosts);
+
+  document.querySelectorAll('[data-year]').forEach(el => { el.textContent = String(new Date().getFullYear()); });
 
   const form = document.querySelector('[data-contact-form]');
   form?.addEventListener('submit', () => {
