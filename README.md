@@ -54,3 +54,10 @@ Use recurring Stripe Payment Links for the four subscription placeholders. The c
 - Contact panels show email and LinkedIn; scheduling remains available in the embedded Book a Call tab.
 - Five original, people-first insight articles were added with Article structured data, canonical URLs, bylines, internal links, and primary-source references.
 - Stripe product IDs and the publishable key remain placeholders in `pricing/index.html`.
+
+## v6 layout refinements
+
+- Homepage hero uses three deliberate lines with balanced word counts and responsive no-wrap sizing.
+- Homepage pricing cards include a consistent gap before the CTA.
+- Homepage and Contact page now use the same contact section and light/dark theme styling.
+- Contact shortcuts are limited to `Email hello@rielart.com` and `Connect on LinkedIn`.

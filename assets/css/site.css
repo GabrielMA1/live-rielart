@@ -87,3 +87,66 @@
 @media(max-width:1100px){.ra-hero-grid{grid-template-columns:1fr}.ra-dashboard{justify-self:stretch;width:min(100%,720px)}.ra-display{max-width:900px}.ra-home #pricing .pricing-card{min-height:auto}}
 @media(max-width:860px){.management-service-grid{grid-template-columns:1fr}.management-service-card{min-height:auto}.ra-contact-links{grid-template-columns:1fr!important}}
 @media(max-width:720px){.ra-display{font-size:clamp(2.85rem,12vw,4rem)}.ra-browser{min-height:350px}.ra-home #pricing .pricing-card{padding:24px}}
+
+
+/* 2026 v6 hero, pricing spacing, and unified contact refinements */
+.ra-hero-grid{
+  grid-template-columns:minmax(0,1.3fr) minmax(340px,.7fr);
+  gap:clamp(42px,4.5vw,68px);
+  align-items:center;
+}
+.ra-hero-copy{max-width:780px}
+.ra-display{
+  max-width:none;
+  font-size:clamp(3rem,3.7vw,4.2rem);
+  line-height:.96;
+  letter-spacing:-.055em;
+}
+.ra-display .hero-line{display:block;white-space:nowrap}
+.ra-dashboard{width:min(100%,430px);justify-self:end}
+.ra-home #pricing .pricing-card .check-list{margin-bottom:22px}
+.ra-home #pricing .pricing-card .btn{margin-top:auto}
+.ra-contact-links{
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:14px;
+  margin-top:34px;
+}
+.ra-contact-links .contact-method{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  min-width:0;
+  padding:20px 22px;
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.16);
+  color:#fff;
+}
+.ra-contact-links .contact-method:hover{
+  background:rgba(255,255,255,.11);
+  border-color:rgba(102,160,255,.45);
+}
+.ra-contact-links .contact-method .icon{margin:0;color:#66a0ff}
+.ra-contact-links .contact-method span{
+  display:block;
+  min-width:0;
+  color:#fff;
+  line-height:1.35;
+  overflow-wrap:anywhere;
+}
+.ra-contact-links .contact-method strong{color:#fff;margin-right:.32em}
+.contact-page-main .contact-shell,.contact-shell{isolation:isolate}
+#schedule{scroll-margin-top:calc(var(--header) + 24px)}
+@media(max-width:1180px){
+  .ra-hero-grid{grid-template-columns:1fr}
+  .ra-dashboard{width:min(100%,720px);justify-self:stretch}
+  .ra-display{font-size:clamp(2.7rem,6.2vw,4.35rem)}
+}
+@media(max-width:860px){
+  .ra-contact-links{grid-template-columns:1fr!important}
+}
+@media(max-width:720px){
+  .ra-display{font-size:clamp(1.35rem,6.8vw,2.75rem);line-height:1.02;letter-spacing:-.045em}
+  .ra-display .hero-line{white-space:nowrap}
+  .ra-contact-links .contact-method{padding:18px}
+}
