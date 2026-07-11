@@ -5,7 +5,7 @@ Static production-ready website files. Deploy the contents of this folder at the
 ## Structure
 - `index.html` — complete business homepage
 - `services/` — service overview
-- `pricing/` — US-dollar fixed-scope projects, monthly subscriptions, Stripe placeholders, comparison, and scope notes
+- `pricing/` — US-dollar fixed-scope projects, monthly subscriptions, live Stripe Payment Links, comparison, and scope notes
 - `portfolio/` — representative project directions
 - `process/` — detailed delivery process
 - `about/` — company and team
@@ -30,20 +30,20 @@ Static production-ready website files. Deploy the contents of this folder at the
 The `_redirects` file covers older legal `.html` paths on compatible hosts. Static redirect pages are included for GitHub Pages compatibility.
 
 
-## Stripe placeholders
+## Stripe Payment Links
 
-The Pricing page includes embedded Stripe Payment Links buy-button placeholders for two fixed-scope services and four recurring monthly subscriptions. Replace the following values in `pricing/index.html`:
+The Pricing page uses live Stripe-hosted Payment Links for the two fixed-scope services and four monthly subscriptions. Each Order or Subscribe button opens Stripe Checkout in a new browser tab.
 
-- `buy_btn_REPLACE_DIGITAL_FOUNDATION`
-- `buy_btn_REPLACE_AUTOMATION_SETUP`
-- `buy_btn_REPLACE_DIGITAL_PRESENCE_CARE`
-- `buy_btn_REPLACE_AI_AUTOMATION_CARE`
-- `buy_btn_REPLACE_ONLINE_ADS_MANAGEMENT`
-- `buy_btn_REPLACE_GROWTH_SYSTEMS_PARTNER`
-- `pk_test_REPLACE_WITH_YOUR_PUBLISHABLE_KEY`
+Configured links:
 
-Use recurring Stripe Payment Links for the four subscription placeholders. The custom Connected System intentionally has no direct-order button. Keep `/packages/` as the included redirect to `/pricing/`.
+- Digital Foundation: `https://buy.stripe.com/8x25kvbsKcKF6M2gYqfw400`
+- Focused Automation Setup: `https://buy.stripe.com/dRm00b9kC5id6M29vYfw401`
+- Digital Presence Care: `https://buy.stripe.com/bJe14f54m11Xc6mdMefw402`
+- AI Automation Care: `https://buy.stripe.com/7sYbIT0O64e95HYfUmfw403`
+- Online Ads Management: `https://buy.stripe.com/14A5kv9kCh0Vb2igYqfw404`
+- Growth Systems Partner: `https://buy.stripe.com/5kQ6oz2WefWRgmCfUmfw405`
 
+The custom Connected System intentionally remains inquiry-only. Keep `/packages/` as the included redirect to `/pricing/`.
 
 ## July 2026 content and UX update
 
@@ -53,7 +53,7 @@ Use recurring Stripe Payment Links for the four subscription placeholders. The c
 - The Services page includes an Ongoing Management section linked to monthly plans.
 - Contact panels show email and LinkedIn; scheduling remains available in the embedded Book a Call tab.
 - Five original, people-first insight articles were added with Article structured data, canonical URLs, bylines, internal links, and primary-source references.
-- Stripe product IDs and the publishable key remain placeholders in `pricing/index.html`.
+- Stripe Payment Links are live in `pricing/index.html`; test each link in Stripe live mode before deployment.
 
 ## v6 layout refinements
 

@@ -30,16 +30,16 @@
 .footer-bottom{justify-content:center;text-align:center}
 .pricing-actions{display:grid;gap:10px;margin-top:auto;padding-top:26px}
 .pricing-actions .btn{width:100%;margin-top:0!important;min-height:52px;padding-inline:26px}
-.stripe-order-dialog{width:min(560px,calc(100% - 28px));padding:0;border:0;border-radius:24px;background:transparent;color:var(--text);box-shadow:0 30px 100px rgba(2,10,20,.35)}
-.stripe-order-dialog::backdrop{background:rgba(2,10,20,.66);backdrop-filter:blur(5px)}
-.stripe-order-card{position:relative;padding:34px;background:var(--surface);border:1px solid var(--line);border-radius:24px}
-.stripe-dialog-close{position:absolute;top:16px;right:16px;width:40px;height:40px;border:1px solid var(--line);border-radius:12px;background:var(--bg-soft);font-size:1.55rem;cursor:pointer}
-.stripe-order-card h2{margin:0 52px 8px 0;font-size:2rem}.stripe-order-intro{color:var(--text-soft);margin:0 0 24px}
-.stripe-order-panel{display:none;padding:22px;border:1px solid var(--line);border-radius:18px;background:var(--bg-soft)}
-.stripe-order-panel.active{display:block}.stripe-order-panel h3{margin:0 0 4px}.stripe-order-price{font-weight:850;color:var(--accent);margin:0 0 18px}.stripe-placeholder-note{font-size:.78rem;color:var(--muted);margin:16px 0 0}
+
+
+
+
+
+
+
 .ra-contact-links:has(.contact-method:only-child){grid-template-columns:1fr!important}
 @media(max-width:980px){.ra-display .hero-line{white-space:normal}}
-@media(max-width:720px){.ra-display{font-size:clamp(2.75rem,11.5vw,4.1rem)}.stripe-order-card{padding:26px 20px}}
+@media(max-width:720px){.ra-display{font-size:clamp(2.75rem,11.5vw,4.1rem)}}
 .ra-hero-grid{grid-template-columns:1.18fr .82fr;gap:58px}
 .ra-display{font-size:clamp(3rem,4vw,4.5rem);max-width:760px}
 .ra-contact-links{grid-template-columns:1fr!important}
