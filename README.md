@@ -68,3 +68,13 @@ The custom Connected System intentionally remains inquiry-only. Keep `/packages/
 - Homepage hero uses **View Pricing** and a connected Brand/Web/AI visual.
 - Contact shortcuts are stacked vertically for better readability.
 - Theme icon alignment was normalized across browsers.
+
+## July 2026 pre-launch audit update
+- Removed unfinished About-page placeholder copy.
+- Reframed the Work page around representative solution examples without presenting fictional proof.
+- Added a pre-checkout clarity block covering currency, onboarding, scope exclusions, and recurring billing.
+- Improved the Insights and Process title tags.
+- Added visible required-field guidance and response-time expectations to both contact forms.
+- Strengthened Toronto/Canada business identity signals and Organization structured data.
+
+Real client testimonials and case-study results should only be added after written client approval; none were fabricated in this update.

@@ -294,3 +294,19 @@
   .ra-system-outcomes{grid-template-columns:1fr}
   .ra-contact-links .contact-method span{white-space:normal}
 }
+
+
+/* Pre-launch audit refinements — July 2026 */
+.pricing-assurance{padding-top:0}
+.pricing-assurance-card{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.65fr);gap:clamp(1.5rem,4vw,4rem);align-items:start;padding:clamp(1.5rem,3vw,2.5rem)}
+.pricing-assurance-copy .section-title{font-size:clamp(1.65rem,3vw,2.5rem);margin:.7rem 0 1rem}
+.pricing-assurance-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.pricing-assurance-grid>div{display:grid;gap:.4rem;padding:1rem;border:1px solid var(--line);border-radius:var(--radius-sm);background:var(--surface-2)}
+.pricing-assurance-grid strong{font-size:.95rem;color:var(--text)}
+.pricing-assurance-grid span{font-size:.88rem;line-height:1.6;color:var(--muted)}
+.checkout-note{margin:.65rem 0 0;text-align:center;font-size:.78rem;color:var(--muted)}
+.form-guidance{grid-column:1/-1;margin:0 0 .25rem;padding:.85rem 1rem;border:1px solid var(--line);border-radius:var(--radius-sm);background:var(--surface-2);font-size:.86rem;line-height:1.55;color:var(--muted)}
+.form-guidance strong{color:var(--text)}
+.required-indicator{color:var(--accent);font-weight:800}
+@media (max-width:900px){.pricing-assurance-card{grid-template-columns:1fr}.pricing-assurance-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:620px){.pricing-assurance-grid{grid-template-columns:1fr}}
