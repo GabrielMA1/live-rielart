@@ -110,3 +110,8 @@ This is a practical business website baseline, not formal legal advice. A lawyer
 ## Launch recommendation
 
 Publish this version and begin using it. The website is past the point where more visual redesign is the highest-value activity. The next gains should come from real inquiries, completed work, verified proof, portal usage, and measured visitor behavior.
+
+## v13 refinement
+- Rebuilt the hero delivery standards strip with icon-led cards and no numeric markers.
+- Redesigned Delivery & Visibility into a balanced outcomes panel plus Client Portal workspace.
+- Added Daniel Patel as Web and AI Partner on the About page using the supplied RielArt-Web-Team image.
