@@ -78,3 +78,12 @@ The custom Connected System intentionally remains inquiry-only. Keep `/packages/
 - Strengthened Toronto/Canada business identity signals and Organization structured data.
 
 Real client testimonials and case-study results should only be added after written client approval; none were fabricated in this update.
+
+## Launch polish update (v11)
+
+- Internal RielArt links now open in the same tab; external sources, LinkedIn, and Stripe links open safely in a new tab.
+- Added a results-oriented delivery section and a clear explanation of the RielArt Client Portal.
+- Added Client Portal references across Services, Pricing, Process, Contact, footer navigation, and legal pages.
+- Clarified that billing remains handled through Stripe while portal billing tools are in development.
+- Updated the About page to accurately present RielArt as a founder-led studio with specialist collaborators rather than an unverified named team member.
+- Strengthened portfolio transparency language and expanded privacy/terms coverage for portal access and data.
