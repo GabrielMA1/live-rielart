@@ -19,6 +19,13 @@ This update intentionally avoids invented client results or unverified team clai
 - Every main indexed page includes a title, description, canonical URL, and one clear H1.
 - Existing sitemap and robots files remain valid for the public RielArt site. The portal is a separate application and is not added to the public marketing sitemap.
 
+
+## Homepage visual refinements — v12
+
+- Replaced the three large hero connector cards with clean standalone Brand, Website, and AI icons.
+- Removed the numbered circles from the four delivery cards and gave each point more balanced space.
+- Rebuilt the Client Portal panel in the Delivery & Visibility section with a responsive card layout, clearer capabilities, and a stronger portal call to action.
+
 ## Page-by-page review
 
 ### Home — Ready
