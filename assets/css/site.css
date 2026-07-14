@@ -1182,3 +1182,71 @@ h1,h2,h3 { letter-spacing: -.045em; }
 @media (min-width:1081px) {
   .ra-display { font-size:clamp(3.55rem,4.75vw,4.85rem); }
 }
+
+/* v2.1 precision alignment fixes — process numbers and outcome icons */
+.process-step {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.process-step .number {
+  display: grid;
+  place-items: center;
+  flex: 0 0 48px;
+  width: 48px;
+  height: 48px;
+  margin: 0 0 34px;
+  padding: 0;
+  overflow: hidden;
+  font-size: 1.45rem;
+  line-height: 1;
+  letter-spacing: -0.045em;
+  text-align: center;
+}
+.process-step h3 {
+  margin: 0 0 18px;
+  line-height: 1.2;
+}
+.process-step p {
+  margin: 0;
+}
+
+.ra-outcome-row,
+.ra-outcome-row:last-child {
+  grid-template-columns: 46px minmax(0, 1fr);
+  align-items: center;
+  gap: 15px;
+  padding: 18px;
+}
+.ra-outcome-icon {
+  width: 46px;
+  height: 46px;
+  align-self: center;
+  justify-self: center;
+}
+.ra-outcome-row > div {
+  min-width: 0;
+}
+.ra-outcome-row h4 {
+  margin-top: 0;
+}
+
+@media (max-width: 720px) {
+  .process-step .number {
+    width: 46px;
+    height: 46px;
+    flex-basis: 46px;
+    margin-bottom: 28px;
+    font-size: 1.35rem;
+  }
+  .ra-outcome-row,
+  .ra-outcome-row:last-child {
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 12px;
+    padding: 16px;
+  }
+  .ra-outcome-icon {
+    width: 42px;
+    height: 42px;
+  }
+}
