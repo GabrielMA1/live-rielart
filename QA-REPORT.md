@@ -10,3 +10,4 @@ Validated before packaging:
 - No horizontal overflow was detected at the tested desktop or mobile widths.
 - JavaScript syntax validation passed.
 - Existing Stripe, portal, contact, legal, article, sitemap, CNAME, and image files remain included.
+- Removed the three compact hero proof labels to reduce visual crowding while preserving the primary CTA hierarchy.
