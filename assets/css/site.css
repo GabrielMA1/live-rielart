@@ -710,7 +710,7 @@
   .ra-outcome-icon{width:42px;height:42px;border-radius:13px}
 }
 
-/* ========================================================================== 
+/* ==========================================================================
    RielArt 2027 — Liquid Glass Editorial Redesign
    Inspired by premium editorial agencies and conversion-led SaaS experiences.
    ========================================================================== */
@@ -931,10 +931,6 @@ h1,h2,h3 { letter-spacing: -.045em; }
 .ra-hero-grid { grid-template-columns:minmax(0,1.17fr) minmax(390px,.83fr); gap:clamp(48px,7vw,104px); align-items:center; }
 .ra-display { margin: 0 0 28px; font-size: clamp(3.45rem,6.6vw,6.55rem); line-height:.91; letter-spacing:-.075em; }
 .ra-display .hero-line { display:block; }
-.ra-display .hero-line:nth-child(3) {
-  color: transparent; background: linear-gradient(92deg,var(--text) 0%,var(--accent) 48%,var(--accent-2) 110%);
-  -webkit-background-clip:text; background-clip:text;
-}
 .ra-hero-copy .lead { max-width: 730px; margin-bottom: 30px; }
 .ra-inline-points { display:flex; flex-wrap:wrap; gap:10px; margin-top:25px; }
 .ra-inline-points span {
@@ -1249,4 +1245,190 @@ h1,h2,h3 { letter-spacing: -.045em; }
     width: 42px;
     height: 42px;
   }
+}
+
+
+/* ==========================================================================
+   July 2026 homepage polish — spacing, pricing labels, light contact/footer
+   ========================================================================== */
+
+/* Featured homepage pricing labels share one clean baseline. */
+.ra-home .pricing-topline {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  min-height:34px;
+  margin:0 0 22px;
+}
+.ra-home .pricing-topline .tag,
+.ra-home .pricing-topline .pricing-badge {
+  position:static;
+  inset:auto;
+  margin:0;
+  flex:0 0 auto;
+  line-height:1;
+}
+.ra-home .pricing-topline .pricing-badge {
+  display:inline-flex;
+  align-items:center;
+  min-height:31px;
+  padding:8px 12px;
+  font-size:.66rem;
+  font-weight:900;
+  letter-spacing:.055em;
+  text-transform:uppercase;
+}
+.ra-home .pricing-card.featured > h3 { margin-top:0; }
+
+/* Homepage FAQ: balanced columns, consistent card edges, and generous breathing room. */
+.ra-faq-section { padding-top:96px; padding-bottom:96px; }
+.ra-home .ra-faq {
+  display:grid;
+  grid-template-columns:minmax(270px,.72fr) minmax(0,1.28fr);
+  gap:clamp(42px,5.5vw,76px);
+  align-items:start;
+  padding:clamp(30px,4.2vw,54px);
+  border:1px solid var(--line);
+  border-radius:32px;
+  background:color-mix(in srgb,var(--surface) 76%,transparent);
+  box-shadow:var(--shadow-sm),inset 0 1px 0 rgba(255,255,255,.32);
+  backdrop-filter:blur(24px) saturate(125%);
+  -webkit-backdrop-filter:blur(24px) saturate(125%);
+}
+.ra-home .ra-faq > div:first-child { padding:4px 0; }
+.ra-home .ra-faq h2 {
+  max-width:430px;
+  margin:14px 0 20px;
+  font-size:clamp(2.65rem,4.4vw,4.55rem);
+  line-height:.96;
+}
+.ra-home .ra-faq .section-copy { max-width:390px; margin:0; }
+.ra-home .ra-faq .faq-list {
+  display:grid;
+  gap:12px;
+  border-top:0;
+}
+.ra-home .ra-faq .faq-item {
+  border:1px solid var(--line);
+  border-radius:17px;
+  background:color-mix(in srgb,var(--surface-solid) 68%,transparent);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.24);
+  overflow:hidden;
+}
+.ra-home .ra-faq .faq-question {
+  min-height:72px;
+  padding:18px 16px 18px 20px;
+  gap:24px;
+  font-size:1rem;
+  line-height:1.35;
+}
+.ra-home .ra-faq .faq-symbol { flex:0 0 34px; }
+.ra-home .ra-faq .faq-answer p { padding:0 20px 20px; }
+
+/* Light-mode contact uses a deliberate navy introduction and a crisp white form. */
+[data-theme="light"] .ra-contact-section .contact-shell {
+  gap:14px;
+  padding:14px;
+  border:1px solid rgba(39,103,244,.20);
+  border-radius:34px;
+  background:linear-gradient(145deg,#07162b,#0b274a);
+  box-shadow:0 30px 85px rgba(18,43,76,.18);
+  overflow:hidden;
+}
+[data-theme="light"] .ra-contact-section .contact-intro {
+  padding:clamp(38px,4vw,54px);
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:24px;
+  background:
+    radial-gradient(circle at 15% 12%,rgba(84,201,255,.15),transparent 36%),
+    linear-gradient(145deg,rgba(15,39,72,.98),rgba(7,22,43,.98));
+  color:#fff;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08);
+}
+[data-theme="light"] .ra-contact-section .contact-intro h2,
+[data-theme="light"] .ra-contact-section .contact-intro .section-title { color:#fff; }
+[data-theme="light"] .ra-contact-section .contact-intro .lead { color:#c7d5e7; }
+[data-theme="light"] .ra-contact-section .contact-panel {
+  margin:0;
+  border:1px solid rgba(40,78,124,.16);
+  border-radius:24px;
+  background:rgba(250,252,255,.97);
+  box-shadow:0 20px 55px rgba(5,20,40,.16),inset 0 1px 0 #fff;
+}
+[data-theme="light"] .ra-contact-section .contact-tabs {
+  margin:12px 12px 0;
+  border-color:rgba(40,78,124,.16);
+  background:#edf3fb;
+}
+[data-theme="light"] .ra-contact-section .contact-tab:not(.active) { color:#40536d; }
+[data-theme="light"] .ra-contact-section .contact-form { padding:26px 28px 30px; }
+[data-theme="light"] .ra-contact-section .form-guidance {
+  background:#f5f8fc;
+  border-color:#d6e1ee;
+  color:#52657e;
+}
+[data-theme="light"] .ra-contact-section .form-field label { color:#344963; }
+[data-theme="light"] .ra-contact-section .form-field input,
+[data-theme="light"] .ra-contact-section .form-field textarea,
+[data-theme="light"] .ra-contact-section .form-field select {
+  background:#fff;
+  border-color:#cedbea;
+  color:#0d1728;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.9);
+}
+[data-theme="light"] .ra-contact-section .form-field input::placeholder,
+[data-theme="light"] .ra-contact-section .form-field textarea::placeholder { color:#7a899d; }
+[data-theme="light"] .ra-contact-section .form-note { color:#667991; }
+
+/* Light-mode footer: high-contrast glass card over a premium navy foundation. */
+[data-theme="light"] .site-footer {
+  background:
+    radial-gradient(circle at 18% 0%,rgba(39,103,244,.18),transparent 34rem),
+    linear-gradient(180deg,#07162b 0%,#040c17 100%);
+  color:#d9e5f3;
+}
+[data-theme="light"] .site-footer::before {
+  background:linear-gradient(90deg,transparent,rgba(111,164,229,.32),transparent);
+}
+[data-theme="light"] .footer-grid {
+  border-color:rgba(174,203,236,.30);
+  background:rgba(248,251,255,.96);
+  box-shadow:0 26px 75px rgba(0,8,20,.35),inset 0 1px 0 #fff;
+}
+[data-theme="light"] .footer-grid .brand,
+[data-theme="light"] .footer-title { color:#0d1728; }
+[data-theme="light"] .footer-copy { color:#4e617b; }
+[data-theme="light"] .footer-links a { color:#405773; }
+[data-theme="light"] .footer-links a:hover { color:#2563eb; }
+[data-theme="light"] .footer-bottom {
+  border-top-color:rgba(174,203,236,.18);
+  color:#90a5be;
+}
+[data-theme="light"] .footer-giant {
+  -webkit-text-stroke:1px rgba(84,201,255,.16);
+  opacity:.52;
+}
+
+@media (max-width:980px) {
+  .ra-home .ra-faq { grid-template-columns:1fr; gap:28px; }
+  .ra-home .ra-faq h2,
+  .ra-home .ra-faq .section-copy { max-width:720px; }
+}
+@media (max-width:720px) {
+  .ra-faq-section { padding-top:72px; padding-bottom:72px; }
+  .ra-home .ra-faq { padding:24px 18px; border-radius:26px; }
+  .ra-home .ra-faq .faq-question { min-height:66px; padding:16px 12px 16px 16px; }
+  [data-theme="light"] .ra-contact-section .contact-shell { padding:10px; border-radius:28px; }
+  [data-theme="light"] .ra-contact-section .contact-intro { padding:34px 24px; border-radius:21px; }
+  [data-theme="light"] .ra-contact-section .contact-panel { border-radius:21px; }
+  [data-theme="light"] .ra-contact-section .contact-form { padding:22px 18px 26px; }
+}
+
+/* Homepage hero: keep all three statement lines in one consistent text color. */
+.ra-home .ra-display .hero-line {
+  color: var(--text);
+  background: none;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
 }
