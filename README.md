@@ -85,5 +85,15 @@ Real client testimonials and case-study results should only be added after writt
 - Added a results-oriented delivery section and a clear explanation of the RielArt Client Portal.
 - Added Client Portal references across Services, Pricing, Process, Contact, footer navigation, and legal pages.
 - Clarified that billing remains handled through Stripe while portal billing tools are in development.
-- Updated the About page to accurately present RielArt as a founder-led studio with specialist collaborators rather than an unverified named team member.
+- Updated the About page to present RielArt as a founder-led studio, with Daniel Patel listed as the Web and AI Partner supporting selected projects.
 - Strengthened portfolio transparency language and expanded privacy/terms coverage for portal access and data.
+
+
+## 2027 liquid-glass redesign
+
+- Rebuilt the visual system around a restrained liquid-glass aesthetic with light and dark modes.
+- Added a floating glass navigation bar, editorial typography, layered depth, subtle grid lighting, and more deliberate spacing.
+- Refined the homepage hero, delivery proof, pricing, results, portal promotion, insights, FAQ, contact, and footer sections without changing the approved business copy.
+- Updated every interior page through the shared design system, including Services, Pricing, Work, Process, About, Insights, Contact, legal pages, and article layouts.
+- Added active navigation states, scroll-aware header treatment, subtle pointer-responsive glass lighting, reduced-motion support, and responsive mobile layouts.
+- Internal links remain in the current tab; external destinations, Stripe Checkout, LinkedIn, and the Client Portal use their existing safe behaviour.
