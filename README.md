@@ -9,21 +9,21 @@ Static production-ready website files. Deploy the contents of this folder at the
 - `portfolio/` — representative project directions
 - `process/` — detailed delivery process
 - `about/` — company and team
-- `contact/` — Formspree free-audit request form with an email-only response flow
+- `contact/` — Formspree free-audit request form with direct contact and consultation-scheduling options
 - `blog/` — insights index and articles
 - `privacy-policy/`, `terms/` — legal pages
 
 ## Homepage features
 - Light mode by default with a persistent dark-mode toggle
 - Brand, web, AI systems, pricing, process, insights, FAQ, and contact sections
-- Email-based free-audit requests with clear expectations and no call booking
+- Email-based free-audit requests with a direct consultation-scheduling option
 - Accessible single-open FAQ behavior
 - Responsive layouts and reduced-motion support
 
 ## Important checks before publishing
 - Confirm one-time prices (USD $497 and USD $247) and monthly subscription prices (USD $149, $249, $399, and $699) remain current.
 - Confirm the subscription scope, billing terms, cancellation terms, and the note that advertising spend is separate.
-- Confirm the Formspree endpoint and thank-you redirect.
+- Confirm the Formspree endpoint, thank-you redirect, and consultation-scheduling link.
 - Replace representative project directions with approved case studies as they become available.
 
 ## Redirects
@@ -51,7 +51,7 @@ The custom Connected System intentionally remains inquiry-only. Keep `/packages/
 - Homepage pricing cards intentionally omit prices and link to `/pricing/`.
 - The Pricing page includes project and monthly-subscription comparison tables.
 - The Services page includes an Ongoing Management section linked to monthly plans.
-- Contact panels clearly explain the free email-audit process; no call booking is offered.
+- Contact panels lead with the free email-audit process and include direct contact and consultation-scheduling options.
 - Five original, people-first insight articles were added with Article structured data, canonical URLs, bylines, internal links, and primary-source references.
 - Stripe Payment Links are live in `pricing/index.html`; test each link in Stripe live mode before deployment.
 
@@ -60,7 +60,7 @@ The custom Connected System intentionally remains inquiry-only. Keep `/packages/
 - Homepage hero uses three deliberate lines with balanced word counts and responsive no-wrap sizing.
 - Homepage pricing cards include a consistent gap before the CTA.
 - Homepage and Contact page now use the same contact section and light/dark theme styling.
-- Contact shortcuts are limited to `Email hello@rielart.com` and `Connect on LinkedIn`.
+- Contact shortcuts include `Email hello@rielart.com`, `Connect on LinkedIn`, and `Schedule a Consultation`.
 
 
 ## v7 interface refinements

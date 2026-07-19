@@ -76,9 +76,9 @@ This update intentionally avoids invented client results or unverified team clai
 
 ### Contact — Ready
 
-- New prospects can request a free audit through one clear form and receive the response by email.
+- New prospects can request a free audit through one clear form and receive practical priorities by email.
 - Existing clients have a dedicated RielArt Client Portal sign-in callout after the main inquiry section.
-- No booking, phone, or video-meeting step is required.
+- Direct email, LinkedIn, and consultation-scheduling options are available alongside the audit form.
 
 ### Privacy Policy — Ready as a practical launch baseline
 
