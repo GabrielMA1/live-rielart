@@ -29,13 +29,6 @@
     });
   });
 
-  const tabs=[...document.querySelectorAll('[role="tab"][data-contact-tab]')];
-  function activateTab(tab){const group=tab.closest('.contact-panel');if(!group)return;group.querySelectorAll('[role="tab"]').forEach(t=>{const active=t===tab;t.classList.toggle('active',active);t.setAttribute('aria-selected',String(active));t.tabIndex=active?0:-1});group.querySelectorAll('[role="tabpanel"]').forEach(p=>p.hidden=p.id!==tab.getAttribute('aria-controls'));const panel=document.getElementById(tab.getAttribute('aria-controls'));const iframe=panel?.querySelector('iframe[data-src]');if(iframe&&!iframe.src)iframe.src=iframe.dataset.src;}
-  tabs.forEach((tab,i)=>{tab.addEventListener('click',()=>activateTab(tab));tab.addEventListener('keydown',e=>{if(!['ArrowLeft','ArrowRight','Home','End'].includes(e.key))return;e.preventDefault();const group=tabs.filter(t=>t.closest('.contact-panel')===tab.closest('.contact-panel'));let idx=group.indexOf(tab);if(e.key==='ArrowRight')idx=(idx+1)%group.length;if(e.key==='ArrowLeft')idx=(idx-1+group.length)%group.length;if(e.key==='Home')idx=0;if(e.key==='End')idx=group.length-1;group[idx].focus();activateTab(group[idx])})});
-  document.querySelectorAll('[data-open-call]').forEach(a=>a.addEventListener('click',e=>{const tab=document.querySelector('[data-contact-tab="call"]');if(tab){e.preventDefault();activateTab(tab);document.querySelector('#contact')?.scrollIntoView({behavior:'smooth'});}}));
-  try { if (location.hash === '#schedule' || new URLSearchParams(location.search).get('mode') === 'call') { const callTab=document.querySelector('[data-contact-tab="call"]'); if(callTab){ activateTab(callTab); setTimeout(()=>document.querySelector('#contact')?.scrollIntoView({behavior:'smooth'}),80); } } } catch(e) {}
-
-
   const observer='IntersectionObserver' in window?new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.12}):null;
   document.querySelectorAll('.reveal').forEach(el=>observer?observer.observe(el):el.classList.add('visible'));
   document.querySelectorAll('[data-year]').forEach(el=>el.textContent=new Date().getFullYear());

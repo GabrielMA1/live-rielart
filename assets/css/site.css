@@ -136,7 +136,6 @@
 }
 .ra-contact-links .contact-method strong{color:#fff;margin-right:.32em}
 .contact-page-main .contact-shell,.contact-shell{isolation:isolate}
-#schedule{scroll-margin-top:calc(var(--header) + 24px)}
 @media(max-width:1180px){
   .ra-hero-grid{grid-template-columns:1fr}
   .ra-dashboard{width:min(100%,720px);justify-self:stretch}
@@ -1085,9 +1084,6 @@ h1,h2,h3 { letter-spacing: -.045em; }
 /* Contact */
 .contact-shell { gap:20px; }
 .contact-intro, .contact-panel { border-radius:30px; }
-.contact-tabs { padding:6px; border:1px solid var(--line); border-radius:16px; background:color-mix(in srgb,var(--surface-solid) 55%,transparent); }
-.contact-tab { border-radius:11px; }
-.contact-tab.active { color:#fff; background:linear-gradient(135deg,var(--accent),var(--accent-2)); }
 .form-field input, .form-field textarea, .form-field select,
 .contact-form input, .contact-form textarea, .contact-form select {
   border:1px solid var(--line); border-radius:14px; background:color-mix(in srgb,var(--surface-solid) 60%,transparent); color:var(--text);
@@ -1096,7 +1092,6 @@ h1,h2,h3 { letter-spacing: -.045em; }
 .form-field input:focus, .form-field textarea:focus, .form-field select:focus,
 .contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus { border-color:var(--accent); box-shadow:0 0 0 4px var(--accent-soft); background:var(--surface-solid); }
 .contact-method { border-radius:18px!important; }
-.calendly-wrap { border-radius:22px; overflow:hidden; border:1px solid var(--line); }
 
 /* FAQ */
 .faq-list { border-top:1px solid var(--line); }
@@ -1327,7 +1322,7 @@ h1,h2,h3 { letter-spacing: -.045em; }
 .ra-home .ra-faq .faq-answer p { padding:0 20px 20px; }
 
 /* Light-mode contact uses a deliberate navy introduction and a crisp white form. */
-[data-theme="light"] .ra-contact-section .contact-shell {
+[data-theme="light"] :is(.ra-contact-section, #contact) .contact-shell {
   gap:14px;
   padding:14px;
   border:1px solid rgba(39,103,244,.20);
@@ -1336,7 +1331,7 @@ h1,h2,h3 { letter-spacing: -.045em; }
   box-shadow:0 30px 85px rgba(18,43,76,.18);
   overflow:hidden;
 }
-[data-theme="light"] .ra-contact-section .contact-intro {
+[data-theme="light"] :is(.ra-contact-section, #contact) .contact-intro {
   padding:clamp(38px,4vw,54px);
   border:1px solid rgba(255,255,255,.10);
   border-radius:24px;
@@ -1346,40 +1341,34 @@ h1,h2,h3 { letter-spacing: -.045em; }
   color:#fff;
   box-shadow:inset 0 1px 0 rgba(255,255,255,.08);
 }
-[data-theme="light"] .ra-contact-section .contact-intro h2,
-[data-theme="light"] .ra-contact-section .contact-intro .section-title { color:#fff; }
-[data-theme="light"] .ra-contact-section .contact-intro .lead { color:#c7d5e7; }
-[data-theme="light"] .ra-contact-section .contact-panel {
+[data-theme="light"] :is(.ra-contact-section, #contact) .contact-intro h2,
+[data-theme="light"] :is(.ra-contact-section, #contact) .contact-intro .section-title { color:#fff; }
+[data-theme="light"] :is(.ra-contact-section, #contact) .contact-intro .lead { color:#c7d5e7; }
+[data-theme="light"] :is(.ra-contact-section, #contact) .contact-panel {
   margin:0;
   border:1px solid rgba(40,78,124,.16);
   border-radius:24px;
   background:rgba(250,252,255,.97);
   box-shadow:0 20px 55px rgba(5,20,40,.16),inset 0 1px 0 #fff;
 }
-[data-theme="light"] .ra-contact-section .contact-tabs {
-  margin:12px 12px 0;
-  border-color:rgba(40,78,124,.16);
-  background:#edf3fb;
-}
-[data-theme="light"] .ra-contact-section .contact-tab:not(.active) { color:#40536d; }
-[data-theme="light"] .ra-contact-section .contact-form { padding:26px 28px 30px; }
-[data-theme="light"] .ra-contact-section .form-guidance {
+[data-theme="light"] :is(.ra-contact-section, #contact) .contact-form { padding:26px 28px 30px; }
+[data-theme="light"] :is(.ra-contact-section, #contact) .form-guidance {
   background:#f5f8fc;
   border-color:#d6e1ee;
   color:#52657e;
 }
-[data-theme="light"] .ra-contact-section .form-field label { color:#344963; }
-[data-theme="light"] .ra-contact-section .form-field input,
-[data-theme="light"] .ra-contact-section .form-field textarea,
-[data-theme="light"] .ra-contact-section .form-field select {
+[data-theme="light"] :is(.ra-contact-section, #contact) .form-field label { color:#344963; }
+[data-theme="light"] :is(.ra-contact-section, #contact) .form-field input,
+[data-theme="light"] :is(.ra-contact-section, #contact) .form-field textarea,
+[data-theme="light"] :is(.ra-contact-section, #contact) .form-field select {
   background:#fff;
   border-color:#cedbea;
   color:#0d1728;
   box-shadow:inset 0 1px 0 rgba(255,255,255,.9);
 }
-[data-theme="light"] .ra-contact-section .form-field input::placeholder,
-[data-theme="light"] .ra-contact-section .form-field textarea::placeholder { color:#7a899d; }
-[data-theme="light"] .ra-contact-section .form-note { color:#667991; }
+[data-theme="light"] :is(.ra-contact-section, #contact) .form-field input::placeholder,
+[data-theme="light"] :is(.ra-contact-section, #contact) .form-field textarea::placeholder { color:#7a899d; }
+[data-theme="light"] :is(.ra-contact-section, #contact) .form-note { color:#667991; }
 
 /* Light-mode footer: high-contrast glass card over a premium navy foundation. */
 [data-theme="light"] .site-footer {
@@ -1419,10 +1408,10 @@ h1,h2,h3 { letter-spacing: -.045em; }
   .ra-faq-section { padding-top:72px; padding-bottom:72px; }
   .ra-home .ra-faq { padding:24px 18px; border-radius:26px; }
   .ra-home .ra-faq .faq-question { min-height:66px; padding:16px 12px 16px 16px; }
-  [data-theme="light"] .ra-contact-section .contact-shell { padding:10px; border-radius:28px; }
-  [data-theme="light"] .ra-contact-section .contact-intro { padding:34px 24px; border-radius:21px; }
-  [data-theme="light"] .ra-contact-section .contact-panel { border-radius:21px; }
-  [data-theme="light"] .ra-contact-section .contact-form { padding:22px 18px 26px; }
+  [data-theme="light"] :is(.ra-contact-section, #contact) .contact-shell { padding:10px; border-radius:28px; }
+  [data-theme="light"] :is(.ra-contact-section, #contact) .contact-intro { padding:34px 24px; border-radius:21px; }
+  [data-theme="light"] :is(.ra-contact-section, #contact) .contact-panel { border-radius:21px; }
+  [data-theme="light"] :is(.ra-contact-section, #contact) .contact-form { padding:22px 18px 26px; }
 }
 
 /* Homepage hero: keep all three statement lines in one consistent text color. */

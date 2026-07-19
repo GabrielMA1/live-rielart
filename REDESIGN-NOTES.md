@@ -15,4 +15,4 @@ This package keeps the complete approved RielArt website content and information
 
 Upload the complete contents of this folder to the existing `live-rielart` GitHub repository. GitHub Pages will continue using the existing `CNAME` file and custom-domain configuration.
 
-No DNS, Stripe, Formspree, Calendly, or Cloudflare changes are required for this redesign.
+No DNS, Stripe, Formspree, or Cloudflare changes are required for this redesign.

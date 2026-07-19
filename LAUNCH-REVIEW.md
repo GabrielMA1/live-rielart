@@ -76,14 +76,14 @@ This update intentionally avoids invented client results or unverified team clai
 
 ### Contact — Ready
 
-- Message form and booking option are distinct.
-- Existing clients now have a dedicated RielArt Client Portal sign-in callout after the main inquiry section.
-- New prospects are still directed to the form or call flow.
+- New prospects can request a free audit through one clear form and receive the response by email.
+- Existing clients have a dedicated RielArt Client Portal sign-in callout after the main inquiry section.
+- No booking, phone, or video-meeting step is required.
 
 ### Privacy Policy — Ready as a practical launch baseline
 
 - Updated to include website inquiries and RielArt Client Portal data.
-- Identifies Cloudflare, Resend, Stripe, Formspree, and Calendly roles.
+- Identifies Cloudflare, Resend, Stripe, and Formspree roles.
 - Clarifies that full payment-card details are not stored by RielArt.
 
 This is a practical business website baseline, not formal legal advice. A lawyer should review it if RielArt begins handling regulated data, serving additional jurisdictions, hiring employees, or entering larger enterprise contracts.

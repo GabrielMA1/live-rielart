@@ -9,21 +9,21 @@ Static production-ready website files. Deploy the contents of this folder at the
 - `portfolio/` — representative project directions
 - `process/` — detailed delivery process
 - `about/` — company and team
-- `contact/` — Formspree inquiry form and lazy-loaded embedded Calendly scheduler
+- `contact/` — Formspree free-audit request form with an email-only response flow
 - `blog/` — insights index and articles
 - `privacy-policy/`, `terms/` — legal pages
 
 ## Homepage features
 - Light mode by default with a persistent dark-mode toggle
 - Brand, web, AI systems, pricing, process, insights, FAQ, and contact sections
-- Message / Book a Call tabs with Calendly embedded directly in the page
+- Email-based free-audit requests with clear expectations and no call booking
 - Accessible single-open FAQ behavior
 - Responsive layouts and reduced-motion support
 
 ## Important checks before publishing
 - Confirm one-time prices (USD $497 and USD $247) and monthly subscription prices (USD $149, $249, $399, and $699) remain current.
 - Confirm the subscription scope, billing terms, cancellation terms, and the note that advertising spend is separate.
-- Confirm the Calendly URL and Formspree endpoint.
+- Confirm the Formspree endpoint and thank-you redirect.
 - Replace representative project directions with approved case studies as they become available.
 
 ## Redirects
@@ -51,7 +51,7 @@ The custom Connected System intentionally remains inquiry-only. Keep `/packages/
 - Homepage pricing cards intentionally omit prices and link to `/pricing/`.
 - The Pricing page includes project and monthly-subscription comparison tables.
 - The Services page includes an Ongoing Management section linked to monthly plans.
-- Contact panels show email and LinkedIn; scheduling remains available in the embedded Book a Call tab.
+- Contact panels clearly explain the free email-audit process; no call booking is offered.
 - Five original, people-first insight articles were added with Article structured data, canonical URLs, bylines, internal links, and primary-source references.
 - Stripe Payment Links are live in `pricing/index.html`; test each link in Stripe live mode before deployment.
 
